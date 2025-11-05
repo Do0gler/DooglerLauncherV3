@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://o8e3ooq2lp0l"]
+
+[ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="1_avaxc"]
+[ext_resource type="Script" uid="uid://c3wgd40bmprol" path="res://scripts/nodes/expandable_list.gd" id="2_clo7q"]
+
+[node name="ExpandableList" type="VBoxContainer"]
+offset_right = 468.0
+offset_bottom = 114.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+script = ExtResource("2_clo7q")
+
+[node name="Head" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_default_cursor_shape = 2
+toggle_mode = true
+text = "MyList"
+icon = ExtResource("1_avaxc")
+icon_alignment = 2
+expand_icon = true
+
+[node name="ItemControl" type="Control" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+
+[node name="ItemVBox" type="VBoxContainer" parent="ItemControl"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
