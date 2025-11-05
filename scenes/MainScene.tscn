@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://bt70ivt15wxlq"]
 
-[ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="1_echbf"]
-[ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://scripts/manager.gd" id="1_ibiss"]
-[ext_resource type="Script" uid="uid://isd1kyj5he1" path="res://scripts/UI/titlebar.gd" id="3_611at"]
-[ext_resource type="Script" uid="uid://b3lmqs1ak36dy" path="res://scripts/UI/launcher_button.gd" id="3_c6dvc"]
-[ext_resource type="Script" uid="uid://x0gys2lddqvx" path="res://scripts/UI/resize.gd" id="5_k24pf"]
-[ext_resource type="Script" uid="uid://cxswu3q5dikhg" path="res://scripts/updater.gd" id="6_ygjfp"]
+[ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://Scripts/manager.gd" id="1_y4jh7"]
+[ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="2_q68mp"]
+[ext_resource type="Script" uid="uid://isd1kyj5he1" path="res://Scripts/UI/titlebar.gd" id="3_f140w"]
+[ext_resource type="Script" uid="uid://b3lmqs1ak36dy" path="res://Scripts/UI/launcher_button.gd" id="4_0iob3"]
+[ext_resource type="Script" uid="uid://x0gys2lddqvx" path="res://Scripts/UI/resize.gd" id="5_4b75m"]
+[ext_resource type="Script" uid="uid://cxswu3q5dikhg" path="res://Scripts/updater.gd" id="6_8ju71"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6dvc"]
 
@@ -19,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ibiss")
+script = ExtResource("1_y4jh7")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 layout_mode = 1
@@ -60,7 +60,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("1_echbf")
+texture = ExtResource("2_q68mp")
 expand_mode = 1
 stretch_mode = 6
 
@@ -99,7 +99,7 @@ theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
 text = "Install"
-icon = ExtResource("1_echbf")
+icon = ExtResource("2_q68mp")
 
 [node name="InstallOptionsButton" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
 layout_mode = 2
@@ -107,7 +107,7 @@ size_flags_horizontal = 0
 theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
-icon = ExtResource("1_echbf")
+icon = ExtResource("2_q68mp")
 
 [node name="TimePlayedDisplay" type="HBoxContainer" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign"]
 layout_mode = 2
@@ -115,7 +115,7 @@ theme_override_constants/separation = 7
 
 [node name="TextureRect" type="TextureRect" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/TimePlayedDisplay"]
 layout_mode = 2
-texture = ExtResource("1_echbf")
+texture = ExtResource("2_q68mp")
 expand_mode = 3
 stretch_mode = 5
 
@@ -140,7 +140,7 @@ size_flags_vertical = 0
 theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
-icon = ExtResource("1_echbf")
+icon = ExtResource("2_q68mp")
 
 [node name="FavoriteButton2" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/RightAlign"]
 layout_mode = 2
@@ -149,7 +149,7 @@ size_flags_vertical = 0
 theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
-icon = ExtResource("1_echbf")
+icon = ExtResource("2_q68mp")
 
 [node name="InfoPanel" type="PanelContainer" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -191,7 +191,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 39.0
 grow_horizontal = 2
-script = ExtResource("3_611at")
+script = ExtResource("3_f140w")
 resize_controls = NodePath("../Resizer")
 
 [node name="MarginContainer" type="MarginContainer" parent="Titlebar"]
@@ -214,8 +214,8 @@ size_flags_horizontal = 0
 layout_mode = 2
 theme_override_constants/icon_max_width = 30
 text = "Doogler Launcher"
-icon = ExtResource("1_echbf")
-script = ExtResource("3_c6dvc")
+icon = ExtResource("2_q68mp")
+script = ExtResource("4_0iob3")
 
 [node name="SearchBar" type="LineEdit" parent="Titlebar/MarginContainer/LeftAlign"]
 custom_minimum_size = Vector2(500, 0)
@@ -239,7 +239,7 @@ alignment = 2
 [node name="MinimizeButton" type="TextureButton" parent="Titlebar/MarginContainer/RightAlign"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-texture_normal = ExtResource("1_echbf")
+texture_normal = ExtResource("2_q68mp")
 texture_hover = SubResource("PlaceholderTexture2D_echbf")
 ignore_texture_size = true
 stretch_mode = 5
@@ -247,14 +247,14 @@ stretch_mode = 5
 [node name="WindowedButton" type="TextureButton" parent="Titlebar/MarginContainer/RightAlign"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-texture_normal = ExtResource("1_echbf")
+texture_normal = ExtResource("2_q68mp")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="ExitButton" type="TextureButton" parent="Titlebar/MarginContainer/RightAlign"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-texture_normal = ExtResource("1_echbf")
+texture_normal = ExtResource("2_q68mp")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -278,7 +278,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 mouse_default_cursor_shape = 9
-script = ExtResource("5_k24pf")
+script = ExtResource("5_4b75m")
 resize_direction = 1
 
 [node name="ResizeVerticalTop" type="Control" parent="Resizer"]
@@ -289,7 +289,7 @@ anchor_right = 1.0
 grow_horizontal = 2
 mouse_filter = 1
 mouse_default_cursor_shape = 9
-script = ExtResource("5_k24pf")
+script = ExtResource("5_4b75m")
 primary_side = true
 resize_direction = 1
 
@@ -304,7 +304,7 @@ grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 1
 mouse_default_cursor_shape = 10
-script = ExtResource("5_k24pf")
+script = ExtResource("5_4b75m")
 
 [node name="ResizeHorizontalLeft" type="Control" parent="Resizer"]
 custom_minimum_size = Vector2(8, 0)
@@ -314,7 +314,7 @@ anchor_bottom = 1.0
 grow_vertical = 2
 mouse_filter = 1
 mouse_default_cursor_shape = 10
-script = ExtResource("5_k24pf")
+script = ExtResource("5_4b75m")
 primary_side = true
 
 [node name="ResizeDiagonalBR" type="Control" parent="Resizer"]
@@ -330,7 +330,7 @@ grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 1
 mouse_default_cursor_shape = 12
-script = ExtResource("5_k24pf")
+script = ExtResource("5_4b75m")
 resize_direction = 2
 
 [node name="ResizeDiagonalTR" type="Control" parent="Resizer"]
@@ -344,7 +344,7 @@ offset_bottom = 8.0
 grow_horizontal = 0
 mouse_filter = 1
 mouse_default_cursor_shape = 11
-script = ExtResource("5_k24pf")
+script = ExtResource("5_4b75m")
 primary_side = true
 resize_direction = 2
 diagonal_corner = 1
@@ -360,7 +360,7 @@ offset_right = 8.0
 grow_vertical = 0
 mouse_filter = 1
 mouse_default_cursor_shape = 11
-script = ExtResource("5_k24pf")
+script = ExtResource("5_4b75m")
 primary_side = true
 resize_direction = 2
 diagonal_corner = 3
@@ -373,14 +373,14 @@ offset_right = 8.0
 offset_bottom = 8.0
 mouse_filter = 1
 mouse_default_cursor_shape = 12
-script = ExtResource("5_k24pf")
+script = ExtResource("5_4b75m")
 primary_side = true
 resize_direction = 2
 diagonal_corner = 2
 
 [node name="Updater" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("6_ygjfp")
+script = ExtResource("6_8ju71")
 
 [node name="LoadingScreen" type="ColorRect" parent="."]
 unique_name_in_owner = true

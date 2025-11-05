@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://o8e3ooq2lp0l"]
 
-[ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="1_avaxc"]
-[ext_resource type="Script" uid="uid://c3wgd40bmprol" path="res://scripts/nodes/expandable_list.gd" id="2_clo7q"]
+[ext_resource type="Script" uid="uid://c3wgd40bmprol" path="res://Scripts/UIElements/expandable_list.gd" id="1_h18r4"]
+[ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="2_0o46w"]
 
 [node name="ExpandableList" type="VBoxContainer"]
 offset_right = 468.0
 offset_bottom = 114.0
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
-script = ExtResource("2_clo7q")
+script = ExtResource("1_h18r4")
 
 [node name="Head" type="Button" parent="."]
 unique_name_in_owner = true
@@ -16,7 +16,7 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 toggle_mode = true
 text = "MyList"
-icon = ExtResource("1_avaxc")
+icon = ExtResource("2_0o46w")
 icon_alignment = 2
 expand_icon = true
 
