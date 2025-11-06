@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://dfisgcocne1ee"]
+[gd_resource type="Resource" script_class="GameData" load_steps=3 format=3 uid="uid://dfisgcocne1ee"]
 
 [ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_uddc4"]
+[ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="1_xjs4o"]
 
 [resource]
 script = ExtResource("1_uddc4")
@@ -15,4 +16,7 @@ creation_date = "04/02/2021"
 tags = Array[StringName]([&"Top-Down", &"Pixel Art"])
 file_size_mb = 3.02
 download_path = "http://dl.dropboxusercontent.com/scl/fi/7lyrq7fvatcw0w5vgnbh4/4WizardOG.html?rlkey=a1a9wj5ggvq796qjp1bs876h8&dl=0"
+icon = ExtResource("1_xjs4o")
+background = ExtResource("1_xjs4o")
+screenshots = Array[Texture2D]([ExtResource("1_xjs4o"), ExtResource("1_xjs4o"), ExtResource("1_xjs4o")])
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bt70ivt15wxlq"]
+[gd_scene load_steps=9 format=3 uid="uid://bt70ivt15wxlq"]
 
 [ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://Scripts/manager.gd" id="1_y4jh7"]
-[ext_resource type="PackedScene" uid="uid://bvcj2bi1axw5w" path="res://Scenes/UIElements/game_panel.tscn" id="2_f140w"]
 [ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="2_q68mp"]
 [ext_resource type="Script" uid="uid://isd1kyj5he1" path="res://Scripts/UI/titlebar.gd" id="3_f140w"]
 [ext_resource type="Script" uid="uid://b3lmqs1ak36dy" path="res://Scripts/UI/launcher_button.gd" id="4_0iob3"]
@@ -21,7 +20,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y4jh7")
-game_panel = ExtResource("2_f140w")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 layout_mode = 1
@@ -173,7 +171,7 @@ text = "Moving Out is a cooperative moving simulation game. In a local cooperati
 It was followed by Moving Out 2."
 autowrap_mode = 3
 
-[node name="InfoContainer" type="VFlowContainer" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/InfoPanel/MarginContainer/HBoxContainer"]
+[node name="VFlowContainer" type="VFlowContainer" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/InfoPanel/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="TagsLabel" type="Label" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer"]

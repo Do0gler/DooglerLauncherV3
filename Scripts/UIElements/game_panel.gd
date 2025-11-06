@@ -1,4 +1,5 @@
 extends PanelContainer
+class_name GamePanel
 
 var game_data: GameData
 

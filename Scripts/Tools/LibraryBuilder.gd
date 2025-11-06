@@ -22,6 +22,6 @@ func _run() -> void:
 		print("Error: ", error_string(DirAccess.get_open_error()))
 	
 	var file = FileAccess.open("user://game_data.txt", FileAccess.WRITE)
-	file.store_string(str(dict))
+	file.store_string(JSON.stringify(dict))
 	file.close()
 	print("Saved version data file to ", file.get_path_absolute())

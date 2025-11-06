@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvcj2bi1axw5w"]
 
-[ext_resource type="Script" uid="uid://b1wdxg6wkm5v6" path="res://scripts/UIElements/game_panel.gd" id="1_gn4c5"]
+[ext_resource type="Script" uid="uid://b1wdxg6wkm5v6" path="res://Scripts/UIElements/game_panel.gd" id="1_gn4c5"]
 [ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="1_ptx5w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4jh7"]
