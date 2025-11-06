@@ -1,11 +1,11 @@
 @tool
 extends EditorScript
 
-const GAMES_LIBRARY_PATH = "res://GamesLibrary"
+const GAME_DIR_PATH = "res://GamesLibrary"
 
 func _run() -> void:
 	var dict: Dictionary
-	var library_folder = DirAccess.open(GAMES_LIBRARY_PATH)
+	var library_folder = DirAccess.open(GAME_DIR_PATH)
 	
 	if library_folder:
 		library_folder.list_dir_begin()
@@ -13,7 +13,7 @@ func _run() -> void:
 		
 		var i := 0
 		while file_name != "":
-			var game_data_path = GAMES_LIBRARY_PATH + "/" + file_name
+			var game_data_path = GAME_DIR_PATH + "/" + file_name
 			var game_data = (load(game_data_path) as GameData)
 			dict.set(i, GameData.to_dict(game_data))
 			file_name = library_folder.get_next()

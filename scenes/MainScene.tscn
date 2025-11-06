@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bt70ivt15wxlq"]
+[gd_scene load_steps=9 format=3 uid="uid://bt70ivt15wxlq"]
 
 [ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://Scripts/manager.gd" id="1_y4jh7"]
 [ext_resource type="PackedScene" uid="uid://bvcj2bi1axw5w" path="res://Scenes/UIElements/game_panel.tscn" id="2_f140w"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://isd1kyj5he1" path="res://Scripts/UI/titlebar.gd" id="3_f140w"]
 [ext_resource type="Script" uid="uid://b3lmqs1ak36dy" path="res://Scripts/UI/launcher_button.gd" id="4_0iob3"]
 [ext_resource type="Script" uid="uid://x0gys2lddqvx" path="res://Scripts/UI/resize.gd" id="5_4b75m"]
-[ext_resource type="Script" uid="uid://cxswu3q5dikhg" path="res://Scripts/updater.gd" id="6_8ju71"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6dvc"]
 
@@ -31,7 +30,7 @@ anchor_bottom = 1.0
 offset_top = 39.0
 grow_horizontal = 2
 grow_vertical = 2
-split_offset = 210
+split_offset = 265
 
 [node name="GamesList" type="PanelContainer" parent="HSplitContainer"]
 layout_mode = 2
@@ -222,6 +221,7 @@ script = ExtResource("4_0iob3")
 [node name="SearchBar" type="LineEdit" parent="Titlebar/MarginContainer/LeftAlign"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+placeholder_text = "Search"
 
 [node name="SortButton" type="MenuButton" parent="Titlebar/MarginContainer/LeftAlign"]
 layout_mode = 2
@@ -379,10 +379,6 @@ script = ExtResource("5_4b75m")
 primary_side = true
 resize_direction = 2
 diagonal_corner = 2
-
-[node name="Updater" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("6_8ju71")
 
 [node name="LoadingScreen" type="ColorRect" parent="."]
 unique_name_in_owner = true

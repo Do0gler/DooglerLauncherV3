@@ -15,6 +15,12 @@ run/main_scene="uid://bt70ivt15wxlq"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SettingsManager="*res://Scripts/Globals/settings_manager.gd"
+UIManager="*res://Scripts/Globals/ui_manager.gd"
+Updater="*res://Scripts/Globals/updater.gd"
+
 [display]
 
 window/size/borderless=true

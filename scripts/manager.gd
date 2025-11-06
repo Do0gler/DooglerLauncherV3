@@ -1,10 +1,9 @@
 class_name Manager
 extends Control
 
-const GAME_DATA_PATH := "user://game_data.txt"
-
 @export var game_panel: PackedScene
 
+const GAME_DATA_DIR = "res://GamesLibrary"
 var games_library: Array[GameData]
 var selected_game: GameData
 
@@ -15,7 +14,7 @@ func _ready() -> void:
 
 func get_library() -> void:
 	games_library.clear()
-	var library_file := FileAccess.open(GAME_DATA_PATH, FileAccess.READ)
+	var library_file := FileAccess.open(SettingsManager.GAME_LIBRARY_PATH, FileAccess.READ)
 	
 	if !library_file:
 		games_library = create_default_library()
@@ -25,9 +24,17 @@ func get_library() -> void:
 			games_library.append(GameData.from_dict(library_dict.get(key)))
 
 
-# TODO: Create function
 func create_default_library() -> Array[GameData]:
-	return []
+	var default_library: Array[GameData] = []
+	
+	var library_dir := ResourceLoader.list_directory(GAME_DATA_DIR)
+	
+	for game_file in library_dir:
+		print(game_file)
+		var game_data = load(GAME_DATA_DIR + "/" + game_file)
+		default_library.append(game_data)
+	
+	return default_library
 
 
 func display_games() -> void:
