@@ -25,10 +25,10 @@ func download_game_data() -> void:
 ## Uses the Internet to update the games library
 func check_for_updates() -> void:
 	# Download games data
-	UIManager.loading_screen.show()
+	SettingsManager.ui_manager.loading_screen.show()
 	
 	await download_game_data()
 	SettingsManager.manager.get_library()
-	SettingsManager.manager.display_games()
+	SettingsManager.ui_manager.display_games()
 	
-	UIManager.loading_screen.hide()
+	SettingsManager.ui_manager.loading_screen.hide()

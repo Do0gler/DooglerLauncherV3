@@ -2,7 +2,7 @@ extends MenuButton
 
 var settings_submenu: PopupMenu
 
-func _init() -> void:
+func _enter_tree() -> void:
 	var menu = get_popup()
 	# Create the check for updates button
 	@warning_ignore("int_as_enum_without_match")
@@ -19,7 +19,7 @@ func _init() -> void:
 	menu.index_pressed.connect(_on_item_selected)
 	settings_submenu.index_pressed.connect(_on_subitem_selected)
 	
-	UIManager.settings_popup = settings_submenu
+	%UIManager.settings_popup = settings_submenu
 
 
 func _on_item_selected(index):

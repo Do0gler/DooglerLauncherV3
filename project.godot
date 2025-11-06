@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 SettingsManager="*res://Scripts/Globals/settings_manager.gd"
-UIManager="*res://Scripts/Globals/ui_manager.gd"
 Updater="*res://Scripts/Globals/updater.gd"
 
 [display]

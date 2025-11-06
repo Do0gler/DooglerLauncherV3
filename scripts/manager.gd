@@ -1,7 +1,6 @@
 class_name Manager
 extends Control
 
-@export var game_panel: PackedScene
 
 const GAME_DATA_DIR = "res://GamesLibrary"
 var games_library: Array[GameData]
@@ -9,7 +8,7 @@ var selected_game: GameData
 
 func _ready() -> void:
 	get_library()
-	display_games()
+	%UIManager.display_games()
 
 
 func get_library() -> void:
@@ -35,15 +34,3 @@ func create_default_library() -> Array[GameData]:
 		default_library.append(game_data)
 	
 	return default_library
-
-
-func display_games() -> void:
-	# Clear previous games
-	for child in %GamesVbox.get_children():
-		child.queue_free()
-	
-	for game in games_library:
-		var new_game_panel: GamePanel = game_panel.instantiate()
-		new_game_panel.game_data = game
-		new_game_panel.update_visuals()
-		%GamesVbox.add_child(new_game_panel)

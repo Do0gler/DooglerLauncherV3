@@ -3,11 +3,13 @@ extends Node
 const SETTINGS_FILE_PATH = "user://UserSettings.settings"
 const GAME_LIBRARY_PATH := "user://game_data.txt"
 var manager: Manager
+var ui_manager: UIManager
 signal settings_loaded
 
 func _ready() -> void:
 	manager = get_tree().root.get_node("Manager") as Manager
-	UIManager.loading_screen = manager.get_node("%LoadingScreen")
+	ui_manager = manager.get_node("%UIManager")
+	ui_manager.loading_screen = manager.get_node("%LoadingScreen")
 	
 	settings_loaded.connect(Updater._on_settings_loaded)
 	
@@ -28,14 +30,14 @@ func load_settings() -> void:
 	Updater.auto_check_updates = auto_update
 	#DiscordRpcManager.rich_presence_enabled = settings_dict["rich_presence_enabled"]
 	
-	UIManager.set_settings_state(settings_dict)
+	ui_manager.set_settings_state(settings_dict)
 	settings_loaded.emit()
 
 ## Save settings to disk
 func save_settings() -> void:
 	var settings_dict := {
-		"auto_check_updates":  UIManager.settings_popup.is_item_checked(0),
-		"rich_presence_enabled": UIManager.settings_popup.is_item_checked(1)
+		"auto_check_updates":  ui_manager.settings_popup.is_item_checked(0),
+		"rich_presence_enabled": ui_manager.settings_popup.is_item_checked(1)
 	}
 	var settings_file := FileAccess.open(SETTINGS_FILE_PATH, FileAccess.WRITE)
 	if settings_file:

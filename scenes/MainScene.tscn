@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt70ivt15wxlq"]
+[gd_scene load_steps=10 format=3 uid="uid://bt70ivt15wxlq"]
 
 [ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://Scripts/manager.gd" id="1_y4jh7"]
 [ext_resource type="PackedScene" uid="uid://bvcj2bi1axw5w" path="res://Scenes/UIElements/game_panel.tscn" id="2_f140w"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://isd1kyj5he1" path="res://Scripts/UI/titlebar.gd" id="3_f140w"]
 [ext_resource type="Script" uid="uid://b3lmqs1ak36dy" path="res://Scripts/UI/launcher_button.gd" id="4_0iob3"]
 [ext_resource type="Script" uid="uid://x0gys2lddqvx" path="res://Scripts/UI/resize.gd" id="5_4b75m"]
+[ext_resource type="Script" uid="uid://dak6vi2o7hwpg" path="res://Scripts/ui_manager.gd" id="7_q68mp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6dvc"]
 
@@ -20,6 +21,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y4jh7")
+
+[node name="UIManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_q68mp")
 game_panel = ExtResource("2_f140w")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
@@ -39,7 +44,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
-[node name="GamesVbox" type="VBoxContainer" parent="HSplitContainer/GamesList/ScrollContainer"]
+[node name="GamesVBox" type="VBoxContainer" parent="HSplitContainer/GamesList/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -55,15 +60,41 @@ size_flags_vertical = 3
 theme_override_constants/separation = 0
 
 [node name="UpperArea" type="PanelContainer" parent="HSplitContainer/GameView/VBoxContainer"]
+custom_minimum_size = Vector2(0, 225)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HSplitContainer/GameView/VBoxContainer/UpperArea"]
-custom_minimum_size = Vector2(0, 200)
+[node name="Background" type="TextureRect" parent="HSplitContainer/GameView/VBoxContainer/UpperArea"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_q68mp")
 expand_mode = 1
 stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/GameView/VBoxContainer/UpperArea"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/GameView/VBoxContainer/UpperArea/MarginContainer"]
+layout_mode = 2
+
+[node name="Logo" type="TextureRect" parent="HSplitContainer/GameView/VBoxContainer/UpperArea/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("2_q68mp")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Name" type="Label" parent="HSplitContainer/GameView/VBoxContainer/UpperArea/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 30
+text = "Game Name"
 
 [node name="LowerArea" type="PanelContainer" parent="HSplitContainer/GameView/VBoxContainer"]
 layout_mode = 2
