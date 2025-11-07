@@ -55,14 +55,14 @@ func display_game(game: GameData) -> void:
 	game_size_label.text = format_game_info("File Size", str(game.file_size_mb) + "MB")
 	game_version_label.text = format_game_info("Version", game.version_number)
 	
-	tags_panel.visible = !game.tags.is_empty()
+	tags_panel.visible = not game.tags.is_empty()
 	tags_panel.clear_items()
 	for tag in game.tags:
 		var new_tag: Tag = tag_panel.instantiate()
 		new_tag.set_tag_name(tag)
 		tags_panel.add_item(new_tag)
 	
-	screenshots_panel.visible = !game.screenshots.is_empty()
+	screenshots_panel.visible = not game.screenshots.is_empty()
 	screenshots_panel.clear_items()
 	for screenshot in game.screenshots:
 		var new_screenshot: Screenshot = screenshot_panel.instantiate()

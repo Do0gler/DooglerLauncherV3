@@ -19,8 +19,9 @@ extends Resource
 @export var background: Texture2D
 @export var screenshots: Array[Texture2D]
 @export_category("Meta")
-@export var version_number := "1.0"
+@export var version_number := &"1.0"
 @export var has_discord_rpc := false
+@export var game_id: StringName
 
 var is_outdated := false
 var playtime_secs: int
@@ -50,6 +51,7 @@ static func to_dict(data: GameData) -> Dictionary:
 	dict.set("screenshot_paths", data.screenshots.map(func(element): return element.resource_path))
 	dict.set("version_number", data.version_number)
 	dict.set("has_discord_rpc", data.has_discord_rpc)
+	dict.set("game_id", data.game_id)
 	
 	return dict
 
@@ -87,8 +89,9 @@ static func from_dict(dict: Dictionary) -> GameData:
 	for new_screenshot_path in dict.get("screenshot_paths"):
 		data.screenshots.append(load(new_screenshot_path))
 	
-	data.version_number = dict.get("version_number")
+	data.version_number = dict.get("version_number") as StringName
 	data.has_discord_rpc = dict.get("has_discord_rpc")
+	data.game_id = dict.get("game_id")
 	
 	return data
 

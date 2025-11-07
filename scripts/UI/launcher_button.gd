@@ -29,7 +29,7 @@ func _on_item_selected(index):
 
 
 func _on_subitem_selected(index):
-	var item_toggle := !settings_submenu.is_item_checked(index)
+	var item_toggle := not settings_submenu.is_item_checked(index)
 	settings_submenu.set_item_checked(index, item_toggle)
 	# TODO: Apply settings 
 	match index:

@@ -1,6 +1,6 @@
 extends Node
 
-const GAME_DATA_URL := "https://dl.dropboxusercontent.com/scl/fi/9yorfq2zf93x3oly4uvfv/game_library.txt?rlkey=l2dzmtb4hnizbgzf302di0npv&st=8n2g08ky&dl=0"
+const GAME_DATA_URL := "https://dl.dropboxusercontent.com/scl/fi/q0ykfdpvctlnqay74tq7b/game_data.txt?rlkey=v251aubgcgj98y8nmglq83jr3&st=oy1nk5mr&dl=0"
 var auto_check_updates := false
 
 func _on_settings_loaded():
@@ -17,6 +17,7 @@ func download_game_data() -> void:
 	http.download_file = SettingsManager.GAME_LIBRARY_PATH
 	var error := http.request(GAME_DATA_URL)
 	await http.request_completed
+	http.queue_free()
 	
 	if error != OK:
 		push_error("Error could not download game data: ", error_string(error))

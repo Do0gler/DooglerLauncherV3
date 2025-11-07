@@ -10,8 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Doogler Launcher 3"
+config/name="Doogler Launcher V3"
 run/main_scene="uid://bt70ivt15wxlq"
+config/use_custom_user_dir=true
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,6 +20,7 @@ config/icon="res://icon.svg"
 
 SettingsManager="*res://Scripts/Globals/settings_manager.gd"
 Updater="*res://Scripts/Globals/updater.gd"
+CacheManager="*res://Scripts/Globals/cache_manager.gd"
 
 [display]
 

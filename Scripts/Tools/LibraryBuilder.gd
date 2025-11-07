@@ -11,13 +11,11 @@ func _run() -> void:
 		library_folder.list_dir_begin()
 		var file_name = library_folder.get_next()
 		
-		var i := 0
 		while file_name != "":
 			var game_data_path = GAME_DIR_PATH + "/" + file_name
 			var game_data = (load(game_data_path) as GameData)
-			dict.set(i, GameData.to_dict(game_data))
+			dict.set(game_data.game_id, GameData.to_dict(game_data))
 			file_name = library_folder.get_next()
-			i += 1
 	else:
 		print("Error: ", error_string(DirAccess.get_open_error()))
 	

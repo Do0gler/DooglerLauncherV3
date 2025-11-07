@@ -10,7 +10,7 @@ func _ready() -> void:
 func _on_gui_input(event) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == 1:
-			following = !following
+			following = not following
 			dragging_start_pos = get_local_mouse_position()
 		if event.double_click:
 			_on_windowed_button_pressed()

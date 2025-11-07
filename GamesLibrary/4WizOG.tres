@@ -19,4 +19,5 @@ download_path = "http://dl.dropboxusercontent.com/scl/fi/7lyrq7fvatcw0w5vgnbh4/4
 icon = ExtResource("1_xjs4o")
 background = ExtResource("1_xjs4o")
 screenshots = Array[Texture2D]([ExtResource("1_xjs4o"), ExtResource("1_xjs4o"), ExtResource("1_xjs4o")])
+game_id = &"4_wiz_og"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

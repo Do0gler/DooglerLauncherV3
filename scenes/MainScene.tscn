@@ -147,14 +147,18 @@ theme_override_font_sizes/font_size = 25
 text = "Install"
 icon = ExtResource("2_q68mp")
 
-[node name="InstallOptionsButton" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
-custom_minimum_size = Vector2(20, 0)
+[node name="InstallOptionsButton" type="MenuButton" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
+custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/h_separation = 14
-theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
 icon = ExtResource("2_q68mp")
+flat = false
+expand_icon = true
+item_count = 1
+popup/item_0/text = "Uninstall"
+popup/item_0/id = 0
 
 [node name="TimePlayedDisplay" type="HBoxContainer" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign"]
 layout_mode = 2

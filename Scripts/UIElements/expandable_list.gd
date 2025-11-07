@@ -17,7 +17,7 @@ func _ready() -> void:
 func _on_toggled(toggle) -> void:
 	if number_of_items > 0:
 		head_button.icon = disabled_icon if toggle else enabled_icon
-		toggle_expand(!toggle)
+		toggle_expand(not toggle)
 
 func add_item(item: Node) -> void:
 	item_vbox.add_child(item)
@@ -35,7 +35,7 @@ func toggle_expand(expand: bool) -> void:
 	var expand_to: int = 0
 	if expand:
 		var items = item_vbox.get_children()
-		if !items.is_empty():
+		if not items.is_empty():
 			var last_child = items[items.size() - 1]
 			expand_to = last_child.position.y + last_child.size.y
 	var tween = create_tween()

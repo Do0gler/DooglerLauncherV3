@@ -25,7 +25,10 @@ func load_settings() -> void:
 	if settings_file:
 		settings_dict = JSON.parse_string(settings_file.get_as_text())
 	else:
-		push_error("Failed to load settings file")
+		push_warning("Failed to load settings file")
+		if not FileAccess.file_exists(SETTINGS_FILE_PATH):
+			save_settings()
+	settings_file.close()
 	var auto_update: bool = settings_dict.get("auto_check_updates", false)
 	var rpc_enabled: bool = settings_dict.get("rich_presence_enabled", false)
 	
@@ -46,3 +49,4 @@ func save_settings() -> void:
 	var settings_file := FileAccess.open(SETTINGS_FILE_PATH, FileAccess.WRITE)
 	if settings_file:
 		settings_file.store_string(JSON.stringify(settings_dict))
+	settings_file.close()

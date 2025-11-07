@@ -24,7 +24,7 @@ func _on_gui_input(event) -> void:
 			mouse_offset = get_local_mouse_position()
 			window_position = main_window.position
 			window_size = main_window.size
-			following = !following
+			following = not following
 
 func _process(_delta) -> void:
 	if following:
