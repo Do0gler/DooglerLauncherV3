@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0v6cly1gppm3"]
+
+[ext_resource type="Script" uid="uid://dbrsm3lv5kuoj" path="res://Scripts/UIElements/tag.gd" id="1_jxj45"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrn8s"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.09009846, 0.09009849, 0.09009848, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="PanelContainer" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_mrn8s")
+script = ExtResource("1_jxj45")
+
+[node name="TagNameLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Tag name"

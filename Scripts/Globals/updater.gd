@@ -29,6 +29,6 @@ func check_for_updates() -> void:
 	
 	await download_game_data()
 	SettingsManager.manager.get_library()
-	SettingsManager.ui_manager.display_games()
+	SettingsManager.ui_manager.display_games_list()
 	
 	SettingsManager.ui_manager.loading_screen.hide()

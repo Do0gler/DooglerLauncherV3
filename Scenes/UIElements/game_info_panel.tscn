@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://1pybah2yadw1"]
+
+[ext_resource type="Script" uid="uid://c02hssyugk1k" path="res://Scripts/UIElements/game_info_panel.gd" id="1_ks7xg"]
+[ext_resource type="StyleBox" uid="uid://bco1ld8l1h7l8" path="res://Styles/InfoPanel.tres" id="2_aiwkq"]
+
+[node name="InfoCategory" type="VBoxContainer"]
+script = ExtResource("1_ks7xg")
+
+[node name="NameLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Info Panel"
+
+[node name="InfoPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_aiwkq")
+
+[node name="InfoContainer" type="HFlowContainer" parent="InfoPanel"]
+unique_name_in_owner = true
+layout_mode = 2

@@ -23,6 +23,7 @@ extends Resource
 @export var has_discord_rpc := false
 
 var is_outdated := false
+var playtime_secs: int
 
 static func to_dict(data: GameData) -> Dictionary:
 	var dict: Dictionary
@@ -90,3 +91,13 @@ static func from_dict(dict: Dictionary) -> GameData:
 	data.has_discord_rpc = dict.get("has_discord_rpc")
 	
 	return data
+
+static func secs_to_time_string(secs: int) -> String:
+	var time_string := "%dh %dm"
+	
+	@warning_ignore("integer_division")
+	var hours = secs / 3600
+	@warning_ignore("integer_division")
+	var mins = (secs % 3600) / 60
+	
+	return time_string % [hours, mins]

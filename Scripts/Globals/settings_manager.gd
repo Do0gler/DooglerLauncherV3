@@ -1,10 +1,12 @@
 extends Node
 
+signal settings_loaded
+
 const SETTINGS_FILE_PATH = "user://UserSettings.settings"
 const GAME_LIBRARY_PATH := "user://game_data.txt"
 var manager: Manager
 var ui_manager: UIManager
-signal settings_loaded
+
 
 func _ready() -> void:
 	manager = get_tree().root.get_node("Manager") as Manager
@@ -14,6 +16,7 @@ func _ready() -> void:
 	settings_loaded.connect(Updater._on_settings_loaded)
 	
 	load_settings()
+
 
 ## Load settings from disk
 func load_settings() -> void:
@@ -32,6 +35,7 @@ func load_settings() -> void:
 	
 	ui_manager.set_settings_state(settings_dict)
 	settings_loaded.emit()
+
 
 ## Save settings to disk
 func save_settings() -> void:

@@ -8,7 +8,14 @@ var selected_game: GameData
 
 func _ready() -> void:
 	get_library()
-	%UIManager.display_games()
+	%UIManager.display_games_list()
+	if !games_library.is_empty():
+		select_game(games_library[0])
+
+
+func select_game(game: GameData):
+	selected_game = game
+	%UIManager.display_game(selected_game)
 
 
 func get_library() -> void:

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://coh4r2ojhrsh7"]
+
+[ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="1_am7b3"]
+[ext_resource type="Script" uid="uid://s6ri2ngdyv1d" path="res://Scripts/UIElements/screenshot.gd" id="1_gsv61"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4b75m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ju71"]
+
+[node name="PanelContainer" type="Panel"]
+custom_minimum_size = Vector2(250, 141)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4b75m")
+script = ExtResource("1_gsv61")
+
+[node name="Screenshot" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_am7b3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8ju71")
