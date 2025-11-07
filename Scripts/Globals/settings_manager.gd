@@ -2,7 +2,7 @@ extends Node
 
 signal settings_loaded
 
-const SETTINGS_FILE_PATH = "user://UserSettings.settings"
+const SETTINGS_FILE_PATH = "user://settings.cfg"
 const GAME_LIBRARY_PATH := "user://game_data.txt"
 var manager: Manager
 var ui_manager: UIManager
@@ -20,17 +20,24 @@ func _ready() -> void:
 
 ## Load settings from disk
 func load_settings() -> void:
-	var settings_dict: Dictionary
-	var settings_file = FileAccess.open(SETTINGS_FILE_PATH, FileAccess.READ)
-	if settings_file:
-		settings_dict = JSON.parse_string(settings_file.get_as_text())
-	else:
+	var settings_dict := {}
+	var config := ConfigFile.new()
+	
+	var result = config.load(SETTINGS_FILE_PATH)
+	
+	# If the file didn't load, create file if it didn't exist
+	if result != OK:
 		push_warning("Failed to load settings file")
 		if not FileAccess.file_exists(SETTINGS_FILE_PATH):
 			save_settings()
-	settings_file.close()
-	var auto_update: bool = settings_dict.get("auto_check_updates", false)
-	var rpc_enabled: bool = settings_dict.get("rich_presence_enabled", false)
+		return
+	
+	# Get data as dict
+	var auto_update: bool = config.get_value("Settings", "auto_check_updates")
+	var rpc_enabled: bool = config.get_value("Settings", "rich_presence_enabled")
+	
+	settings_dict.set("auto_check_updates", auto_update)
+	settings_dict.set("rich_presence_enabled", rpc_enabled)
 	
 	# TODO: Apply loaded settings
 	Updater.auto_check_updates = auto_update
@@ -42,11 +49,11 @@ func load_settings() -> void:
 
 ## Save settings to disk
 func save_settings() -> void:
-	var settings_dict := {
-		"auto_check_updates":  ui_manager.settings_popup.is_item_checked(0),
-		"rich_presence_enabled": ui_manager.settings_popup.is_item_checked(1)
-	}
-	var settings_file := FileAccess.open(SETTINGS_FILE_PATH, FileAccess.WRITE)
-	if settings_file:
-		settings_file.store_string(JSON.stringify(settings_dict))
-	settings_file.close()
+	var config := ConfigFile.new()
+	
+	config.set_value("Settings", "auto_check_updates", ui_manager.settings_popup.is_item_checked(0))
+	config.set_value("Settings", "rich_presence_enabled", ui_manager.settings_popup.is_item_checked(1))
+	
+	var result = config.save(SETTINGS_FILE_PATH)
+	if result != OK:
+		push_error("Failed to save settings file")
