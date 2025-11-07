@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://br23ng8o83ryt"]
+
+[ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_hyuup"]
+
+[resource]
+script = ExtResource("1_hyuup")
+game_name = "4Wizard Remake"
+description = "An Arcade 4-Directional Shooter 
+
+Made in scratch because.
+
+==Controls==
+WASD to move
+ARROW KEYS to shoot
+Q to pause or go back
+E to interact"
+creation_date = "02/03/2022"
+tags = Array[StringName]([&"Reamke", &"Top-Down", &"Pixel Art"])
+file_size_mb = 11.69
+download_path = "http://dl.dropboxusercontent.com/scl/fi/ehguk0jssveosxkzp0ag8/4Wizard-2.1.2.html?rlkey=lxmsq5k4cn1dwuvsmpxnyx0ne&dl=0"
+api_icon_name = "4wizremake"
+background_url = "http://dl.dropboxusercontent.com/scl/fi/qnr5us9b0y70zqepmx8v1/background.png?rlkey=vinrh9g6sqihnoy0uwhopiwgi&st=27ws4cif&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/bmm9d91b7tkolty3w75r1/icon.png?rlkey=s1a8i9g81xm35gu4iwqogb6se&st=u83dnbqr&dl=0"
+screenshot_urls = Array[String](["http://dl.dropboxusercontent.com/scl/fi/1la2hdk05ds8jad95c618/screenshot_0.png?rlkey=atyqlmbpfoojeplj0cydqh6b1&st=3upk5d5s&dl=0", "http://dl.dropboxusercontent.com/scl/fi/ykjq1a16q3sx426b7615q/screenshot_1.png?rlkey=m044oahfll59f8hdk49kbdosm&st=oy1dqabh&dl=0", "http://dl.dropboxusercontent.com/scl/fi/8rj58fm96q1plm8kkf8z0/screenshot_2.png?rlkey=i48j9zq0wyw14l7k3i6es7icv&st=nbll44m7&dl=0"])
+version_number = &"2.1.2"
+game_id = &"4_wiz_remake"
+metadata/_custom_type_script = "uid://pvwka1k7cgdq"

@@ -8,7 +8,6 @@ var selected_game: GameData
 
 func _ready() -> void:
 	get_library()
-	%UIManager.display_games_list()
 	if not games_library.is_empty():
 		select_game(games_library[0])
 
@@ -19,7 +18,7 @@ func select_game(game: GameData):
 	%UIManager.display_game(selected_game)
 
 
-## Gets the game library
+## Readies the game library
 func get_library() -> void:
 	games_library.clear()
 	var library_file := FileAccess.open(SettingsManager.GAME_LIBRARY_PATH, FileAccess.READ)
@@ -33,6 +32,19 @@ func get_library() -> void:
 			games_library.append(GameData.from_dict(library_dict.get(key)))
 	
 	library_file.close()
+	
+	await process_games()
+	
+	%UIManager.display_games_list()
+
+
+## Populate games with cached data
+func process_games() -> void:
+	for game in games_library:
+		await CacheManager.prefetch_game_images(game)
+		game.background = CacheManager.load_image_texture(game.game_id, "background")
+		game.icon = CacheManager.load_image_texture(game.game_id, "icon")
+		game.screenshots = CacheManager.get_all_screenshots(game.game_id)
 
 
 ## Returns the default built-in library
