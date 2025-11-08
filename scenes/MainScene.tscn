@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bt70ivt15wxlq"]
+[gd_scene load_steps=18 format=3 uid="uid://bt70ivt15wxlq"]
 
 [ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://Scripts/manager.gd" id="1_y4jh7"]
 [ext_resource type="PackedScene" uid="uid://bvcj2bi1axw5w" path="res://Scenes/UIElements/game_panel.tscn" id="2_f140w"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://1pybah2yadw1" path="res://Scenes/UIElements/game_info_panel.tscn" id="5_f140w"]
 [ext_resource type="StyleBox" uid="uid://bco1ld8l1h7l8" path="res://Styles/InfoPanel.tres" id="6_4b75m"]
 [ext_resource type="Script" uid="uid://dak6vi2o7hwpg" path="res://Scripts/ui_manager.gd" id="7_q68mp"]
+[ext_resource type="Script" uid="uid://babjhypi1by21" path="res://Scripts/UI/screenshot_viewer.gd" id="12_xb4mg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ju71"]
 bg_color = Color(0.07444572, 0.07444573, 0.07444569, 1)
@@ -19,6 +20,28 @@ bg_color = Color(0.07444572, 0.07444573, 0.07444569, 1)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_echbf"]
 size = Vector2(30, 30)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xb4mg"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6t1o7"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Manager" type="Control"]
 layout_mode = 3
@@ -59,7 +82,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="GameView" type="ScrollContainer" parent="HSplitContainer"]
-custom_minimum_size = Vector2(510, 0)
+custom_minimum_size = Vector2(875, 0)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/GameView"]
@@ -141,24 +164,30 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+mouse_default_cursor_shape = 2
 theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
 text = "Install"
 icon = ExtResource("2_q68mp")
 
-[node name="InstallOptionsButton" type="MenuButton" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
+[node name="GameOptionsButton" type="MenuButton" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+mouse_default_cursor_shape = 2
 theme_override_constants/h_separation = 14
 theme_override_font_sizes/font_size = 25
 icon = ExtResource("2_q68mp")
 flat = false
 expand_icon = true
-item_count = 1
+item_count = 3
 popup/item_0/text = "Uninstall"
 popup/item_0/id = 0
+popup/item_1/text = "Open Installation Location"
+popup/item_1/id = 1
+popup/item_2/text = "Clear Image Cache"
+popup/item_2/id = 2
 
 [node name="TimePlayedDisplay" type="HBoxContainer" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign"]
 layout_mode = 2
@@ -202,6 +231,7 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_default_cursor_shape = 2
 theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
@@ -212,13 +242,14 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_default_cursor_shape = 2
 theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
 icon = ExtResource("2_q68mp")
 
 [node name="GameInfoPanel" type="PanelContainer" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 210)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("6_4b75m")
 
@@ -229,6 +260,8 @@ theme_override_constants/separation = 15
 [node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/GameInfoPanel/HBoxContainer"]
 custom_minimum_size = Vector2(590, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
 horizontal_scroll_mode = 0
 
 [node name="GameDescription" type="Label" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/GameInfoPanel/HBoxContainer/ScrollContainer"]
@@ -243,6 +276,7 @@ autowrap_mode = 3
 [node name="ScrollContainer2" type="ScrollContainer" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/GameInfoPanel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
 
 [node name="InfoContainer" type="VFlowContainer" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/GameInfoPanel/HBoxContainer/ScrollContainer2"]
 layout_mode = 2
@@ -322,6 +356,7 @@ size_flags_horizontal = 0
 
 [node name="MenuButton" type="MenuButton" parent="Titlebar/MarginContainer/LeftAlign"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 30
 text = "Doogler Launcher"
 icon = ExtResource("2_q68mp")
@@ -334,11 +369,13 @@ placeholder_text = "Search"
 
 [node name="SortButton" type="MenuButton" parent="Titlebar/MarginContainer/LeftAlign"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = " Sort "
 flat = false
 
 [node name="GroupButton" type="MenuButton" parent="Titlebar/MarginContainer/LeftAlign"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = " Group "
 flat = false
 
@@ -488,6 +525,74 @@ script = ExtResource("5_4b75m")
 primary_side = true
 resize_direction = 2
 diagonal_corner = 2
+
+[node name="InputBlocker" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.49803922)
+
+[node name="ScreenshotViewer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(200, 230)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xb4mg")
+script = ExtResource("12_xb4mg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScreenshotViewer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TopBar" type="Control" parent="ScreenshotViewer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ScreenshotViewer/VBoxContainer/TopBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Screenshot"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="TextureButton" parent="ScreenshotViewer/VBoxContainer/TopBar"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("2_q68mp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ScreenshotContainer" type="PanelContainer" parent="ScreenshotViewer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_6t1o7")
+
+[node name="ScreenshotTex" type="TextureRect" parent="ScreenshotViewer/VBoxContainer/ScreenshotContainer"]
+layout_mode = 2
+texture = ExtResource("2_q68mp")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="LoadingScreen" type="ColorRect" parent="."]
 unique_name_in_owner = true

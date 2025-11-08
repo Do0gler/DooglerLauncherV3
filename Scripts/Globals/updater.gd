@@ -7,8 +7,8 @@ func _on_settings_loaded():
 	if Updater.auto_check_updates:
 		Updater.check_for_updates()
 
-## Downloads the game data from the internet
-func download_game_data() -> void:
+## Downloads the game library from the internet
+func download_remote_library() -> void:
 	# Create http request
 	var http := HTTPRequest.new()
 	add_child(http)
@@ -28,7 +28,7 @@ func check_for_updates() -> void:
 	# Download games data
 	SettingsManager.ui_manager.loading_screen.show()
 	
-	await download_game_data()
+	await download_remote_library()
 	SettingsManager.manager.get_library()
 	SettingsManager.ui_manager.display_games_list()
 	
