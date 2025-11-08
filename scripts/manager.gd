@@ -44,6 +44,7 @@ func process_games() -> void:
 		game.background = CacheManager.load_image_texture(game.game_id, "background")
 		game.icon = CacheManager.load_image_texture(game.game_id, "icon")
 		game.screenshots = CacheManager.get_all_screenshots(game.game_id)
+		CacheManager.setup_game_data(game)
 
 
 ## Returns the default built-in library
@@ -57,3 +58,9 @@ func create_default_library() -> Array[GameData]:
 		default_library.append(game_data)
 	
 	return default_library
+
+
+## Sets if the selected games is favorited
+func set_selected_favorite( toggle: bool):
+	selected_game.favorited = toggle
+	CacheManager.set_game_cache_entry(selected_game.game_id, "favorited", selected_game.favorited)

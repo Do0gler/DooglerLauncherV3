@@ -27,6 +27,7 @@ var screenshots: Array[Texture2D]
 
 var is_outdated := false
 var playtime_secs: int
+var favorited: bool
 
 static func to_dict(data: GameData) -> Dictionary:
 	var dict: Dictionary
