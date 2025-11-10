@@ -33,18 +33,18 @@ func get_library() -> void:
 	library_file.close()
 	
 	await process_games()
-	
+	# TODO: Make games display instantly instead of waiting for images (use placeholder)
 	%UIManager.display_games_list()
 
 
 ## Populate games with cached data
 func process_games() -> void:
 	for game in games_library:
+		CacheManager.setup_game_data(game)
 		await CacheManager.prefetch_game_images(game)
 		game.background = CacheManager.load_image_texture(game.game_id, "background")
 		game.icon = CacheManager.load_image_texture(game.game_id, "icon")
 		game.screenshots = CacheManager.get_all_screenshots(game.game_id)
-		CacheManager.setup_game_data(game)
 
 
 ## Returns the default built-in library

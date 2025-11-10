@@ -6,6 +6,7 @@ extends Resource
 @export_multiline var description: String
 @export var creation_date: String = "Unknown" #MM/DD/YYYY
 @export_enum("Scratch", "Unity", "Godot") var engine: String = "Scratch"
+@export_enum("Complete", "In Progress", "Unfinished") var completion_status: String = "Complete"
 @export var tags: Array[StringName]
 @export var file_size_mb: float
 

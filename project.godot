@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 SettingsManager="*res://Scripts/Globals/settings_manager.gd"
 Updater="*res://Scripts/Globals/updater.gd"
 CacheManager="*res://Scripts/Globals/cache_manager.gd"
+GameOrganizer="*res://Scripts/Globals/game_organizer.gd"
 
 [display]
 
