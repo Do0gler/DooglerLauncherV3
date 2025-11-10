@@ -268,4 +268,20 @@ func set_game_cache_entry(game_id: String, key: Variant, value: Variant) -> void
 	game_cache.set(key, value)
 	save_game_data_cache_index()
 
-# TODO: Add function to clear image cache for a game - deleting cached images as well
+
+## Clear image cache data and delete cached images for a game
+func clear_image_cache(game_id: String) -> void:
+	if not image_cache_index.has(game_id):
+		return
+	
+	var game_cache: Dictionary = image_cache_index.get(game_id)
+	
+	for key in game_cache:
+		var image_path = game_cache.get(key).get("path")
+		
+		var error := DirAccess.remove_absolute(image_path)
+		if error != OK:
+			print("Failed to delete cached image: ", image_path)
+	
+	game_cache.clear()
+	save_image_cache_index()
