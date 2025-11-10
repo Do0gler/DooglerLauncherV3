@@ -24,7 +24,6 @@ func add_item(item: Node) -> void:
 	number_of_items += 1
 
 func update_visuals() -> void:
-	await get_tree().process_frame # Wait for children to be placed properly
 	head_button.text = list_name + " (" + str(number_of_items) + ")"
 	var items = item_vbox.get_children()
 	if items.size() > 0:

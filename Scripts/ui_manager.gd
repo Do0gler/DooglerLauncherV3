@@ -33,7 +33,7 @@ func display_games_list() -> void:
 			new_game_panel.game_data = game
 			new_game_panel.update_visuals()
 			new_list.add_item(new_game_panel)
-		new_list.update_visuals()
+		new_list.call_deferred("update_visuals") # wait for list items to be positioned
 
 
 func format_game_info(data_name: String, value: String) -> String:

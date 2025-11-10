@@ -15,7 +15,7 @@ ARROW KEYS to shoot
 Q to pause or go back
 E to interact"
 creation_date = "02/03/2022"
-tags = Array[StringName]([&"Reamke", &"Top-Down", &"Pixel Art"])
+tags = Array[StringName]([&"Remake", &"Top-Down", &"Pixel Art"])
 file_size_mb = 11.69
 download_path = "http://dl.dropboxusercontent.com/scl/fi/ehguk0jssveosxkzp0ag8/4Wizard-2.1.2.html?rlkey=lxmsq5k4cn1dwuvsmpxnyx0ne&dl=0"
 api_icon_name = "4wizremake"
