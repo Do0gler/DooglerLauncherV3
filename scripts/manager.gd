@@ -61,6 +61,6 @@ func create_default_library() -> Array[GameData]:
 
 
 ## Sets if the selected games is favorited
-func set_selected_favorite( toggle: bool):
+func set_selected_favorite(toggle: bool):
 	selected_game.favorited = toggle
 	CacheManager.set_game_cache_entry(selected_game.game_id, "favorited", selected_game.favorited)

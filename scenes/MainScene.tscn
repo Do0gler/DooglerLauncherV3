@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bt70ivt15wxlq"]
+[gd_scene load_steps=19 format=3 uid="uid://bt70ivt15wxlq"]
 
 [ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://Scripts/manager.gd" id="1_y4jh7"]
 [ext_resource type="PackedScene" uid="uid://bvcj2bi1axw5w" path="res://Scenes/UIElements/game_panel.tscn" id="2_f140w"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://coh4r2ojhrsh7" path="res://Scenes/UIElements/screenshot.tscn" id="5_8ju71"]
 [ext_resource type="PackedScene" uid="uid://1pybah2yadw1" path="res://Scenes/UIElements/game_info_panel.tscn" id="5_f140w"]
 [ext_resource type="StyleBox" uid="uid://bco1ld8l1h7l8" path="res://Styles/InfoPanel.tres" id="6_4b75m"]
+[ext_resource type="PackedScene" uid="uid://o8e3ooq2lp0l" path="res://Scenes/UIElements/expandable_list.tscn" id="6_6t1o7"]
 [ext_resource type="Script" uid="uid://dak6vi2o7hwpg" path="res://Scripts/ui_manager.gd" id="7_q68mp"]
 [ext_resource type="Script" uid="uid://babjhypi1by21" path="res://Scripts/UI/screenshot_viewer.gd" id="12_xb4mg"]
 
@@ -58,6 +59,7 @@ script = ExtResource("7_q68mp")
 game_panel = ExtResource("2_f140w")
 tag_panel = ExtResource("4_4b75m")
 screenshot_panel = ExtResource("5_8ju71")
+expandable_list = ExtResource("6_6t1o7")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 layout_mode = 1
@@ -80,6 +82,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 0
 
 [node name="GameView" type="ScrollContainer" parent="HSplitContainer"]
 custom_minimum_size = Vector2(875, 0)

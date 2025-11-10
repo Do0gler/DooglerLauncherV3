@@ -4,6 +4,7 @@ class_name UIManager
 @export var game_panel: PackedScene
 @export var tag_panel: PackedScene
 @export var screenshot_panel: PackedScene
+@export var expandable_list: PackedScene
 
 @onready var loading_screen: Control = %LoadingScreen
 @onready var screenshot_popup = %ScreenshotViewer
@@ -21,11 +22,18 @@ func display_games_list() -> void:
 	for child in games_vbox.get_children():
 		child.queue_free()
 	
-	for game in SettingsManager.manager.games_library:
-		var new_game_panel: GamePanel = game_panel.instantiate()
-		new_game_panel.game_data = game
-		new_game_panel.update_visuals()
-		games_vbox.add_child(new_game_panel)
+	var organized_games := GameOrganizer.get_organized_games()
+	
+	for category in organized_games:
+		var new_list: ExpandableList = expandable_list.instantiate()
+		games_vbox.add_child(new_list)
+		new_list.list_name = category
+		for game: GameData in organized_games.get(category):
+			var new_game_panel: GamePanel = game_panel.instantiate()
+			new_game_panel.game_data = game
+			new_game_panel.update_visuals()
+			new_list.add_item(new_game_panel)
+		new_list.update_visuals()
 
 
 func format_game_info(data_name: String, value: String) -> String:
@@ -42,6 +50,7 @@ func display_game(game: GameData) -> void:
 	%EngineLabel.text = format_game_info("Engine", game.engine)
 	%SizeLabel.text = format_game_info("File Size", str(game.file_size_mb) + "MB")
 	%VersionLabel.text = format_game_info("Version", game.version_number)
+	%FavoriteButton.set_pressed_no_signal(game.favorited)
 	
 	var tags_panel: GameInfoPanel = %TagsPanel
 	var screenshots_panel: GameInfoPanel = %ScreenshotsPanel

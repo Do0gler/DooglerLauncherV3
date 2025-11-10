@@ -4,6 +4,8 @@
 [ext_resource type="StyleBox" uid="uid://bco1ld8l1h7l8" path="res://Styles/InfoPanel.tres" id="2_aiwkq"]
 
 [node name="InfoCategory" type="VBoxContainer"]
+offset_right = 122.0
+offset_bottom = 63.0
 script = ExtResource("1_ks7xg")
 
 [node name="NameLabel" type="Label" parent="."]

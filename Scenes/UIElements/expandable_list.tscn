@@ -1,7 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://o8e3ooq2lp0l"]
+[gd_scene load_steps=6 format=3 uid="uid://o8e3ooq2lp0l"]
 
 [ext_resource type="Script" uid="uid://c3wgd40bmprol" path="res://Scripts/UIElements/expandable_list.gd" id="1_h18r4"]
 [ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="2_0o46w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h18r4"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.06798274, 0.06798274, 0.06798273, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0o46w"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.12591079, 0.12591085, 0.12591082, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h18r4"]
 
 [node name="ExpandableList" type="VBoxContainer"]
 offset_right = 468.0
@@ -14,6 +30,10 @@ script = ExtResource("1_h18r4")
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h18r4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h18r4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0o46w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h18r4")
 toggle_mode = true
 text = "MyList"
 icon = ExtResource("2_0o46w")
