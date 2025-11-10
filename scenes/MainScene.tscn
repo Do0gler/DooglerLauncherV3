@@ -22,7 +22,7 @@ bg_color = Color(0.07444572, 0.07444573, 0.07444569, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6dvc"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xc4hf"]
-size = Vector2(15, 15)
+size = Vector2(30, 30)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_echbf"]
 size = Vector2(30, 30)
@@ -382,6 +382,8 @@ mouse_default_cursor_shape = 2
 text = " Sort "
 flat = false
 script = ExtResource("12_5qxwa")
+sorting_default_icon = ExtResource("2_q68mp")
+sorting_reversed_icon = SubResource("PlaceholderTexture2D_xc4hf")
 
 [node name="GroupButton" type="MenuButton" parent="Titlebar/MarginContainer/LeftAlign"]
 layout_mode = 2
