@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bt70ivt15wxlq"]
+[gd_scene load_steps=22 format=3 uid="uid://bt70ivt15wxlq"]
 
 [ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://Scripts/manager.gd" id="1_y4jh7"]
 [ext_resource type="PackedScene" uid="uid://bvcj2bi1axw5w" path="res://Scenes/UIElements/game_panel.tscn" id="2_f140w"]
@@ -12,12 +12,17 @@
 [ext_resource type="StyleBox" uid="uid://bco1ld8l1h7l8" path="res://Styles/InfoPanel.tres" id="6_4b75m"]
 [ext_resource type="PackedScene" uid="uid://o8e3ooq2lp0l" path="res://Scenes/UIElements/expandable_list.tscn" id="6_6t1o7"]
 [ext_resource type="Script" uid="uid://dak6vi2o7hwpg" path="res://Scripts/ui_manager.gd" id="7_q68mp"]
+[ext_resource type="Script" uid="uid://cqxs7b1vosjd6" path="res://Scripts/UI/sort_button.gd" id="12_5qxwa"]
 [ext_resource type="Script" uid="uid://babjhypi1by21" path="res://Scripts/UI/screenshot_viewer.gd" id="12_xb4mg"]
+[ext_resource type="Script" uid="uid://bo1n7k2kb12fl" path="res://Scripts/UI/group_button.gd" id="13_xc4hf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ju71"]
 bg_color = Color(0.07444572, 0.07444573, 0.07444569, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6dvc"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xc4hf"]
+size = Vector2(15, 15)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_echbf"]
 size = Vector2(30, 30)
@@ -376,12 +381,16 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 text = " Sort "
 flat = false
+script = ExtResource("12_5qxwa")
 
 [node name="GroupButton" type="MenuButton" parent="Titlebar/MarginContainer/LeftAlign"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = " Group "
 flat = false
+script = ExtResource("13_xc4hf")
+enabled_icon = ExtResource("2_q68mp")
+disabled_icon = SubResource("PlaceholderTexture2D_xc4hf")
 
 [node name="RightAlign" type="HBoxContainer" parent="Titlebar/MarginContainer"]
 layout_mode = 2

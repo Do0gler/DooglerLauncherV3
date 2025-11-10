@@ -16,6 +16,7 @@ func _enter_tree() -> void:
 	
 	menu.add_submenu_node_item("Settings", settings_submenu)
 	
+	# Connect signals
 	menu.index_pressed.connect(_on_item_selected)
 	settings_submenu.index_pressed.connect(_on_subitem_selected)
 	
