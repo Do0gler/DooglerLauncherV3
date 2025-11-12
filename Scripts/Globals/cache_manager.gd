@@ -277,6 +277,10 @@ func clear_image_cache(game_id: String) -> void:
 	var game_cache: Dictionary = image_cache_index.get(game_id)
 	
 	for key in game_cache:
+		# Don't delete image if bundled
+		if game_cache.get(key).get("source") == "bundled":
+			continue
+		
 		var image_path = game_cache.get(key).get("path")
 		
 		var error := DirAccess.remove_absolute(image_path)
