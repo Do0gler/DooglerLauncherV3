@@ -11,6 +11,7 @@ func _ready() -> void:
 	if not games_library.is_empty():
 		select_game(games_library[0])
 
+
 ## Selects and displays a game
 func select_game(game: GameData):
 	selected_game = game

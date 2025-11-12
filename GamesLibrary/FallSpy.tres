@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://bu31k2bxgskm3"]
+
+[ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_s4exh"]
+
+[resource]
+script = ExtResource("1_s4exh")
+game_name = "Fall Spy"
+description = "You are a secret agent who has fallen into a complex cave, use your trusty gun to parkour your way out!"
+creation_date = "05/24/2021"
+engine = "Unity"
+file_size_mb = 20.46
+download_path = "http://dl.dropboxusercontent.com/scl/fi/duqmhrv0pd5c3j27672m1/Fall-Spy.zip?rlkey=3tbihme6mh0ucos5apfs1vfry&dl=0"
+api_icon_name = "fallspy"
+game_id = &"fall_spy"
+metadata/_custom_type_script = "uid://pvwka1k7cgdq"

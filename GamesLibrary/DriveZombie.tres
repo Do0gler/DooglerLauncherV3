@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://ceyq3fb7intm4"]
+
+[ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_uh2at"]
+
+[resource]
+script = ExtResource("1_uh2at")
+game_name = "Drive! Zombie"
+description = "Move your mouse to go (the car will follow your mouse)
+-------------------------------------------------------------------------
+Drive away from the zombie he will kill you
+Your goal is to collect coins without running out of gas
+-------------------------------------------------------------------------
+To get gas you have to collect the gas canisters"
+creation_date = "02/25/2020"
+tags = Array[StringName]([&"Arcade"])
+file_size_mb = 7.11
+download_path = "http://dl.dropboxusercontent.com/scl/fi/sj1b6hh89vvbrur7tx7zq/Drive-Zombie.html?rlkey=sinx6qb7f2nniw46x72lvk0zp&dl=0"
+api_icon_name = "drivezombie"
+game_id = &"drive_zombie"
+metadata/_custom_type_script = "uid://pvwka1k7cgdq"

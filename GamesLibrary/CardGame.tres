@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://dfwdn0f4qhlse"]
+
+[ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_4kpwq"]
+
+[resource]
+script = ExtResource("1_4kpwq")
+game_name = "Card Game"
+description = "A remake of the long lost original Card Game
+Click the cards in order of highest to lowest
+Get the highscore!"
+creation_date = "08/31/2020"
+engine = "Unity"
+tags = Array[StringName]([&"Remake", &"Arcade"])
+file_size_mb = 19.63
+download_path = "http://dl.dropboxusercontent.com/scl/fi/cnfsq4j00rlo0jptn0iqy/Card-Game.zip?rlkey=0m2wacp5juevmlnnkwxhb4n3v&dl=0"
+api_icon_name = "cardgame"
+game_id = &"card_game"
+metadata/_custom_type_script = "uid://pvwka1k7cgdq"
