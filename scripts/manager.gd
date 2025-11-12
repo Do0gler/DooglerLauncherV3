@@ -34,6 +34,7 @@ func get_library() -> void:
 	
 	await process_games()
 	# TODO: Make games display instantly instead of waiting for images (use placeholder)
+	%UIManager.relevant_games = GameOrganizer.search_games("") # Initialize relevant games
 	%UIManager.display_games_list()
 
 

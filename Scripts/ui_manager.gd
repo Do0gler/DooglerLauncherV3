@@ -10,6 +10,7 @@ class_name UIManager
 @onready var screenshot_popup = %ScreenshotViewer
 
 var settings_popup: PopupMenu
+var relevant_games: Dictionary
 
 func set_settings_state(settings_dict: Dictionary):
 	settings_popup.set_item_checked(0, settings_dict.get("auto_check_updates", false))
@@ -29,6 +30,10 @@ func display_games_list() -> void:
 		games_vbox.add_child(new_list)
 		new_list.list_name = category
 		for game: GameData in organized_games.get(category):
+			# If not relevant, don't show
+			if not relevant_games.has(game.game_id):
+				continue
+			
 			var new_game_panel: GamePanel = game_panel.instantiate()
 			new_game_panel.game_data = game
 			new_game_panel.update_visuals()

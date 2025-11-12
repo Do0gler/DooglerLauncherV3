@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bt70ivt15wxlq"]
+[gd_scene load_steps=24 format=3 uid="uid://bt70ivt15wxlq"]
 
 [ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://Scripts/manager.gd" id="1_y4jh7"]
 [ext_resource type="PackedScene" uid="uid://bvcj2bi1axw5w" path="res://Scenes/UIElements/game_panel.tscn" id="2_f140w"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://o8e3ooq2lp0l" path="res://Scenes/UIElements/expandable_list.tscn" id="6_6t1o7"]
 [ext_resource type="Script" uid="uid://dak6vi2o7hwpg" path="res://Scripts/ui_manager.gd" id="7_q68mp"]
 [ext_resource type="Script" uid="uid://cqxs7b1vosjd6" path="res://Scripts/UI/sort_button.gd" id="12_5qxwa"]
+[ext_resource type="Script" uid="uid://0yx8ciidyul" path="res://Scripts/UI/search_bar.gd" id="12_6rnll"]
 [ext_resource type="Script" uid="uid://babjhypi1by21" path="res://Scripts/UI/screenshot_viewer.gd" id="12_xb4mg"]
 [ext_resource type="Script" uid="uid://bo1n7k2kb12fl" path="res://Scripts/UI/group_button.gd" id="13_xc4hf"]
 
@@ -20,6 +21,8 @@
 bg_color = Color(0.07444572, 0.07444573, 0.07444569, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6dvc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6rnll"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xc4hf"]
 size = Vector2(30, 30)
@@ -374,7 +377,12 @@ script = ExtResource("4_0iob3")
 [node name="SearchBar" type="LineEdit" parent="Titlebar/MarginContainer/LeftAlign"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6rnll")
 placeholder_text = "Search"
+context_menu_enabled = false
+emoji_menu_enabled = false
+clear_button_enabled = true
+script = ExtResource("12_6rnll")
 
 [node name="SortButton" type="MenuButton" parent="Titlebar/MarginContainer/LeftAlign"]
 layout_mode = 2

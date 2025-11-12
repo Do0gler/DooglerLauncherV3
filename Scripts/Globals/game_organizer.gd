@@ -99,3 +99,30 @@ func set_sorting(sorting_type: String, reversed := false) -> void:
 func set_grouping(grouping_type: String) -> void:
 	current_grouping = grouping_type
 	SettingsManager.ui_manager.display_games_list()
+
+
+## Returns relevant games as a dictionary
+func search_games(search_prompt: String) -> Dictionary:
+	var games_set: Dictionary = {}
+	
+	# Empty search returns all games
+	if search_prompt.strip_edges() == "":
+		for game in SettingsManager.manager.games_library:
+			games_set[game.game_id] = true
+		return games_set
+	
+	var search_terms = search_prompt.to_lower().split(" ", false)
+	
+	for game in SettingsManager.manager.games_library:
+		var game_name_lower = game.game_name.to_lower()
+		var all_terms_match = true
+		
+		for term in search_terms:
+			if not game_name_lower.contains(term):
+				all_terms_match = false
+				break
+		
+		if all_terms_match:
+			games_set[game.game_id] = true
+	
+	return games_set
