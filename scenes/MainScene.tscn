@@ -172,6 +172,7 @@ theme_override_constants/separation = 25
 layout_mode = 2
 
 [node name="InstallButton" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
+visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -182,23 +183,28 @@ theme_override_font_sizes/font_size = 25
 text = "Install"
 icon = ExtResource("2_q68mp")
 
-[node name="GameOptionsButton" type="MenuButton" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
-custom_minimum_size = Vector2(25, 0)
+[node name="PlayButton2" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_default_cursor_shape = 2
 theme_override_constants/h_separation = 14
+theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
+text = "Install"
 icon = ExtResource("2_q68mp")
-flat = false
-expand_icon = true
-item_count = 3
-popup/item_0/text = "Uninstall"
-popup/item_0/id = 0
-popup/item_1/text = "Open Installation Location"
-popup/item_1/id = 1
-popup/item_2/text = "Clear Image Cache"
-popup/item_2/id = 2
+
+[node name="StopButton3" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/h_separation = 14
+theme_override_constants/icon_max_width = 40
+theme_override_font_sizes/font_size = 25
+text = "Install"
+icon = ExtResource("2_q68mp")
 
 [node name="TimePlayedDisplay" type="HBoxContainer" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign"]
 layout_mode = 2
@@ -236,29 +242,33 @@ autowrap_mode = 0
 [node name="RightAlign" type="HBoxContainer" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel"]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 0
 
-[node name="InfoButton" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/RightAlign"]
+[node name="SettingsButton" type="MenuButton" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/RightAlign"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
 icon = ExtResource("2_q68mp")
+flat = false
+expand_icon = true
 
 [node name="FavoriteButton" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/RightAlign"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
 toggle_mode = true
 icon = ExtResource("2_q68mp")
+expand_icon = true
 
 [node name="GameInfoPanel" type="PanelContainer" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 210)

@@ -8,7 +8,6 @@ var last_selected_index: int
 
 
 func _ready() -> void:
-	# TODO: Make this work :P
 	menu_popup = get_popup()
 	
 	add_sorting_option("Alphabetical", 0)

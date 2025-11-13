@@ -1,7 +1,6 @@
 class_name Manager
 extends Control
 
-
 const GAME_DATA_DIR = "res://GamesLibrary"
 var games_library: Array[GameData]
 var selected_game: GameData
