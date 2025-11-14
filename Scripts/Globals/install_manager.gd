@@ -88,5 +88,4 @@ func game_is_installed(game: GameData) -> bool:
 	if dir == null:
 		return false
 	
-	print(dir.file_exists(game.executable_name))
 	return dir.file_exists(game.executable_name)

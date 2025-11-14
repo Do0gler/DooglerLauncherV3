@@ -6,6 +6,8 @@ var games_library: Array[GameData]
 var selected_game: GameData
 var can_switch_games := true
 
+signal game_selected(game: GameData)
+
 func _ready() -> void:
 	get_library()
 	if not games_library.is_empty():
@@ -17,6 +19,7 @@ func select_game(game: GameData):
 	if can_switch_games:
 		selected_game = game
 		%UIManager.display_game(selected_game)
+		game_selected.emit(selected_game)
 
 
 ## Readies the game library
@@ -69,12 +72,20 @@ func set_selected_favorite(toggle: bool):
 	CacheManager.set_game_cache_entry(selected_game.game_id, "favorited", selected_game.favorited)
 
 
+## Opens the installation location of the current game
+func open_selected_game_file_location() -> void:
+	if not InstallManager.game_is_installed(selected_game):
+		return
+	
+	var game_dir = ProjectSettings.globalize_path("user://library/" + selected_game.game_id)
+	OS.shell_show_in_file_manager(game_dir)
+
+
 ## Installs the selected game
 func install_selected_game() -> void:
 	if selected_game == null:
 		return
 	
-	print("Installing selected game")
 	can_switch_games = false
 	%UIManager.set_game_display_install()
 	await InstallManager.install_game(selected_game)

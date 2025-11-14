@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bt70ivt15wxlq"]
+[gd_scene load_steps=25 format=3 uid="uid://bt70ivt15wxlq"]
 
 [ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://Scripts/manager.gd" id="1_y4jh7"]
 [ext_resource type="PackedScene" uid="uid://bvcj2bi1axw5w" path="res://Scenes/UIElements/game_panel.tscn" id="2_f140w"]
@@ -12,6 +12,7 @@
 [ext_resource type="StyleBox" uid="uid://bco1ld8l1h7l8" path="res://Styles/InfoPanel.tres" id="6_4b75m"]
 [ext_resource type="PackedScene" uid="uid://o8e3ooq2lp0l" path="res://Scenes/UIElements/expandable_list.tscn" id="6_6t1o7"]
 [ext_resource type="Script" uid="uid://dak6vi2o7hwpg" path="res://Scripts/ui_manager.gd" id="7_q68mp"]
+[ext_resource type="Script" uid="uid://dn13cajsbuy0k" path="res://Scripts/UI/settings_button.gd" id="8_enc0b"]
 [ext_resource type="Script" uid="uid://cqxs7b1vosjd6" path="res://Scripts/UI/sort_button.gd" id="12_5qxwa"]
 [ext_resource type="Script" uid="uid://0yx8ciidyul" path="res://Scripts/UI/search_bar.gd" id="12_6rnll"]
 [ext_resource type="Script" uid="uid://babjhypi1by21" path="res://Scripts/UI/screenshot_viewer.gd" id="12_xb4mg"]
@@ -275,6 +276,7 @@ theme_override_font_sizes/font_size = 25
 icon = ExtResource("2_q68mp")
 flat = false
 expand_icon = true
+script = ExtResource("8_enc0b")
 
 [node name="FavoriteButton" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/RightAlign"]
 unique_name_in_owner = true

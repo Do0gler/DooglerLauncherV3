@@ -272,6 +272,7 @@ func set_game_cache_entry(game_id: String, key: Variant, value: Variant) -> void
 ## Clear image cache data and delete cached images for a game
 func clear_image_cache(game_id: String) -> void:
 	if not image_cache_index.has(game_id):
+		print("Could not clear image cache: Game does not have a cache")
 		return
 	
 	var game_cache: Dictionary = image_cache_index.get(game_id)
@@ -288,4 +289,5 @@ func clear_image_cache(game_id: String) -> void:
 			print("Failed to delete cached image: ", image_path)
 	
 	game_cache.clear()
+	print("Cleared image cache of ", game_id)
 	save_image_cache_index()
