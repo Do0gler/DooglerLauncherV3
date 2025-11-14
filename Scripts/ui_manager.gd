@@ -33,6 +33,7 @@ func display_games_list() -> void:
 		child.queue_free()
 	
 	var organized_games := GameOrganizer.get_organized_games()
+	var button_group := ButtonGroup.new()
 	
 	for category in organized_games:
 		var new_list: ExpandableList = expandable_list.instantiate()
@@ -45,6 +46,7 @@ func display_games_list() -> void:
 			
 			var new_game_panel: GamePanel = game_panel.instantiate()
 			new_game_panel.game_data = game
+			new_game_panel.set_button_group(button_group)
 			new_game_panel.update_visuals()
 			new_list.add_item(new_game_panel)
 		new_list.call_deferred("update_visuals") # wait for list items to be positioned

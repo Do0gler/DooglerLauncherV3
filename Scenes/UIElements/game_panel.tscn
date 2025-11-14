@@ -1,35 +1,63 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvcj2bi1axw5w"]
+[gd_scene load_steps=8 format=3 uid="uid://bvcj2bi1axw5w"]
 
 [ext_resource type="Script" uid="uid://b1wdxg6wkm5v6" path="res://Scripts/UIElements/game_panel.gd" id="1_gn4c5"]
 [ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="1_ptx5w"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4jh7"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gn4c5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q68mp"]
-bg_color = Color(1, 1, 1, 0.49803922)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gn4c5"]
+bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3o0vi"]
+bg_color = Color(0.28485015, 0.28485033, 0.28485027, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4u56"]
+bg_color = Color(0.19219694, 0.19219697, 0.19219697, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x4u56"]
 
 [node name="GamePanel" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 50)
 offset_right = 184.0
 offset_bottom = 50.0
 mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gn4c5")
 script = ExtResource("1_gn4c5")
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_gn4c5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3o0vi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x4u56")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x4u56")
+toggle_mode = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 7
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("1_ptx5w")
-expand_mode = 3
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Seperator" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -43,13 +71,7 @@ text_overrun_behavior = 3
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("1_ptx5w")
 expand_mode = 3
 stretch_mode = 5
-
-[node name="Button" type="Button" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_y4jh7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_q68mp")

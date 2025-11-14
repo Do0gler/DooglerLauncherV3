@@ -471,7 +471,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="ResizeVerticalBottom" type="Control" parent="Resizer"]
-custom_minimum_size = Vector2(0, 8)
+custom_minimum_size = Vector2(0, 4)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -485,7 +485,7 @@ script = ExtResource("5_4b75m")
 resize_direction = 1
 
 [node name="ResizeVerticalTop" type="Control" parent="Resizer"]
-custom_minimum_size = Vector2(0, 8)
+custom_minimum_size = Vector2(0, 4)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -497,7 +497,7 @@ primary_side = true
 resize_direction = 1
 
 [node name="ResizeHorizontalRight" type="Control" parent="Resizer"]
-custom_minimum_size = Vector2(8, 0)
+custom_minimum_size = Vector2(4, 0)
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -510,7 +510,7 @@ mouse_default_cursor_shape = 10
 script = ExtResource("5_4b75m")
 
 [node name="ResizeHorizontalLeft" type="Control" parent="Resizer"]
-custom_minimum_size = Vector2(8, 0)
+custom_minimum_size = Vector2(4, 0)
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -521,7 +521,7 @@ script = ExtResource("5_4b75m")
 primary_side = true
 
 [node name="ResizeDiagonalBR" type="Control" parent="Resizer"]
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(4, 4)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -537,7 +537,7 @@ script = ExtResource("5_4b75m")
 resize_direction = 2
 
 [node name="ResizeDiagonalTR" type="Control" parent="Resizer"]
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(4, 4)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -553,7 +553,7 @@ resize_direction = 2
 diagonal_corner = 1
 
 [node name="ResizeDiagonalBL" type="Control" parent="Resizer"]
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(4, 4)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -569,7 +569,7 @@ resize_direction = 2
 diagonal_corner = 3
 
 [node name="ResizeDiagonalTL" type="Control" parent="Resizer"]
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(4, 4)
 layout_mode = 1
 anchors_preset = 0
 offset_right = 8.0

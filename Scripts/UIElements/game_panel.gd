@@ -6,6 +6,9 @@ var game_data: GameData
 func _ready() -> void:
 	%Button.pressed.connect(_on_pressed)
 
+func set_button_group(button_group: ButtonGroup) -> void:
+	%Button.button_group = button_group
+
 func update_visuals() -> void:
 	%NameLabel.text = game_data.game_name
 	%Icon.texture = game_data.icon
