@@ -43,6 +43,31 @@ func install_game(game: GameData) -> void:
 	temp_file.close()
 
 
+## Uninstalls a game
+func uninstall_game(game: GameData) -> void:
+	var path = "user://library/" + game.game_id
+	recursive_delete_game(path)
+
+
+## Recursive function to delete all files in a directory
+func recursive_delete_game(dirPath) -> void:
+	var dir = DirAccess.open(dirPath)
+	dir.list_dir_begin()
+	var fileName = dir.get_next()
+	while fileName != "":
+		var filePath = dirPath + "/" + fileName
+		if dir.current_is_dir():
+			recursive_delete_game(filePath)
+		else:
+			print("Deleting: " + filePath)
+			var error := DirAccess.remove_absolute(filePath)
+			if error != OK:
+				push_error("Failed to delete file ", filePath)
+		fileName = dir.get_next()
+	dir.list_dir_end()
+	DirAccess.remove_absolute(dirPath)
+
+
 ## Extracts a zip file to the provided path
 func extract_zip_file(zip_file: FileAccess, extract_to_path: String) -> void:
 	var dir := DirAccess.open(extract_to_path)

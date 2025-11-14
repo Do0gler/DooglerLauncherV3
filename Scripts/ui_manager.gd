@@ -11,8 +11,9 @@ class_name UIManager
 
 var settings_popup: PopupMenu
 var relevant_games: Dictionary
-
 var downloading := false
+
+signal game_displayed(game: GameData)
 
 func _process(_delta: float) -> void:
 	if not downloading:
@@ -53,6 +54,7 @@ func format_game_info(data_name: String, value: String) -> String:
 	return "[color=gray]%-15s[/color] %s" % [data_name, value]
 
 
+## Shows a game's info on the game display
 func display_game(game: GameData) -> void:
 	%GameLogo.texture = game.icon
 	%GameBackground.texture = game.background
@@ -88,8 +90,11 @@ func display_game(game: GameData) -> void:
 		new_screenshot.get_node("Button").pressed.connect(%ScreenshotViewer.open_screenshot.bind(screenshot))
 		
 		screenshots_panel.add_item(new_screenshot)
+	
+	game_displayed.emit(game)
 
 
+## Shows one of the main buttons in the game display
 func show_game_button(button_to_show: Control) -> void:
 	%InstallButton.hide()
 	%PlayButton.hide()
@@ -98,7 +103,7 @@ func show_game_button(button_to_show: Control) -> void:
 
 
 ## Sets game display UI to it's installing mode
-func set_game_display_install() -> void:
+func set_game_display_installing() -> void:
 	show_game_button(%InstallButton)
 	downloading = true
 	%InstallButton.disabled = true
@@ -111,3 +116,19 @@ func set_game_display_installed() -> void:
 	downloading = false
 	%InstallButton.disabled = false
 	%InstallProgressArea.hide()
+
+
+## Prompts the user for confirmation to uninstall the current game
+func show_uninstall_confirmation() -> void:
+	# Ask for confirmation before uninstalling
+	var confirmation := ConfirmationDialog.new()
+	confirmation.title = "Uninstall Game"
+	var game_name = SettingsManager.manager.selected_game.game_name
+	confirmation.dialog_text = "Are you sure you want to uninstall %s?" % game_name
+	confirmation.ok_button_text = "Uninstall"
+	confirmation.unresizable = true
+	
+	confirmation.confirmed.connect(SettingsManager.manager.uninstall_selected_game)
+	
+	add_child(confirmation)
+	confirmation.popup_centered(Vector2i(330, 100))

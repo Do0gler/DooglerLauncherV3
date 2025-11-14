@@ -6,7 +6,6 @@ var games_library: Array[GameData]
 var selected_game: GameData
 var can_switch_games := true
 
-signal game_selected(game: GameData)
 
 func _ready() -> void:
 	get_library()
@@ -19,7 +18,6 @@ func select_game(game: GameData):
 	if can_switch_games:
 		selected_game = game
 		%UIManager.display_game(selected_game)
-		game_selected.emit(selected_game)
 
 
 ## Readies the game library
@@ -87,7 +85,13 @@ func install_selected_game() -> void:
 		return
 	
 	can_switch_games = false
-	%UIManager.set_game_display_install()
+	%UIManager.set_game_display_installing()
 	await InstallManager.install_game(selected_game)
 	can_switch_games = true
 	%UIManager.set_game_display_installed()
+	%UIManager.display_game(selected_game)
+
+## Uninstalls the selected game
+func uninstall_selected_game() -> void:
+	InstallManager.uninstall_game(selected_game)
+	%UIManager.display_game(selected_game)

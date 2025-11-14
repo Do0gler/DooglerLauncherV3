@@ -12,7 +12,7 @@ func _ready() -> void:
 	
 	# Connect signals
 	menu.index_pressed.connect(_on_item_selected)
-	SettingsManager.manager.game_selected.connect(_on_game_selected)
+	SettingsManager.ui_manager.game_displayed.connect(_on_game_selected)
 
 
 func _on_game_selected(game: GameData):
@@ -23,7 +23,7 @@ func _on_game_selected(game: GameData):
 func _on_item_selected(index: int) -> void:
 	match index:
 		0:
-			pass # TODO: Implement option functionality
+			%UIManager.show_uninstall_confirmation()
 		1:
 			SettingsManager.manager.open_selected_game_file_location()
 		2:
