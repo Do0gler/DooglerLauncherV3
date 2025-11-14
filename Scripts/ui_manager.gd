@@ -12,6 +12,14 @@ class_name UIManager
 var settings_popup: PopupMenu
 var relevant_games: Dictionary
 
+var downloading := false
+
+func _process(_delta: float) -> void:
+	if not downloading:
+		return
+	
+	%InstallProgressBar.value = InstallManager.calculate_install_progress(SettingsManager.manager.selected_game)
+
 func set_settings_state(settings_dict: Dictionary):
 	settings_popup.set_item_checked(0, settings_dict.get("auto_check_updates", false))
 	settings_popup.set_item_checked(1, settings_dict.get("rich_presence_enabled", false))
@@ -60,6 +68,11 @@ func display_game(game: GameData) -> void:
 	var tags_panel: GameInfoPanel = %TagsPanel
 	var screenshots_panel: GameInfoPanel = %ScreenshotsPanel
 	
+	if InstallManager.game_is_installed(game):
+		show_game_button(%PlayButton)
+	else:
+		show_game_button(%InstallButton)
+	
 	tags_panel.visible = not game.tags.is_empty()
 	tags_panel.clear_items()
 	for tag in game.tags:
@@ -75,3 +88,26 @@ func display_game(game: GameData) -> void:
 		new_screenshot.get_node("Button").pressed.connect(%ScreenshotViewer.open_screenshot.bind(screenshot))
 		
 		screenshots_panel.add_item(new_screenshot)
+
+
+func show_game_button(button_to_show: Control) -> void:
+	%InstallButton.hide()
+	%PlayButton.hide()
+	%StopButton.hide()
+	button_to_show.show()
+
+
+## Sets game display UI to it's installing mode
+func set_game_display_install() -> void:
+	show_game_button(%InstallButton)
+	downloading = true
+	%InstallButton.disabled = true
+	%InstallProgressArea.show()
+
+
+## Sets game display UI to it's installed mode
+func set_game_display_installed() -> void:
+	show_game_button(%PlayButton)
+	downloading = false
+	%InstallButton.disabled = false
+	%InstallProgressArea.hide()

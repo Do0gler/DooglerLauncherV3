@@ -11,13 +11,14 @@ extends Resource
 @export var file_size_mb: float
 
 @export_category("Download")
-@export var download_path: String
+@export var download_url: String
 @export var api_icon_name := "logo"
 @export var background_url: String
 @export var icon_url: String
 @export var screenshot_urls: Array[String]
 
 @export_category("Meta")
+@export var executable_name: String
 @export var version_number := &"1.0"
 @export var has_discord_rpc := false
 @export var game_id: StringName
@@ -39,11 +40,12 @@ static func to_dict(data: GameData) -> Dictionary:
 	dict.set("engine", data.engine)
 	dict.set("tags", data.tags)
 	dict.set("file_size", data.file_size_mb)
-	dict.set("download_path", data.download_path)
+	dict.set("download_url", data.download_url)
 	dict.set("api_icon_name", data.api_icon_name)
 	dict.set("background_url", data.background_url)
 	dict.set("icon_url", data.icon_url)
 	dict.set("screenshot_urls", data.screenshot_urls)
+	dict.set("executable_name", data.executable_name)
 	dict.set("version_number", data.version_number)
 	dict.set("has_discord_rpc", data.has_discord_rpc)
 	dict.set("game_id", data.game_id)
@@ -64,7 +66,7 @@ static func from_dict(dict: Dictionary) -> GameData:
 		data.tags.append(tag as StringName)
 	
 	data.file_size_mb = dict.get("file_size")
-	data.download_path = dict.get("download_path")
+	data.download_url = dict.get("download_url")
 	data.api_icon_name = dict.get("api_icon_name")
 	data.background_url = dict.get("background_url")
 	data.icon_url = dict.get("icon_url")
@@ -73,6 +75,7 @@ static func from_dict(dict: Dictionary) -> GameData:
 	for screenshot_url in new_screenshot_urls:
 		data.screenshot_urls.append(screenshot_url as String)
 	
+	data.executable_name = dict.get("executable_name")
 	data.version_number = dict.get("version_number") as StringName
 	data.has_discord_rpc = dict.get("has_discord_rpc")
 	data.game_id = dict.get("game_id")

@@ -172,7 +172,7 @@ theme_override_constants/separation = 25
 layout_mode = 2
 
 [node name="InstallButton" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
-visible = false
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -183,18 +183,8 @@ theme_override_font_sizes/font_size = 25
 text = "Install"
 icon = ExtResource("2_q68mp")
 
-[node name="PlayButton2" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-mouse_default_cursor_shape = 2
-theme_override_constants/h_separation = 14
-theme_override_constants/icon_max_width = 40
-theme_override_font_sizes/font_size = 25
-text = "Install"
-icon = ExtResource("2_q68mp")
-
-[node name="StopButton3" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
+[node name="PlayButton" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
+unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -203,8 +193,38 @@ mouse_default_cursor_shape = 2
 theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
-text = "Install"
+text = "Play"
 icon = ExtResource("2_q68mp")
+
+[node name="StopButton" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/h_separation = 14
+theme_override_constants/icon_max_width = 40
+theme_override_font_sizes/font_size = 25
+text = "Stop"
+icon = ExtResource("2_q68mp")
+
+[node name="InstallProgressArea" type="VBoxContainer" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallProgressArea"]
+layout_mode = 2
+text = "Installing..."
+horizontal_alignment = 1
+
+[node name="InstallProgressBar" type="ProgressBar" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallProgressArea"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 4
 
 [node name="TimePlayedDisplay" type="HBoxContainer" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign"]
 layout_mode = 2
@@ -638,6 +658,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.49803922)
 
+[connection signal="pressed" from="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea/InstallButton" to="." method="install_selected_game"]
 [connection signal="toggled" from="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/RightAlign/FavoriteButton" to="." method="set_selected_favorite"]
 [connection signal="pressed" from="Titlebar/MarginContainer/RightAlign/MinimizeButton" to="Titlebar" method="_on_minimize_button_pressed"]
 [connection signal="pressed" from="Titlebar/MarginContainer/RightAlign/WindowedButton" to="Titlebar" method="_on_windowed_button_pressed"]

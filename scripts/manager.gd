@@ -4,6 +4,7 @@ extends Control
 const GAME_DATA_DIR = "res://GamesLibrary"
 var games_library: Array[GameData]
 var selected_game: GameData
+var can_switch_games := true
 
 func _ready() -> void:
 	get_library()
@@ -13,8 +14,9 @@ func _ready() -> void:
 
 ## Selects and displays a game
 func select_game(game: GameData):
-	selected_game = game
-	%UIManager.display_game(selected_game)
+	if can_switch_games:
+		selected_game = game
+		%UIManager.display_game(selected_game)
 
 
 ## Readies the game library
@@ -65,3 +67,16 @@ func create_default_library() -> Array[GameData]:
 func set_selected_favorite(toggle: bool):
 	selected_game.favorited = toggle
 	CacheManager.set_game_cache_entry(selected_game.game_id, "favorited", selected_game.favorited)
+
+
+## Installs the selected game
+func install_selected_game() -> void:
+	if selected_game == null:
+		return
+	
+	print("Installing selected game")
+	can_switch_games = false
+	%UIManager.set_game_display_install()
+	await InstallManager.install_game(selected_game)
+	can_switch_games = true
+	%UIManager.set_game_display_installed()

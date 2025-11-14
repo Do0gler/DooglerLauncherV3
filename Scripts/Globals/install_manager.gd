@@ -1,0 +1,92 @@
+extends Node
+
+var current_http: HTTPRequest
+
+## Creates the game installation directory if it does not exist
+func ensure_game_folder(game_id: String) -> void:
+	var dir = DirAccess.open("user://")
+	
+	if not dir.dir_exists("library"):
+		dir.make_dir("library")
+	
+	var game_install_dir := "library/" + game_id
+	if not dir.dir_exists(game_install_dir):
+		dir.make_dir_recursive(game_install_dir)
+
+
+## Installs a game
+func install_game(game: GameData) -> void:
+	var game_id = game.game_id
+	
+	current_http = HTTPRequest.new()
+	add_child(current_http)
+	
+	ensure_game_folder(game_id)
+	
+	var temp_file := FileAccess.create_temp(2, game_id,".zip")
+	if temp_file == null:
+		push_error("Could not create temp file while installing game")
+		return
+	
+	current_http.download_file = temp_file.get_path_absolute()
+	var error := current_http.request(game.download_url)
+	
+	await current_http.request_completed
+	
+	if error != OK:
+		push_error("Failed to download ", game.game_name)
+	else:
+		extract_zip_file(temp_file, "user://library/" + game_id)
+	
+	current_http.queue_free()
+	current_http = null
+	temp_file.close()
+
+
+## Extracts a zip file to the provided path
+func extract_zip_file(zip_file: FileAccess, extract_to_path: String) -> void:
+	var dir := DirAccess.open(extract_to_path)
+	var reader := ZIPReader.new()
+	var err := reader.open(zip_file.get_path_absolute())
+	
+	if err != OK:
+		push_error("Could not extract game zip")
+	
+	for file in reader.get_files():
+		if file.ends_with("/"):
+			continue
+		var file_base_dir = file.get_base_dir()
+		if !dir.dir_exists(file_base_dir):
+			dir.make_dir_recursive(file_base_dir)
+		var new_file_path = extract_to_path.path_join(file)
+		var new_file = FileAccess.open(new_file_path, FileAccess.WRITE)
+		new_file.store_buffer(reader.read_file(file))
+	
+	reader.close()
+
+
+## Calculates the install progress of the current http request
+func calculate_install_progress(game: GameData = null) -> int:
+	if current_http == null:
+		return -1
+	
+	var total = current_http.get_body_size()
+	var downloaded = current_http.get_downloaded_bytes()
+	
+	# Fall back to saved file size
+	if total <= 0 and game != null:
+		total = game.file_size_mb
+	
+	var percent = floori(float(downloaded) / float(total) * 100)
+	return percent
+
+
+## Check if a game is installed
+func game_is_installed(game: GameData) -> bool:
+	var dir = DirAccess.open("user://library/" + game.game_id)
+	
+	if dir == null:
+		return false
+	
+	print(dir.file_exists(game.executable_name))
+	return dir.file_exists(game.executable_name)

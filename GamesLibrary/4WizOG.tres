@@ -14,7 +14,8 @@ Try to get a High-Score"
 creation_date = "04/02/2021"
 tags = Array[StringName]([&"Top-Down", &"Pixel Art"])
 file_size_mb = 3.02
-download_path = "http://dl.dropboxusercontent.com/scl/fi/7lyrq7fvatcw0w5vgnbh4/4WizardOG.html?rlkey=a1a9wj5ggvq796qjp1bs876h8&dl=0"
+download_url = "http://dl.dropboxusercontent.com/scl/fi/7lyrq7fvatcw0w5vgnbh4/4WizardOG.html?rlkey=a1a9wj5ggvq796qjp1bs876h8&dl=0"
 api_icon_name = "4wizog"
+executable_name = "4WizardOG.html"
 game_id = &"4_wiz_og"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"
