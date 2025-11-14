@@ -38,6 +38,7 @@ static func to_dict(data: GameData) -> Dictionary:
 	dict.set("description", data.description)
 	dict.set("creation_date", data.creation_date)
 	dict.set("engine", data.engine)
+	dict.set("completion", data.completion_status)
 	dict.set("tags", data.tags)
 	dict.set("file_size", data.file_size_mb)
 	dict.set("download_url", data.download_url)
@@ -60,6 +61,7 @@ static func from_dict(dict: Dictionary) -> GameData:
 	data.description = dict.get("description")
 	data.creation_date = dict.get("creation_date")
 	data.engine = dict.get("engine")
+	data.completion_status = dict.get("completion")
 	
 	var new_tags = dict.get("tags")
 	for tag in new_tags:
