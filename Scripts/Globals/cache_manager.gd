@@ -250,7 +250,7 @@ func setup_game_data(game_data: GameData):
 	
 	var game_cache: Dictionary = game_data_cache_index.get(game_id)
 	game_data.favorited = game_cache.get("favorited", false)
-	game_data.playtime_secs = game_cache.get("playtime_secs", 0)
+	game_data.playtime_secs = game_cache.get("playtime_secs", 0.0)
 	
 	if game_cache.has("file_size_mb"):
 		game_data.file_size_mb = game_cache.get("file_size_mb")
@@ -267,6 +267,16 @@ func set_game_cache_entry(game_id: String, key: Variant, value: Variant) -> void
 	
 	game_cache.set(key, value)
 	save_game_data_cache_index()
+
+
+## Gets a value in the game data cache
+func get_game_cache_entry(game_id: String, key: Variant, default: Variant = null) -> Variant:
+	if not game_data_cache_index.has(game_id):
+		return default
+	
+	var game_cache: Dictionary = game_data_cache_index.get(game_id)
+	
+	return game_cache.get(key, default)
 
 
 ## Clear image cache data and delete cached images for a game

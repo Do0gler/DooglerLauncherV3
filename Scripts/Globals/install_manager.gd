@@ -2,17 +2,6 @@ extends Node
 
 var current_http: HTTPRequest
 
-## Creates the game installation directory if it does not exist
-func ensure_game_folder(game_id: String) -> void:
-	var dir = DirAccess.open("user://")
-	
-	if not dir.dir_exists("library"):
-		dir.make_dir("library")
-	
-	var game_install_dir := "library/" + game_id
-	if not dir.dir_exists(game_install_dir):
-		dir.make_dir_recursive(game_install_dir)
-
 
 ## Installs a game
 func install_game(game: GameData) -> void:
@@ -21,7 +10,7 @@ func install_game(game: GameData) -> void:
 	current_http = HTTPRequest.new()
 	add_child(current_http)
 	
-	ensure_game_folder(game_id)
+	_ensure_game_folder(game_id)
 	
 	var temp_file := FileAccess.create_temp(2, game_id,".zip")
 	if temp_file == null:
@@ -36,7 +25,7 @@ func install_game(game: GameData) -> void:
 	if error != OK:
 		push_error("Failed to download ", game.game_name)
 	else:
-		extract_zip_file(temp_file, get_game_install_dir_path(game))
+		_extract_zip_file(temp_file, get_game_install_dir_path(game))
 	
 	current_http.queue_free()
 	current_http = null
@@ -46,48 +35,7 @@ func install_game(game: GameData) -> void:
 ## Uninstalls a game
 func uninstall_game(game: GameData) -> void:
 	var path = get_game_install_dir_path(game)
-	recursive_delete_game(path)
-
-
-## Recursive function to delete all files in a directory
-func recursive_delete_game(dirPath) -> void:
-	var dir = DirAccess.open(dirPath)
-	dir.list_dir_begin()
-	var fileName = dir.get_next()
-	while fileName != "":
-		var filePath = dirPath + "/" + fileName
-		if dir.current_is_dir():
-			recursive_delete_game(filePath)
-		else:
-			print("Deleting: " + filePath)
-			var error := DirAccess.remove_absolute(filePath)
-			if error != OK:
-				push_error("Failed to delete file ", filePath)
-		fileName = dir.get_next()
-	dir.list_dir_end()
-	DirAccess.remove_absolute(dirPath)
-
-
-## Extracts a zip file to the provided path
-func extract_zip_file(zip_file: FileAccess, extract_to_path: String) -> void:
-	var dir := DirAccess.open(extract_to_path)
-	var reader := ZIPReader.new()
-	var err := reader.open(zip_file.get_path_absolute())
-	
-	if err != OK:
-		push_error("Could not extract game zip")
-	
-	for file in reader.get_files():
-		if file.ends_with("/"):
-			continue
-		var file_base_dir = file.get_base_dir()
-		if !dir.dir_exists(file_base_dir):
-			dir.make_dir_recursive(file_base_dir)
-		var new_file_path = extract_to_path.path_join(file)
-		var new_file = FileAccess.open(new_file_path, FileAccess.WRITE)
-		new_file.store_buffer(reader.read_file(file))
-	
-	reader.close()
+	_recursive_delete_game(path)
 
 
 ## Calculates the install progress of the current http request
@@ -124,3 +72,56 @@ func get_game_install_dir_path(game: GameData) -> String:
 ## Get game executable path
 func get_game_executable_path(game: GameData) -> String:
 	return get_game_install_dir_path(game) + "/" + game.executable_name
+
+
+## Creates the game installation directory if it does not exist
+func _ensure_game_folder(game_id: String) -> void:
+	var dir = DirAccess.open("user://")
+	
+	if not dir.dir_exists("library"):
+		dir.make_dir("library")
+	
+	var game_install_dir := "library/" + game_id
+	if not dir.dir_exists(game_install_dir):
+		dir.make_dir_recursive(game_install_dir)
+
+
+## Recursive function to delete all files in a directory
+func _recursive_delete_game(dirPath) -> void:
+	var dir = DirAccess.open(dirPath)
+	dir.list_dir_begin()
+	var fileName = dir.get_next()
+	while fileName != "":
+		var filePath = dirPath + "/" + fileName
+		if dir.current_is_dir():
+			_recursive_delete_game(filePath)
+		else:
+			print("Deleting: " + filePath)
+			var error := DirAccess.remove_absolute(filePath)
+			if error != OK:
+				push_error("Failed to delete file ", filePath)
+		fileName = dir.get_next()
+	dir.list_dir_end()
+	DirAccess.remove_absolute(dirPath)
+
+
+## Extracts a zip file to the provided path
+func _extract_zip_file(zip_file: FileAccess, extract_to_path: String) -> void:
+	var dir := DirAccess.open(extract_to_path)
+	var reader := ZIPReader.new()
+	var err := reader.open(zip_file.get_path_absolute())
+	
+	if err != OK:
+		push_error("Could not extract game zip")
+	
+	for file in reader.get_files():
+		if file.ends_with("/"):
+			continue
+		var file_base_dir = file.get_base_dir()
+		if !dir.dir_exists(file_base_dir):
+			dir.make_dir_recursive(file_base_dir)
+		var new_file_path = extract_to_path.path_join(file)
+		var new_file = FileAccess.open(new_file_path, FileAccess.WRITE)
+		new_file.store_buffer(reader.read_file(file))
+	
+	reader.close()

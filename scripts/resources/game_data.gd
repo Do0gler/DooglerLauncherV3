@@ -28,7 +28,7 @@ var background: Texture2D
 var screenshots: Array[Texture2D]
 
 var is_outdated := false
-var playtime_secs: int
+var playtime_secs: float
 var favorited: bool
 
 static func to_dict(data: GameData) -> Dictionary:
@@ -84,7 +84,9 @@ static func from_dict(dict: Dictionary) -> GameData:
 	
 	return data
 
-static func secs_to_time_string(secs: int) -> String:
+static func secs_to_time_string(time_secs: float) -> String:
+	var secs := floori(time_secs)
+	
 	var time_string := "%dh %dm"
 	
 	@warning_ignore("integer_division")

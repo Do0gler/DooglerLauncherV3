@@ -64,7 +64,10 @@ func display_game(game: GameData) -> void:
 	%GameLogo.texture = game.icon
 	%GameBackground.texture = game.background
 	%GameNameLabel.text = game.game_name
-	%PlaytimeLabel.text = GameData.secs_to_time_string(game.playtime_secs)
+	if game.executable_name.get_extension() == "html":
+		%PlaytimeLabel.text = "N/A"
+	else:
+		%PlaytimeLabel.text = GameData.secs_to_time_string(game.playtime_secs)
 	%GameDescription.text = game.description
 	%DateLabel.text = _format_game_info("Date", game.creation_date)
 	%EngineLabel.text = _format_game_info("Engine", game.engine)
@@ -73,7 +76,7 @@ func display_game(game: GameData) -> void:
 	%FavoriteButton.set_pressed_no_signal(game.favorited)
 	
 	if InstallManager.game_is_installed(game):
-		if GameLauncher.launched_game_id == game.game_id:
+		if GameLauncher.launched_game and GameLauncher.launched_game.game_id == game.game_id:
 			show_game_button(%StopButton)
 		else:
 			show_game_button(%PlayButton)
