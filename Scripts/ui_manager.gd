@@ -1,25 +1,28 @@
-extends Node
 class_name UIManager
+extends Node
 
-@export var game_panel: PackedScene
-@export var tag_panel: PackedScene
-@export var screenshot_panel: PackedScene
-@export var expandable_list: PackedScene
+signal game_displayed(game: GameData)
 
-@onready var loading_screen: Control = %LoadingScreen
-@onready var screenshot_popup = %ScreenshotViewer
+const GAME_PANEL := preload("uid://bvcj2bi1axw5w")
+const TAG_PANEL := preload("uid://b0v6cly1gppm3")
+const SCREENSHOT_PANEL := preload("uid://coh4r2ojhrsh7")
+const EXPANDABLE_LIST := preload("uid://o8e3ooq2lp0l")
 
 var settings_popup: PopupMenu
 var relevant_games: Dictionary
 var downloading := false
 
-signal game_displayed(game: GameData)
+@onready var loading_screen: Control = %LoadingScreen
+@onready var screenshot_popup = %ScreenshotViewer
+
 
 func _process(_delta: float) -> void:
 	if not downloading:
 		return
 	
-	%InstallProgressBar.value = InstallManager.calculate_install_progress(SettingsManager.manager.selected_game)
+	var selected_game = SettingsManager.manager.selected_game
+	%InstallProgressBar.value = InstallManager.calculate_install_progress(selected_game)
+
 
 func set_settings_state(settings_dict: Dictionary):
 	settings_popup.set_item_checked(0, settings_dict.get("auto_check_updates", false))
@@ -36,7 +39,7 @@ func display_games_list() -> void:
 	var button_group := ButtonGroup.new()
 	
 	for category in organized_games:
-		var new_list: ExpandableList = expandable_list.instantiate()
+		var new_list: ExpandableList = EXPANDABLE_LIST.instantiate()
 		games_vbox.add_child(new_list)
 		new_list.list_name = category
 		for game: GameData in organized_games.get(category):
@@ -44,15 +47,15 @@ func display_games_list() -> void:
 			if not relevant_games.has(game.game_id):
 				continue
 			
-			var new_game_panel: GamePanel = game_panel.instantiate()
-			new_game_panel.game_data = game
-			new_game_panel.set_button_group(button_group)
-			new_game_panel.update_visuals()
-			new_list.add_item(new_game_panel)
+			var new_GAME_PANEL: GamePanel = GAME_PANEL.instantiate()
+			new_GAME_PANEL.game_data = game
+			new_GAME_PANEL.set_button_group(button_group)
+			new_GAME_PANEL.update_visuals()
+			new_list.add_item(new_GAME_PANEL)
 		new_list.call_deferred("update_visuals") # wait for list items to be positioned
 
 
-func format_game_info(data_name: String, value: String) -> String:
+func _format_game_info(data_name: String, value: String) -> String:
 	return "[color=gray]%-15s[/color] %s" % [data_name, value]
 
 
@@ -63,33 +66,37 @@ func display_game(game: GameData) -> void:
 	%GameNameLabel.text = game.game_name
 	%PlaytimeLabel.text = GameData.secs_to_time_string(game.playtime_secs)
 	%GameDescription.text = game.description
-	%DateLabel.text = format_game_info("Date", game.creation_date)
-	%EngineLabel.text = format_game_info("Engine", game.engine)
-	%SizeLabel.text = format_game_info("File Size", str(game.file_size_mb) + "MB")
-	%VersionLabel.text = format_game_info("Version", game.version_number)
+	%DateLabel.text = _format_game_info("Date", game.creation_date)
+	%EngineLabel.text = _format_game_info("Engine", game.engine)
+	%SizeLabel.text = _format_game_info("File Size", str(game.file_size_mb) + "MB")
+	%VersionLabel.text = _format_game_info("Version", game.version_number)
 	%FavoriteButton.set_pressed_no_signal(game.favorited)
 	
-	var tags_panel: GameInfoPanel = %TagsPanel
-	var screenshots_panel: GameInfoPanel = %ScreenshotsPanel
-	
 	if InstallManager.game_is_installed(game):
-		show_game_button(%PlayButton)
+		if GameLauncher.launched_game_id == game.game_id:
+			show_game_button(%StopButton)
+		else:
+			show_game_button(%PlayButton)
 	else:
 		show_game_button(%InstallButton)
 	
+	var tags_panel: GameInfoPanel = %TagsPanel
 	tags_panel.visible = not game.tags.is_empty()
 	tags_panel.clear_items()
+	
 	for tag in game.tags:
-		var new_tag: Tag = tag_panel.instantiate()
+		var new_tag: Tag = TAG_PANEL.instantiate()
 		new_tag.set_tag_name(tag)
 		tags_panel.add_item(new_tag)
 	
+	var screenshots_panel: GameInfoPanel = %ScreenshotsPanel
 	screenshots_panel.visible = not game.screenshots.is_empty()
 	screenshots_panel.clear_items()
+	
 	for screenshot in game.screenshots:
-		var new_screenshot: Screenshot = screenshot_panel.instantiate()
+		var new_screenshot: Screenshot = SCREENSHOT_PANEL.instantiate()
 		new_screenshot.set_screenshot(screenshot)
-		new_screenshot.get_node("Button").pressed.connect(%ScreenshotViewer.open_screenshot.bind(screenshot))
+		new_screenshot.connect_button(%ScreenshotViewer.open_screenshot.bind(screenshot))
 		
 		screenshots_panel.add_item(new_screenshot)
 	

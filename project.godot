@@ -23,6 +23,7 @@ Updater="*res://Scripts/Globals/updater.gd"
 CacheManager="*res://Scripts/Globals/cache_manager.gd"
 GameOrganizer="*res://Scripts/Globals/game_organizer.gd"
 InstallManager="*res://Scripts/Globals/install_manager.gd"
+GameLauncher="*res://Scripts/Globals/game_launcher.gd"
 
 [display]
 

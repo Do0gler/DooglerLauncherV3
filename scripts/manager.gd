@@ -95,3 +95,15 @@ func install_selected_game() -> void:
 func uninstall_selected_game() -> void:
 	InstallManager.uninstall_game(selected_game)
 	%UIManager.display_game(selected_game)
+
+
+## Launches the current game
+func launch_selected_game() -> void:
+	GameLauncher.launch_game(selected_game)
+	%UIManager.display_game(selected_game)
+
+
+## Stops the current game
+func stop_selected_game() -> void:
+	GameLauncher.stop_current_game()
+	%UIManager.display_game(selected_game)

@@ -36,7 +36,7 @@ func install_game(game: GameData) -> void:
 	if error != OK:
 		push_error("Failed to download ", game.game_name)
 	else:
-		extract_zip_file(temp_file, "user://library/" + game_id)
+		extract_zip_file(temp_file, get_game_install_dir_path(game))
 	
 	current_http.queue_free()
 	current_http = null
@@ -45,7 +45,7 @@ func install_game(game: GameData) -> void:
 
 ## Uninstalls a game
 func uninstall_game(game: GameData) -> void:
-	var path = "user://library/" + game.game_id
+	var path = get_game_install_dir_path(game)
 	recursive_delete_game(path)
 
 
@@ -108,9 +108,19 @@ func calculate_install_progress(game: GameData = null) -> int:
 
 ## Check if a game is installed
 func game_is_installed(game: GameData) -> bool:
-	var dir = DirAccess.open("user://library/" + game.game_id)
+	var dir = DirAccess.open(get_game_install_dir_path(game))
 	
 	if dir == null:
 		return false
 	
 	return dir.file_exists(game.executable_name)
+
+
+## Get game installation directory path
+func get_game_install_dir_path(game: GameData) -> String:
+	return "user://library/" + game.game_id
+
+
+## Get game executable path
+func get_game_executable_path(game: GameData) -> String:
+	return get_game_install_dir_path(game) + "/" + game.executable_name
