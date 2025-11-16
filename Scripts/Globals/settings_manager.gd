@@ -33,17 +33,24 @@ func load_settings() -> void:
 		return
 	
 	# Get data as dict
-	var auto_update: bool = config.get_value("Settings", "auto_check_updates")
-	var rpc_enabled: bool = config.get_value("Settings", "rich_presence_enabled")
+	var auto_update: bool = config.get_value("Settings", "auto_check_updates", false)
+	var rpc_enabled: bool = config.get_value("Settings", "rich_presence_enabled", false)
+	var sorting: String = config.get_value("Sorting", "sorting", "alphabetical")
+	var sorting_reversed: bool = config.get_value("Sorting", "sorting_reversed", false)
+	var grouping: String = config.get_value("Sorting", "grouping", "favorited")
 	
 	settings_dict.set("auto_check_updates", auto_update)
 	settings_dict.set("rich_presence_enabled", rpc_enabled)
+	settings_dict.set("sorting", sorting)
+	settings_dict.set("sorting_reversed", sorting_reversed)
+	settings_dict.set("grouping", grouping)
 	
-	# TODO: Apply loaded settings
 	Updater.auto_check_updates = auto_update
-	#DiscordRpcManager.rich_presence_enabled = settings_dict["rich_presence_enabled"]
 	
-	ui_manager.set_settings_state(settings_dict)
+	GameOrganizer.current_grouping = grouping
+	GameOrganizer.set_sorting(sorting, sorting_reversed)
+	
+	ui_manager.set_settings_ui(settings_dict)
 	settings_loaded.emit()
 
 
@@ -53,6 +60,10 @@ func save_settings() -> void:
 	
 	config.set_value("Settings", "auto_check_updates", ui_manager.settings_popup.is_item_checked(0))
 	config.set_value("Settings", "rich_presence_enabled", ui_manager.settings_popup.is_item_checked(1))
+	
+	config.set_value("Sorting", "sorting", GameOrganizer.current_sorting)
+	config.set_value("Sorting", "sorting_reversed", GameOrganizer.sorting_reversed)
+	config.set_value("Sorting", "grouping", GameOrganizer.current_grouping)
 	
 	var result = config.save(SETTINGS_FILE_PATH)
 	if result != OK:

@@ -24,9 +24,12 @@ func _process(_delta: float) -> void:
 	%InstallProgressBar.value = InstallManager.calculate_install_progress(selected_game)
 
 
-func set_settings_state(settings_dict: Dictionary):
-	settings_popup.set_item_checked(0, settings_dict.get("auto_check_updates", false))
-	settings_popup.set_item_checked(1, settings_dict.get("rich_presence_enabled", false))
+func set_settings_ui(settings_dict: Dictionary):
+	settings_popup.set_item_checked(0, settings_dict.get("auto_check_updates"))
+	settings_popup.set_item_checked(1, settings_dict.get("rich_presence_enabled"))
+	
+	%SortButton.set_sorting_ui(settings_dict.get("sorting"), settings_dict.get("sorting_reversed"))
+	%GroupButton.set_grouping_ui(settings_dict.get("grouping"))
 
 
 func display_games_list() -> void:

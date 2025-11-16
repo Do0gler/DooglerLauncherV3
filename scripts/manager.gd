@@ -68,6 +68,7 @@ func create_default_library() -> Array[GameData]:
 func set_selected_favorite(toggle: bool):
 	selected_game.favorited = toggle
 	CacheManager.set_game_cache_entry(selected_game.game_id, "favorited", selected_game.favorited)
+	%UIManager.display_games_list()
 
 
 ## Opens the installation location of the current game
