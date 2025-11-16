@@ -4,7 +4,7 @@ extends Resource
 @export_category("Info")
 @export var game_name: String
 @export_multiline var description: String
-@export var creation_date: String = "Unknown" #MM/DD/YYYY
+@export var creation_date: String = "Unknown" ## A string representing a date, formatted as MM/DD/YYYY
 @export_enum("Scratch", "Unity", "Godot") var engine: String = "Scratch"
 @export_enum("Complete", "In Progress", "Unfinished") var completion_status: String = "Complete"
 @export var tags: Array[StringName]
@@ -19,7 +19,7 @@ extends Resource
 
 @export_category("Meta")
 @export var executable_name: String
-@export var version_number := &"1.0"
+@export var version_number := &"1.0" ## The most recent version
 @export var has_discord_rpc := false
 @export var game_id: StringName
 
@@ -27,9 +27,10 @@ var icon: Texture2D
 var background: Texture2D
 var screenshots: Array[Texture2D]
 
-var is_outdated := false
+var installed_version: StringName ## The version currently installed
 var playtime_secs: float
 var favorited: bool
+
 
 static func to_dict(data: GameData) -> Dictionary:
 	var dict: Dictionary
@@ -83,6 +84,7 @@ static func from_dict(dict: Dictionary) -> GameData:
 	data.game_id = dict.get("game_id")
 	
 	return data
+
 
 static func secs_to_time_string(time_secs: float) -> String:
 	var secs := floori(time_secs)

@@ -176,6 +176,19 @@ theme_override_font_sizes/font_size = 25
 text = "Install"
 icon = ExtResource("2_q68mp")
 
+[node name="UpdateButton" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/h_separation = 14
+theme_override_constants/icon_max_width = 40
+theme_override_font_sizes/font_size = 25
+text = "Update"
+icon = ExtResource("2_q68mp")
+
 [node name="PlayButton" type="Button" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea"]
 unique_name_in_owner = true
 visible = false
@@ -653,6 +666,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.49803922)
 
 [connection signal="pressed" from="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea/InstallButton" to="." method="install_selected_game"]
+[connection signal="pressed" from="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea/UpdateButton" to="." method="install_selected_game"]
 [connection signal="pressed" from="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea/PlayButton" to="." method="launch_selected_game"]
 [connection signal="pressed" from="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea/StopButton" to="." method="stop_selected_game"]
 [connection signal="toggled" from="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/RightAlign/FavoriteButton" to="." method="set_selected_favorite"]

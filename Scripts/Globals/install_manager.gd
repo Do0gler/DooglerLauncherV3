@@ -26,6 +26,9 @@ func install_game(game: GameData) -> void:
 		push_error("Failed to download ", game.game_name)
 	else:
 		_extract_zip_file(temp_file, get_game_install_dir_path(game))
+		
+		game.installed_version = game.version_number
+		CacheManager.set_game_cache_entry(game_id, "installed_version", game.version_number)
 	
 	current_http.queue_free()
 	current_http = null

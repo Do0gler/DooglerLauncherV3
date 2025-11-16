@@ -72,7 +72,10 @@ func display_game(game: GameData) -> void:
 	%DateLabel.text = _format_game_info("Date", game.creation_date)
 	%EngineLabel.text = _format_game_info("Engine", game.engine)
 	%SizeLabel.text = _format_game_info("File Size", str(game.file_size_mb) + "MB")
-	%VersionLabel.text = _format_game_info("Version", game.version_number)
+	if game.installed_version:
+		%VersionLabel.text = _format_game_info("Version", game.installed_version)
+	else:
+		%VersionLabel.text = _format_game_info("Version", game.version_number)
 	%FavoriteButton.set_pressed_no_signal(game.favorited)
 	
 	if InstallManager.game_is_installed(game):
@@ -111,6 +114,7 @@ func show_game_button(button_to_show: Control) -> void:
 	%InstallButton.hide()
 	%PlayButton.hide()
 	%StopButton.hide()
+	%UpdateButton.hide()
 	button_to_show.show()
 
 

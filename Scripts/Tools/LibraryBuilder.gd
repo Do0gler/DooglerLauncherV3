@@ -22,4 +22,4 @@ func _run() -> void:
 	var file = FileAccess.open("user://game_data.txt", FileAccess.WRITE)
 	file.store_string(JSON.stringify(dict))
 	file.close()
-	print("Saved version data file to ", file.get_path_absolute())
+	print("Saved library data file to ", file.get_path_absolute())

@@ -254,8 +254,8 @@ func setup_game_data(game_data: GameData):
 	
 	if game_cache.has("file_size_mb"):
 		game_data.file_size_mb = game_cache.get("file_size_mb")
-	if game_cache.has("version"):
-		game_data.version_number = game_cache.get("version")
+	if game_cache.has("installed_version"):
+		game_data.installed_version = game_cache.get("installed_version")
 
 
 ## Sets a value in the game data cache
