@@ -37,4 +37,3 @@ func _on_subitem_selected(index):
 			Updater.auto_check_updates = item_toggle
 		1:
 			pass # TODO: Apply settings 
-	SettingsManager.save_settings()
