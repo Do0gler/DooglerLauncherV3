@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://p3agdedeksg6"]
+
+[ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_b2ahc"]
+
+[resource]
+script = ExtResource("1_b2ahc")
+game_name = "Viral Tweet Generator"
+description = "Nowadays twitter is nothing but useless ragebait takes, so here you go!
+Generate as many horrible takes as you want with the click of a button.
+
+You can also press the arrows to change the tweet template."
+creation_date = "12/20/2024"
+engine = "Godot"
+tags = Array[StringName]([&"Software"])
+file_size_mb = 81.4
+download_url = "http://dl.dropboxusercontent.com/scl/fi/kni0o6sbpe457z4yz7vet/ViralTweetGen.zip?rlkey=bcvaag2r0ix9g8bm2ovk82j8d&st=536c38nd&dl=0"
+executable_name = "ViralTweetGen.exe"
+game_id = &"viral_tweet_gen"
+metadata/_custom_type_script = "uid://pvwka1k7cgdq"

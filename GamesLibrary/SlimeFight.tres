@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://b16myrfcnnwjn"]
+
+[ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_bavr2"]
+
+[resource]
+script = ExtResource("1_bavr2")
+game_name = "Slime Fight!"
+description = "==Controls==
+A and D to move
+Spacebar to Jump 
+Click to attack (The attack aim to where you are pointing)
+========================================
+P.S -  The slime makes the ground unsafe when he lands from his high jump attack "
+creation_date = "01/20/2021"
+tags = Array[StringName]([&"Boss Fight"])
+file_size_mb = 2.21
+download_url = "http://dl.dropboxusercontent.com/scl/fi/4knk187r4sx38sv4adjfm/SlimeFight.zip?rlkey=xg4bb48ce9e05ukhu93de42qf&st=kq4d6u6o&dl=0"
+api_icon_name = "slimefight"
+executable_name = "Slime Fight!.html"
+game_id = &"slime_fight"
+metadata/_custom_type_script = "uid://pvwka1k7cgdq"

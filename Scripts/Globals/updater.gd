@@ -1,6 +1,6 @@
 extends Node
 
-const GAME_DATA_URL := "https://dl.dropboxusercontent.com/scl/fi/q0ykfdpvctlnqay74tq7b/game_data.txt?rlkey=v251aubgcgj98y8nmglq83jr3&st=oy1nk5mr&dl=0"
+const GAME_DATA_URL := "http://dl.dropboxusercontent.com/scl/fi/10bsi2vu02hzf4fuxs97r/game_library.json?rlkey=xpo7siox1tkczw6k76li3m9eu&st=y9jj507c&dl=0"
 var auto_check_updates := false
 
 func _on_settings_loaded():

@@ -14,8 +14,8 @@ To get gas you have to collect the gas canisters"
 creation_date = "02/25/2020"
 tags = Array[StringName]([&"Arcade"])
 file_size_mb = 7.11
-download_url = "http://dl.dropboxusercontent.com/scl/fi/sj1b6hh89vvbrur7tx7zq/Drive-Zombie.html?rlkey=sinx6qb7f2nniw46x72lvk0zp&dl=0"
+download_url = "http://dl.dropboxusercontent.com/scl/fi/3ersdoal8zs51bb4oz7pk/DriveZombie.zip?rlkey=7tldccgto8sxy44s6qr7p2791&st=2gas6um7&dl=0"
 api_icon_name = "drivezombie"
-executable_name = "Drive-Zombie.html"
+executable_name = "Drive! Zombie.html"
 game_id = &"drive_zombie"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

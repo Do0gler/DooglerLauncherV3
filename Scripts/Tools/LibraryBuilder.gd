@@ -19,7 +19,7 @@ func _run() -> void:
 	else:
 		print("Error: ", error_string(DirAccess.get_open_error()))
 	
-	var file = FileAccess.open("user://game_data.txt", FileAccess.WRITE)
-	file.store_string(JSON.stringify(dict))
+	var file = FileAccess.open("user://game_library.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(dict, "\t"))
 	file.close()
 	print("Saved library data file to ", file.get_path_absolute())

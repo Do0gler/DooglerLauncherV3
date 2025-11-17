@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://curyycaxtssop"]
+
+[ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_wll1j"]
+
+[resource]
+script = ExtResource("1_wll1j")
+game_name = "Rocket Fast"
+description = "Controls
+
+Use LEFT and RIGHT to turn the rocket
+
+Use UP to boost
+
+Use DOWN to do the minor boost (if bought first)
+
+Goal
+
+    Go towards the arrow to pick up/deliver the package
+    Avoid the walls
+    Use the money from successful deliveries to buy upgrades and repairs
+"
+creation_date = "02/09/2023"
+engine = "Unity"
+tags = Array[StringName]([&"Arcade", &"Delivery"])
+file_size_mb = 30.31
+download_url = "http://dl.dropboxusercontent.com/scl/fi/8skikzqoe5ju35hknll52/RocketFast.zip?rlkey=31ps66q1qht87erforozmlfh5&st=ub1f7673&dl=0"
+api_icon_name = "rocketfast"
+executable_name = "RocketFast.exe"
+game_id = &"rocket_fast"
+metadata/_custom_type_script = "uid://pvwka1k7cgdq"

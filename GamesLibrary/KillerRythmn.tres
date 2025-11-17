@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://dpsvq0wyt6ejr"]
+
+[ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_5svhh"]
+
+[resource]
+script = ExtResource("1_5svhh")
+game_name = "Killer Rythmn!"
+description = "=====CONTROLS=====
+WASD or Arrow Keys (or both if ur cool)
+Space to Confirm/Press
+=====OTHER=====
+Mobile mode is kinda broken"
+creation_date = "11/15/2021"
+completion_status = "Unfinished"
+tags = Array[StringName]([&"Rythmn", &"Unfinished"])
+file_size_mb = 7.79
+download_url = "http://dl.dropboxusercontent.com/scl/fi/hkfjus931bj7rw4ljykq0/KillerRythmn.zip?rlkey=x0maqy64lo5nia38q0ec7jav4&st=0oqays1t&dl=0"
+api_icon_name = "killerrythmn"
+executable_name = "Killer Rythmn!.html"
+game_id = &"killer_rythmn"
+metadata/_custom_type_script = "uid://pvwka1k7cgdq"

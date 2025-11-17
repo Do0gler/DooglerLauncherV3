@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://bbdwalg5nf4ky"]
+
+[ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_8t0ox"]
+
+[resource]
+script = ExtResource("1_8t0ox")
+game_name = "O.A.F"
+description = "WASD To Move/control UI
+
+Space or Shift to move slowly
+
+Space or Enter to confirm menu options"
+creation_date = "09/25/2023"
+engine = "Godot"
+tags = Array[StringName]([&"Arcade", &"Retro"])
+file_size_mb = 68.93
+download_url = "http://dl.dropboxusercontent.com/scl/fi/y0hun9h0li1isj21b9jt3/OAF.zip?rlkey=h2kkf6tg8by82qade7wpspf6h&st=ng13z6mo&dl=0"
+api_icon_name = "oaf"
+executable_name = "OAF.exe"
+game_id = &"oaf"
+metadata/_custom_type_script = "uid://pvwka1k7cgdq"

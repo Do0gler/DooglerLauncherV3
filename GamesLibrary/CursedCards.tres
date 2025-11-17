@@ -17,7 +17,7 @@ engine = "Godot"
 completion_status = "Unfinished"
 tags = Array[StringName]([&"Multiplayer", &"Pixel Art", &"1-Bit", &"Card Battler"])
 file_size_mb = 66.55
-download_url = "http://dl.dropboxusercontent.com/scl/fi/9fi8l0389oujiuctabj0g/CursedCardsV1.zip?rlkey=3d7415iznusjn32sp9o0jxe8o&st=i8qjkgzs&dl=0"
+download_url = "http://dl.dropboxusercontent.com/scl/fi/gysk4ofhf6mph386o554c/CursedCards.zip?rlkey=pt1pbo51tdr1apju9l88qt62f&st=5ddvyww7&dl=0"
 api_icon_name = "cursedcards"
 executable_name = "CursedCards.exe"
 version_number = &"1.3.3"

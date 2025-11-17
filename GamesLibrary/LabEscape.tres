@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://de1yojxjp88lm"]
+
+[ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_htroo"]
+
+[resource]
+script = ExtResource("1_htroo")
+game_name = "Lab Escape"
+description = "Unfinished platformer
+===================
+Arrow Keys to move"
+creation_date = "12/06/2021"
+completion_status = "Unfinished"
+tags = Array[StringName]([&"Platformer", &"Speedrunning"])
+file_size_mb = 2.65
+download_url = "http://dl.dropboxusercontent.com/scl/fi/dhsp0q9jra94m7x3crb2d/LabEscape.zip?rlkey=pp2qqa8gt76m0io1kz2rum0af&st=x1k7zwjw&dl=0"
+api_icon_name = "labescape"
+executable_name = "Lab Escape.html"
+game_id = &"lab_escape"
+metadata/_custom_type_script = "uid://pvwka1k7cgdq"

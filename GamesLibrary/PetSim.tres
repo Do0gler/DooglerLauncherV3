@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://c3l7veju6dtlh"]
+
+[ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_brwmi"]
+
+[resource]
+script = ExtResource("1_brwmi")
+game_name = "Pet Simulator"
+description = "Unfinished pet simulator"
+creation_date = "02/16/2023"
+engine = "Unity"
+completion_status = "Unfinished"
+tags = Array[StringName]([&"Pet Simulator", &"Clicker", &"Pixel Art"])
+file_size_mb = 28.81
+download_url = "http://dl.dropboxusercontent.com/scl/fi/4kpxim9pbg3soqolo0kdr/PetSim.zip?rlkey=qkpl8kb2o52o05617xtqxc23v&st=51fhifa1&dl=0"
+api_icon_name = "petgame"
+executable_name = "PetSim.exe"
+game_id = &"pet_sim"
+metadata/_custom_type_script = "uid://pvwka1k7cgdq"

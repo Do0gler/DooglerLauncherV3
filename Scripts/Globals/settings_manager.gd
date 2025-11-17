@@ -3,7 +3,7 @@ extends Node
 signal settings_loaded
 
 const SETTINGS_FILE_PATH = "user://settings.cfg"
-const GAME_LIBRARY_PATH := "user://game_data.txt"
+const GAME_LIBRARY_PATH := "user://game_library.json"
 var manager: Manager
 var ui_manager: UIManager
 

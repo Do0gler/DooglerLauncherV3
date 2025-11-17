@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://bo1ps3itsawjn"]
+
+[ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_03erv"]
+
+[resource]
+script = ExtResource("1_03erv")
+game_name = "Robo Rap Battle"
+description = "--Controls--
+WASD or Arrow Keys (or both)
+Space to Confirm/Press"
+creation_date = "04/07/2021"
+tags = Array[StringName]([&"Rythmn"])
+file_size_mb = 14.87
+download_url = "http://dl.dropboxusercontent.com/scl/fi/658iv4mry3gtglgeca8we/RoboRapBattle.zip?rlkey=cg64u3y2j1dnlhhukt06hpuqv&st=opsqymgc&dl=0"
+api_icon_name = "roborapbattle"
+executable_name = "RoboRapBattle.html"
+game_id = &"robo_rap_battle"
+metadata/_custom_type_script = "uid://pvwka1k7cgdq"

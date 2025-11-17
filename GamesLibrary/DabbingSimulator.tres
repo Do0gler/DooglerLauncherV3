@@ -14,7 +14,7 @@ Sometimes packages appear, click them to gain 100 pts!
 creation_date = "02/13/2020"
 tags = Array[StringName]([&"Idle", &"Clicker"])
 file_size_mb = 13.56
-download_url = "http://dl.dropboxusercontent.com/scl/fi/5ywb3xvwoh996rnvvqubx/Dabbing-simulator-20XX.html?rlkey=yp6yzxdc6m1xx64ijxj6vu9d3&dl=0"
-executable_name = "DabbingSimulator20XX.html"
+download_url = "http://dl.dropboxusercontent.com/scl/fi/7x0ihzvn64pjb2rkqylu0/DabbingSimulator.zip?rlkey=8fr0jic6hs81uk5coyhbbdc76&st=n85qbftf&dl=0"
+executable_name = "Dabbing Simulator 20XX.html"
 game_id = &"dabbing_sim"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://cfl8nug32ferc"]
+
+[ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_hd7kf"]
+
+[resource]
+script = ExtResource("1_hd7kf")
+game_name = "Robo Escape"
+description = "A remake of Fall Spy
+=Controls=
+A & D to move
+Spacebar or W to jump
+Arrow Keys for directional boosting
+Q to pause"
+creation_date = "11/29/2022"
+engine = "Unity"
+tags = Array[StringName]([&"Remake", &"Platformer", &"Speedrunning"])
+file_size_mb = 34.91
+download_url = "http://dl.dropboxusercontent.com/scl/fi/rmd3z3xf0mpz6b9kbcldj/RoboEscape.zip?rlkey=mqh61vmgsgmaz5j0xucdnqwur&st=yxexnou1&dl=0"
+api_icon_name = "roboescapeicon"
+executable_name = "FallSpyRemake.exe"
+game_id = &"robo_escape"
+metadata/_custom_type_script = "uid://pvwka1k7cgdq"

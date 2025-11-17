@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://bqwr1ebt2wjlt"]
+
+[ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_roleg"]
+
+[resource]
+script = ExtResource("1_roleg")
+game_name = "Mighty Space Ranger"
+description = "-Controls-
+Press Spacebar To Shoot
+Arrow Keys to Move
+=========================================
+U.F.O Destroyed: +100 Score
+Shooting U.F.O Destroyed: +200 Score
+U.F.O Escapes: -200 Score
+Take Damage: -50 Score
+=========================================
+There is no end, just get the highest score possible."
+creation_date = "12/08/2020"
+tags = Array[StringName]([&"Side Scroller", &"Arcade"])
+file_size_mb = 2.29
+download_url = "http://dl.dropboxusercontent.com/scl/fi/ipbsr7jifoabuwshjfwqx/MightySpaceRanger.zip?rlkey=82phqmhox4dgccdlkr5mymykm&st=n7o04aa8&dl=0"
+api_icon_name = "mightyspaceranger"
+executable_name = "Mighty Space Ranger.html"
+game_id = &"mighty_space_ranger"
+metadata/_custom_type_script = "uid://pvwka1k7cgdq"

@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://dy3itgpajktlp"]
+
+[ext_resource type="Script" uid="uid://pvwka1k7cgdq" path="res://Scripts/Resources/game_data.gd" id="1_7vhr3"]
+
+[resource]
+script = ExtResource("1_7vhr3")
+game_name = "Text Console"
+description = "-Type whatever in the console-
+If you press up arrow while not typing it inputs your last command
+-list of commands-
+/execute_bb - starts a game of brick breaker
+/end_bb - ends a game of brick breaker
+/var - Shows all variables
+/varoff - Hides All Variables
+/clear - Clears all text
+/Random10 - shows a random number from 1 to 10
+/Random100 - shows a random number from 1 to 100
+/Random1000 shows a random number from 1 to 1000
+(+1 Secret Command)
+-----------------------------------------------
+If you input an unidentified key it will output as an underscore"
+creation_date = "01/05/2021"
+tags = Array[StringName]([&"Experiment", &"Sandbox"])
+file_size_mb = 2.49
+download_url = "http://dl.dropboxusercontent.com/scl/fi/jzj6eb6vmv7wn8grpqr0z/TextConsole.zip?rlkey=u9b1i8iwdvu6kyse04cubxcmz&st=9g6k1iuf&dl=0"
+api_icon_name = "textconsole"
+executable_name = "Text Console.html"
+game_id = &"text_console"
+metadata/_custom_type_script = "uid://pvwka1k7cgdq"
