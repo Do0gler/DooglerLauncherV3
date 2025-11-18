@@ -30,6 +30,8 @@ var screenshots: Array[Texture2D]
 var installed_version: StringName ## The version currently installed
 var playtime_secs: float
 var favorited: bool
+var outdated: bool
+var game_panel: GamePanel
 
 
 static func to_dict(data: GameData) -> Dictionary:

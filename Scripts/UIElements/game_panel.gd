@@ -12,6 +12,7 @@ func set_button_group(button_group: ButtonGroup) -> void:
 func update_visuals() -> void:
 	%NameLabel.text = game_data.game_name
 	%Icon.texture = game_data.icon
+	%UpdateIndicator.visible = game_data.outdated
 
 func _on_pressed():
 	SettingsManager.manager.select_game(game_data)

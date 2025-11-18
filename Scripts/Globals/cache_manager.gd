@@ -256,6 +256,9 @@ func setup_game_data(game_data: GameData):
 		game_data.file_size_mb = game_cache.get("file_size_mb")
 	if game_cache.has("installed_version"):
 		game_data.installed_version = game_cache.get("installed_version")
+		game_data.outdated = game_data.installed_version != game_data.version_number
+	else:
+		game_data.outdated = false
 
 
 ## Sets a value in the game data cache
@@ -277,6 +280,16 @@ func get_game_cache_entry(game_id: String, key: Variant, default: Variant = null
 	var game_cache: Dictionary = game_data_cache_index.get(game_id)
 	
 	return game_cache.get(key, default)
+
+
+## Erases a key value pair in the game data cache
+func erase_game_cache_entry(game_id: String, key: Variant) -> void:
+	if not game_data_cache_index.has(game_id):
+		return
+	
+	var game_cache: Dictionary = game_data_cache_index.get(game_id)
+	game_cache.erase(key)
+	save_game_data_cache_index()
 
 
 ## Clear image cache data and delete cached images for a game

@@ -37,6 +37,10 @@ func install_game(game: GameData) -> void:
 
 ## Uninstalls a game
 func uninstall_game(game: GameData) -> void:
+	CacheManager.erase_game_cache_entry(game.game_id, "installed_version")
+	game.outdated = false
+	game.game_panel.update_visuals()
+	
 	var path = get_game_install_dir_path(game)
 	_recursive_delete_game(path)
 

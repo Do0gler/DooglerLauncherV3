@@ -46,15 +46,17 @@ func display_games_list() -> void:
 		games_vbox.add_child(new_list)
 		new_list.list_name = category
 		for game: GameData in organized_games.get(category):
+			game.game_panel = null
 			# If not relevant, don't show
 			if not relevant_games.has(game.game_id):
 				continue
 			
-			var new_GAME_PANEL: GamePanel = GAME_PANEL.instantiate()
-			new_GAME_PANEL.game_data = game
-			new_GAME_PANEL.set_button_group(button_group)
-			new_GAME_PANEL.update_visuals()
-			new_list.add_item(new_GAME_PANEL)
+			var new_game_panel: GamePanel = GAME_PANEL.instantiate()
+			new_game_panel.game_data = game
+			new_game_panel.set_button_group(button_group)
+			new_game_panel.update_visuals()
+			game.game_panel = new_game_panel
+			new_list.add_item(new_game_panel)
 		new_list.call_deferred("update_visuals") # wait for list items to be positioned
 
 
