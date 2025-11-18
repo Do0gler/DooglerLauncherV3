@@ -118,6 +118,15 @@ func display_game(game: GameData) -> void:
 	game_displayed.emit(game)
 
 
+## Update a games visuals in it's panel and main display if possible
+func update_game_visuals(game: GameData) -> void:
+	if game.game_panel:
+		game.game_panel.update_visuals()
+	
+	if SettingsManager.manager.selected_game == game:
+		display_game(game)
+
+
 ## Shows one of the main buttons in the game display
 func show_game_button(button_to_show: Control) -> void:
 	%InstallButton.hide()

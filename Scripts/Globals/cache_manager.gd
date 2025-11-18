@@ -114,6 +114,7 @@ func get_image_path(game_id: String, image_type: String) -> String:
 	# Not found anywhere - return empty string
 	return ""
 
+
 ## Download an image and add it to image cache
 func download_image(game_id: String, image_type: String, url: String) -> String:
 	var local_path = IMAGE_CACHE_DIR + game_id + "_" + image_type + ".png"
@@ -161,6 +162,7 @@ func download_image(game_id: String, image_type: String, url: String) -> String:
 		print("Download failed with code: ", response_code)
 		return ""
 
+
 ## Check if an image exists (without downloading)
 func has_image(game_id: String, image_type: String) -> bool:
 	var path = get_image_path(game_id, image_type)
@@ -201,12 +203,14 @@ func get_all_screenshots(game_id: String) -> Array[Texture2D]:
 	
 	return screenshots
 
+
 ## Count how many screenshots exist for a game
 func get_screenshot_count(game_id: String) -> int:
 	var count = 0
 	while has_image(game_id, "screenshot_%d" % count):
 		count += 1
 	return count
+
 
 ## Prefetch images for a game
 func prefetch_game_images(game_data: GameData) -> void:

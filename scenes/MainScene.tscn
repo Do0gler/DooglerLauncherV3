@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bt70ivt15wxlq"]
+[gd_scene load_steps=22 format=3 uid="uid://bt70ivt15wxlq"]
 
 [ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://Scripts/manager.gd" id="1_y4jh7"]
 [ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="2_q68mp"]
@@ -50,8 +50,6 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6t1o7"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5qxwa"]
 
 [node name="Manager" type="Control"]
 layout_mode = 3
@@ -672,7 +670,6 @@ text = ">"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5qxwa")
 text = "<"
 
 [node name="LoadingScreen" type="ColorRect" parent="."]

@@ -14,6 +14,9 @@ engine = "Godot"
 tags = Array[StringName]([&"Software"])
 file_size_mb = 81.4
 download_url = "http://dl.dropboxusercontent.com/scl/fi/kni0o6sbpe457z4yz7vet/ViralTweetGen.zip?rlkey=bcvaag2r0ix9g8bm2ovk82j8d&st=536c38nd&dl=0"
+background_url = "http://dl.dropboxusercontent.com/scl/fi/rt2k1efijc3k2xs7phpe3/background.png?rlkey=bb091qidpv7iowg8y05n0hm2v&st=9a4o2hih&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/uxnxony68ww593kh5qoh1/icon.png?rlkey=cy50k8prm0tpuxk00ekcsi2oy&st=gtzjm68m&dl=0"
+screenshot_urls = Array[String](["http://dl.dropboxusercontent.com/scl/fi/mx5hf07hbwi42doi3ylhn/screenshot_0.png?rlkey=96xo4b0m8rgkh6x5ct6mlt6bn&st=zyk7rsi2&dl=0", "http://dl.dropboxusercontent.com/scl/fi/qhr0ycuswyg8pf6td4kqj/screenshot_1.png?rlkey=re6l673iq6apsk0h8p77g7of9&st=22xcb72k&dl=0", "http://dl.dropboxusercontent.com/scl/fi/nhlrc3xvakdph5nlpcvha/screenshot_2.png?rlkey=o2d36lvwwoiau1cbsm3brry5j&st=4vul16cy&dl=0"])
 executable_name = "ViralTweetGen.exe"
 game_id = &"viral_tweet_gen"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

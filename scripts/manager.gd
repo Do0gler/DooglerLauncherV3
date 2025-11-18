@@ -2,6 +2,9 @@ class_name Manager
 extends Control
 
 const GAME_DATA_DIR = "res://GamesLibrary"
+const PLACEHOLDER_ICON = preload("uid://civsuy21pbsgd")
+const PLACEHOLDER_BG = preload("uid://civsuy21pbsgd")
+
 var games_library: Array[GameData]
 var selected_game: GameData
 var can_switch_games := true
@@ -35,20 +38,57 @@ func get_library() -> void:
 	
 	library_file.close()
 	
-	await process_games()
-	# TODO: Make games display instantly instead of waiting for images (use placeholder)
+	setup_game_placeholders()
+	
 	%UIManager.relevant_games = GameOrganizer.search_games("") # Initialize relevant games
 	%UIManager.display_games_list()
+	
+	# Load images in background
+	process_games_async()
 
 
-## Populate games with cached data
-func process_games() -> void:
+## Setup games with placeholder images initially
+func setup_game_placeholders() -> void:
 	for game in games_library:
 		CacheManager.setup_game_data(game)
-		await CacheManager.prefetch_game_images(game)
-		game.background = CacheManager.load_image_texture(game.game_id, "background")
-		game.icon = CacheManager.load_image_texture(game.game_id, "icon")
+		
+		# Check if images exist in cache or bundled, else use placeholder
+		var cached_icon = CacheManager.load_image_texture(game.game_id, "icon")
+		var cached_background = CacheManager.load_image_texture(game.game_id, "background")
+		
+		game.icon = cached_icon if cached_icon else PLACEHOLDER_ICON
+		game.background = cached_background if cached_background else PLACEHOLDER_BG
 		game.screenshots = CacheManager.get_all_screenshots(game.game_id)
+
+
+## Process games in the background, updates UI when images downloaded
+func process_games_async() -> void:
+	for game in games_library:
+		await CacheManager.prefetch_game_images(game)
+		
+		# Load the actual images after download
+		var new_background = CacheManager.load_image_texture(game.game_id, "background")
+		var new_icon = CacheManager.load_image_texture(game.game_id, "icon")
+		var new_screenshots = CacheManager.get_all_screenshots(game.game_id)
+		
+		# Update game data if new images were loaded
+		var needs_update = false
+		
+		if new_background and game.background != new_background:
+			game.background = new_background
+			needs_update = true
+		
+		if new_icon and game.icon != new_icon:
+			game.icon = new_icon
+			needs_update = true
+		
+		if not new_screenshots.is_empty() and new_screenshots != game.screenshots:
+			game.screenshots = new_screenshots
+			needs_update = true
+		
+		# Update UI for this specific game
+		if needs_update:
+			%UIManager.update_game_visuals(game)
 
 
 ## Returns the default built-in library
