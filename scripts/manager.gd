@@ -130,7 +130,7 @@ func install_selected_game() -> void:
 	await InstallManager.install_game(selected_game)
 	can_switch_games = true
 	%UIManager.set_game_display_installed()
-	%UIManager.display_game(selected_game)
+	%UIManager.update_game_visuals(selected_game)
 
 
 ## Uninstalls the selected game
@@ -139,7 +139,7 @@ func uninstall_selected_game() -> void:
 		return
 	
 	InstallManager.uninstall_game(selected_game)
-	%UIManager.display_game(selected_game)
+	%UIManager.update_game_visuals(selected_game)
 
 
 ## Updates the selected game
