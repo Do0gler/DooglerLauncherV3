@@ -106,12 +106,14 @@ func display_game(game: GameData) -> void:
 	screenshots_panel.visible = not game.screenshots.is_empty()
 	screenshots_panel.clear_items()
 	
+	var index := 0
 	for screenshot in game.screenshots:
 		var new_screenshot: Screenshot = SCREENSHOT_PANEL.instantiate()
 		new_screenshot.set_screenshot(screenshot)
-		new_screenshot.connect_button(%ScreenshotViewer.open_screenshot.bind(screenshot))
+		new_screenshot.connect_button(%ScreenshotViewer.open_screenshot.bindv([game.screenshots, index]))
 		
 		screenshots_panel.add_item(new_screenshot)
+		index += 1
 	
 	game_displayed.emit(game)
 

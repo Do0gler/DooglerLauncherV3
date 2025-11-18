@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bt70ivt15wxlq"]
+[gd_scene load_steps=23 format=3 uid="uid://bt70ivt15wxlq"]
 
 [ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://Scripts/manager.gd" id="1_y4jh7"]
 [ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="2_q68mp"]
@@ -48,6 +48,10 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6t1o7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5qxwa"]
 
 [node name="Manager" type="Control"]
 layout_mode = 3
@@ -651,10 +655,25 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_6t1o7")
 
 [node name="ScreenshotTex" type="TextureRect" parent="ScreenshotViewer/VBoxContainer/ScreenshotContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("2_q68mp")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="NextScreenshotButton" type="Button" parent="ScreenshotViewer/VBoxContainer/ScreenshotContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6t1o7")
+text = ">"
+
+[node name="PrevScreenshotButton" type="Button" parent="ScreenshotViewer/VBoxContainer/ScreenshotContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5qxwa")
+text = "<"
 
 [node name="LoadingScreen" type="ColorRect" parent="."]
 unique_name_in_owner = true
