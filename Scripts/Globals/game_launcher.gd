@@ -9,9 +9,7 @@ var game_start_time := 0.0
 func _process(_delta: float) -> void:
 	if launched_game != null: # A game is currently running
 		if not OS.is_process_running(current_game_pid):
-			_record_play_session()
-			current_game_pid = 0
-			launched_game = null
+			_handle_game_stop()
 			SettingsManager.ui_manager.display_game(SettingsManager.manager.selected_game)
 
 
@@ -26,6 +24,9 @@ func launch_game(game: GameData) -> void:
 		if error == OK:
 			launched_game = game
 			game_start_time = Time.get_unix_time_from_system()
+			
+			launched_game.launched = true
+			launched_game.game_panel.update_visuals()
 		else:
 			push_error("Failed to launch " + game.game_name)
 	else: # Game file is HTML
@@ -40,9 +41,15 @@ func stop_current_game() -> void:
 	
 	var error := OS.kill(current_game_pid)
 	if error == OK:
-		_record_play_session()
-		current_game_pid = 0
-		launched_game = null
+		_handle_game_stop()
+
+
+func _handle_game_stop() -> void:
+	_record_play_session()
+	current_game_pid = 0
+	launched_game.launched = false
+	launched_game.game_panel.update_visuals()
+	launched_game = null
 
 
 func _launch_exe(path: String) -> Error:

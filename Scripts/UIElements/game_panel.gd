@@ -10,7 +10,8 @@ func set_button_group(button_group: ButtonGroup) -> void:
 	%Button.button_group = button_group
 
 func update_visuals() -> void:
-	%NameLabel.text = game_data.game_name
+	var running_text = "[color=green]%s - Running[/color]" % game_data.game_name
+	%NameLabel.text = running_text if game_data.launched else game_data.game_name
 	%Icon.texture = game_data.icon
 	%UpdateIndicator.visible = game_data.outdated
 

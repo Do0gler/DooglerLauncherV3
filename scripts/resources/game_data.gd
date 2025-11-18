@@ -31,6 +31,7 @@ var installed_version: StringName ## The version currently installed
 var playtime_secs: float
 var favorited: bool
 var outdated: bool
+var launched: bool
 var game_panel: GamePanel
 
 
