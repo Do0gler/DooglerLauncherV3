@@ -45,6 +45,12 @@ func uninstall_game(game: GameData) -> void:
 	_recursive_delete_game(path)
 
 
+## Updates a game by uninstalling then re-installing
+func update_game(game: GameData) -> void:
+	uninstall_game(game)
+	await install_game(game)
+
+
 ## Calculates the install progress of the current http request
 func calculate_install_progress(game: GameData = null) -> int:
 	if current_http == null:

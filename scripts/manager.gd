@@ -92,19 +92,42 @@ func install_selected_game() -> void:
 	%UIManager.set_game_display_installed()
 	%UIManager.display_game(selected_game)
 
+
 ## Uninstalls the selected game
 func uninstall_selected_game() -> void:
+	if selected_game == null and InstallManager.game_is_installed(selected_game):
+		return
+	
 	InstallManager.uninstall_game(selected_game)
+	%UIManager.display_game(selected_game)
+
+
+## Updates the selected game
+func update_selected_game() -> void:
+	if selected_game == null and InstallManager.game_is_installed(selected_game):
+		return
+	
+	can_switch_games = false
+	%UIManager.set_game_display_installing()
+	await InstallManager.update_game(selected_game)
+	can_switch_games = true
+	%UIManager.set_game_display_installed()
 	%UIManager.display_game(selected_game)
 
 
 ## Launches the current game
 func launch_selected_game() -> void:
+	if selected_game == null:
+		return
+	
 	GameLauncher.launch_game(selected_game)
 	%UIManager.display_game(selected_game)
 
 
 ## Stops the current game
 func stop_selected_game() -> void:
+	if selected_game == null:
+		return
+	
 	GameLauncher.stop_current_game()
 	%UIManager.display_game(selected_game)

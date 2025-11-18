@@ -84,8 +84,10 @@ func display_game(game: GameData) -> void:
 	%FavoriteButton.set_pressed_no_signal(game.favorited)
 	
 	if InstallManager.game_is_installed(game):
-		if GameLauncher.launched_game and GameLauncher.launched_game.game_id == game.game_id:
+		if game.launched:
 			show_game_button(%StopButton)
+		elif game.outdated:
+			show_game_button(%UpdateButton)
 		else:
 			show_game_button(%PlayButton)
 	else:
