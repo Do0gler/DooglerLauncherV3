@@ -42,8 +42,12 @@ func _on_item_selected(index: int) -> void:
 
 func _set_enabled_icon(enabled_id: int) -> void:
 	for i in range(menu_popup.item_count):
-		var icon_texture = enabled_icon if i == enabled_id else disabled_icon
-		menu_popup.set_item_icon(i, icon_texture)
+		if i == enabled_id:
+			menu_popup.set_item_icon(i, enabled_icon)
+			menu_popup.set_item_icon_modulate(i, Color.WHITE)
+		else:
+			menu_popup.set_item_icon(i, disabled_icon)
+			menu_popup.set_item_icon_modulate(i, Color("c3c3c3"))
 
 ## Updates the grouping button UI to reflect the given grouping state.
 func set_grouping_ui(grouping: String) -> void:

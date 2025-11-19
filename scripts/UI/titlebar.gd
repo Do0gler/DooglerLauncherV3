@@ -1,8 +1,12 @@
 extends Panel
 
+const WINDOW_ICON := preload("uid://o434he2amxw6")
+const FULLSCREEN_ICON := preload("uid://ck7qk62h6cr5y")
+
 var following = false
 var dragging_start_pos: Vector2
 @export var resize_controls: Node
+
 
 func _ready() -> void:
 	get_tree().set_auto_accept_quit(false)
@@ -43,9 +47,11 @@ func _on_windowed_button_pressed() -> void:
 	if get_window().mode == Window.MODE_WINDOWED:
 		get_window().mode = Window.MODE_FULLSCREEN
 		resize_controls.hide()
+		%WindowedButton.icon = WINDOW_ICON
 	else:
 		get_window().mode = Window.MODE_WINDOWED
 		resize_controls.show()
+		%WindowedButton.icon = FULLSCREEN_ICON
 
 
 func _on_minimize_button_pressed() -> void:

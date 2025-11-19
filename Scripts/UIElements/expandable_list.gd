@@ -1,8 +1,8 @@
 class_name ExpandableList
 extends VBoxContainer
 
-var disabled_icon := preload("res://icon.svg")
-var enabled_icon := preload("res://icon.svg")
+var disabled_icon := preload("uid://bkvsjbkmy76bp")
+var enabled_icon := preload("uid://b7a6f88ddh4sy")
 
 @onready var items_control := %ItemControl
 @onready var item_vbox := %ItemVBox
@@ -13,6 +13,7 @@ var number_of_items := 0
 
 func _ready() -> void:
 	head_button.toggled.connect(_on_toggled)
+	head_button.icon = enabled_icon
 
 func _on_toggled(toggle) -> void:
 	if number_of_items > 0:
