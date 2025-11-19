@@ -35,6 +35,10 @@ window/size/borderless=true
 
 enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg")
 
+[gui]
+
+theme/custom="uid://bltb3od3je021"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
