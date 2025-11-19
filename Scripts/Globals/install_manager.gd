@@ -2,16 +2,20 @@ extends Node
 
 var current_http: HTTPRequest
 
+## The game being downloaded, null if no game is being downloaded currently
+var game_being_downloaded: GameData
+
 
 ## Installs a game
 func install_game(game: GameData) -> void:
-	var game_id = game.game_id
+	var game_id := game.game_id
 	
 	current_http = HTTPRequest.new()
 	add_child(current_http)
 	
 	_ensure_game_folder(game_id)
 	
+	# Create temp file to srote downloaded data
 	var temp_file := FileAccess.create_temp(2, game_id,".zip")
 	if temp_file == null:
 		push_error("Could not create temp file while installing game")
@@ -20,8 +24,13 @@ func install_game(game: GameData) -> void:
 	current_http.download_file = temp_file.get_path_absolute()
 	var error := current_http.request(game.download_url)
 	
+	# Update UI
+	game_being_downloaded = game
+	SettingsManager.ui_manager.update_game_visuals(game)
+	
 	await current_http.request_completed
 	
+	# Extract game files from temp file
 	if error != OK:
 		push_error("Failed to download ", game.game_name)
 	else:
@@ -29,6 +38,10 @@ func install_game(game: GameData) -> void:
 		
 		game.installed_version = game.version_number
 		CacheManager.set_game_cache_entry(game_id, "installed_version", game.version_number)
+	
+	# Update UI
+	game_being_downloaded = null
+	SettingsManager.ui_manager.update_game_visuals(game)
 	
 	current_http.queue_free()
 	current_http = null

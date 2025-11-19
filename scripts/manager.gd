@@ -7,7 +7,6 @@ const PLACEHOLDER_BG = preload("uid://civsuy21pbsgd")
 
 var games_library: Array[GameData]
 var selected_game: GameData
-var can_switch_games := true
 
 
 func _ready() -> void:
@@ -18,9 +17,8 @@ func _ready() -> void:
 
 ## Selects and displays a game
 func select_game(game: GameData):
-	if can_switch_games:
-		selected_game = game
-		%UIManager.display_game(selected_game)
+	selected_game = game
+	%UIManager.display_game(selected_game)
 
 
 ## Readies the game library
@@ -125,12 +123,7 @@ func install_selected_game() -> void:
 	if selected_game == null:
 		return
 	
-	can_switch_games = false
-	%UIManager.set_game_display_installing()
 	await InstallManager.install_game(selected_game)
-	can_switch_games = true
-	%UIManager.set_game_display_installed()
-	%UIManager.update_game_visuals(selected_game)
 
 
 ## Uninstalls the selected game
@@ -147,11 +140,7 @@ func update_selected_game() -> void:
 	if selected_game == null and InstallManager.game_is_installed(selected_game):
 		return
 	
-	can_switch_games = false
-	%UIManager.set_game_display_installing()
 	await InstallManager.update_game(selected_game)
-	can_switch_games = true
-	%UIManager.set_game_display_installed()
 	%UIManager.display_game(selected_game)
 
 

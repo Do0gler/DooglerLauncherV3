@@ -10,14 +10,13 @@ const EXPANDABLE_LIST := preload("uid://o8e3ooq2lp0l")
 
 var settings_popup: PopupMenu
 var relevant_games: Dictionary
-var downloading := false
 
 @onready var loading_screen: Control = %LoadingScreen
 @onready var screenshot_popup = %ScreenshotViewer
 
 
 func _process(_delta: float) -> void:
-	if not downloading:
+	if not InstallManager.game_being_downloaded:
 		return
 	
 	var selected_game = SettingsManager.manager.selected_game
@@ -42,22 +41,35 @@ func display_games_list() -> void:
 	var button_group := ButtonGroup.new()
 	
 	for category in organized_games:
-		var new_list: ExpandableList = EXPANDABLE_LIST.instantiate()
-		games_vbox.add_child(new_list)
-		new_list.list_name = category
-		for game: GameData in organized_games.get(category):
-			game.game_panel = null
-			# If not relevant, don't show
-			if not relevant_games.has(game.game_id):
-				continue
-			
-			var new_game_panel: GamePanel = GAME_PANEL.instantiate()
-			new_game_panel.game_data = game
-			new_game_panel.set_button_group(button_group)
-			new_game_panel.update_visuals()
-			game.game_panel = new_game_panel
-			new_list.add_item(new_game_panel)
-		new_list.call_deferred("update_visuals") # wait for list items to be positioned
+		_create_category_list(category, organized_games.get(category), button_group)
+
+
+func _create_category_list(category_name: String, games: Array, button_group: ButtonGroup) -> void:
+	var new_list: ExpandableList = EXPANDABLE_LIST.instantiate()
+	%GamesVBox.add_child(new_list)
+	new_list.list_name = category_name
+	
+	_populate_category_with_games(new_list, games, button_group)
+	
+	new_list.call_deferred("update_visuals")
+
+
+func _populate_category_with_games(list: ExpandableList, games: Array, button_group: ButtonGroup) -> void:
+	for game: GameData in games:
+		game.game_panel = null
+		
+		if relevant_games.has(game.game_id):
+			var game_panel := _create_game_panel(game, button_group)
+			list.add_item(game_panel)
+
+
+func _create_game_panel(game: GameData, button_group: ButtonGroup) -> GamePanel:
+	var new_game_panel: GamePanel = GAME_PANEL.instantiate()
+	new_game_panel.game_data = game
+	new_game_panel.set_button_group(button_group)
+	new_game_panel.update_visuals()
+	game.game_panel = new_game_panel
+	return new_game_panel
 
 
 func _format_game_info(data_name: String, value: String) -> String:
@@ -66,33 +78,73 @@ func _format_game_info(data_name: String, value: String) -> String:
 
 ## Shows a game's info on the game display
 func display_game(game: GameData) -> void:
+	_update_game_header(game)
+	_update_game_details(game)
+	_update_game_action_buttons(game)
+	_update_game_tags(game)
+	_update_game_screenshots(game)
+	
+	game_displayed.emit(game)
+
+
+func _update_game_header(game: GameData) -> void:
 	%GameLogo.texture = game.icon
 	%GameBackground.texture = game.background
 	%GameNameLabel.text = game.game_name
-	if game.executable_name.get_extension() == "html":
-		%PlaytimeLabel.text = "N/A"
-	else:
-		%PlaytimeLabel.text = GameData.secs_to_time_string(game.playtime_secs)
+
+
+func _update_game_details(game: GameData) -> void:
+	_set_playtime_label(game)
 	%GameDescription.text = game.description
 	%DateLabel.text = _format_game_info("Date", game.creation_date)
 	%EngineLabel.text = _format_game_info("Engine", game.engine)
 	%SizeLabel.text = _format_game_info("File Size", str(game.file_size_mb) + "MB")
+	_set_version_label(game)
+	%FavoriteButton.set_pressed_no_signal(game.favorited)
+
+
+func _set_playtime_label(game: GameData) -> void:
+	if game.executable_name.get_extension() == "html":
+		%PlaytimeLabel.text = "N/A"
+	else:
+		%PlaytimeLabel.text = GameData.secs_to_time_string(game.playtime_secs)
+
+
+func _set_version_label(game: GameData) -> void:
 	if game.installed_version:
 		%VersionLabel.text = _format_game_info("Version", game.installed_version)
 	else:
 		%VersionLabel.text = _format_game_info("Version", game.version_number)
-	%FavoriteButton.set_pressed_no_signal(game.favorited)
-	
+
+
+func _update_game_action_buttons(game: GameData) -> void:
 	if InstallManager.game_is_installed(game):
-		if game.launched:
-			show_game_button(%StopButton)
-		elif game.outdated:
-			show_game_button(%UpdateButton)
-		else:
-			show_game_button(%PlayButton)
+		_handle_installed_game_buttons(game)
+	else: # Game is not installed
+		_handle_uninstalled_game_buttons(game)
+
+
+func _handle_installed_game_buttons(game: GameData) -> void:
+	if game.launched:
+		show_game_action_button(%StopButton)
+	elif game.outdated:
+		show_game_action_button(%UpdateButton)
 	else:
-		show_game_button(%InstallButton)
+		show_game_action_button(%PlayButton)
 	
+	%InstallButton.disabled = false
+	%InstallProgressArea.hide()
+
+
+func _handle_uninstalled_game_buttons(game: GameData) -> void:
+	show_game_action_button(%InstallButton)
+	
+	var is_downloading = game == InstallManager.game_being_downloaded
+	%InstallButton.disabled = is_downloading
+	%InstallProgressArea.visible = is_downloading
+
+
+func _update_game_tags(game: GameData) -> void:
 	var tags_panel: GameInfoPanel = %TagsPanel
 	tags_panel.visible = not game.tags.is_empty()
 	tags_panel.clear_items()
@@ -101,21 +153,19 @@ func display_game(game: GameData) -> void:
 		var new_tag: Tag = TAG_PANEL.instantiate()
 		new_tag.set_tag_name(tag)
 		tags_panel.add_item(new_tag)
-	
+
+
+func _update_game_screenshots(game: GameData) -> void:
 	var screenshots_panel: GameInfoPanel = %ScreenshotsPanel
 	screenshots_panel.visible = not game.screenshots.is_empty()
 	screenshots_panel.clear_items()
 	
-	var index := 0
-	for screenshot in game.screenshots:
+	for index in game.screenshots.size():
 		var new_screenshot: Screenshot = SCREENSHOT_PANEL.instantiate()
-		new_screenshot.set_screenshot(screenshot)
+		new_screenshot.set_screenshot(game.screenshots[index])
 		new_screenshot.connect_button(%ScreenshotViewer.open_screenshot.bindv([game.screenshots, index]))
 		
 		screenshots_panel.add_item(new_screenshot)
-		index += 1
-	
-	game_displayed.emit(game)
 
 
 ## Update a games visuals in it's panel and main display if possible
@@ -128,28 +178,13 @@ func update_game_visuals(game: GameData) -> void:
 
 
 ## Shows one of the main buttons in the game display
-func show_game_button(button_to_show: Control) -> void:
-	%InstallButton.hide()
-	%PlayButton.hide()
-	%StopButton.hide()
-	%UpdateButton.hide()
-	button_to_show.show()
-
-
-## Sets game display UI to it's installing mode
-func set_game_display_installing() -> void:
-	show_game_button(%InstallButton)
-	downloading = true
-	%InstallButton.disabled = true
-	%InstallProgressArea.show()
-
-
-## Sets game display UI to it's installed mode
-func set_game_display_installed() -> void:
-	show_game_button(%PlayButton)
-	downloading = false
-	%InstallButton.disabled = false
-	%InstallProgressArea.hide()
+func show_game_action_button(button_to_show: Control) -> void:
+	var action_buttons = [%InstallButton, %PlayButton, %StopButton, %UpdateButton]
+	for button: Control in action_buttons:
+		if button == button_to_show:
+			button.show()
+		else:
+			button.hide()
 
 
 ## Prompts the user for confirmation to uninstall the current game
