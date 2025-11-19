@@ -23,7 +23,8 @@ creation_date = "01/05/2021"
 tags = Array[StringName]([&"Experiment", &"Sandbox"])
 file_size_mb = 2.49
 download_url = "http://dl.dropboxusercontent.com/scl/fi/jzj6eb6vmv7wn8grpqr0z/TextConsole.zip?rlkey=u9b1i8iwdvu6kyse04cubxcmz&st=9g6k1iuf&dl=0"
-api_icon_name = "textconsole"
+background_url = "http://dl.dropboxusercontent.com/scl/fi/85wtfr7nh8889l4pygcp6/background.png?rlkey=rkv57yvsmspfqi86uu54bk3ns&st=10ym8hh5&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/nze9iau63sv7k9cgmkv3c/icon.png?rlkey=hxjwk07mz5eum94y8r7n8yfvh&st=miwzudtt&dl=0"
 executable_name = "Text Console.html"
 game_id = &"text_console"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

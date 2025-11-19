@@ -15,7 +15,8 @@ creation_date = "02/25/2020"
 tags = Array[StringName]([&"Arcade"])
 file_size_mb = 7.11
 download_url = "http://dl.dropboxusercontent.com/scl/fi/3ersdoal8zs51bb4oz7pk/DriveZombie.zip?rlkey=7tldccgto8sxy44s6qr7p2791&st=2gas6um7&dl=0"
-api_icon_name = "drivezombie"
+background_url = "http://dl.dropboxusercontent.com/scl/fi/0ejfnwj750nl4ybqfh77u/background.png?rlkey=duld4wihyb0ojfu03ihshh4c4&st=wsvvwdvy&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/f90jndvis05hg6yh2hqe1/icon.png?rlkey=kesftcxdjlo01okecvq4lnc6c&st=a44zvlsc&dl=0"
 executable_name = "Drive! Zombie.html"
 game_id = &"drive_zombie"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

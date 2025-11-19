@@ -13,7 +13,8 @@ engine = "Unity"
 tags = Array[StringName]([&"Remake", &"Arcade"])
 file_size_mb = 19.63
 download_url = "http://dl.dropboxusercontent.com/scl/fi/6zm8jj09e3no03iw63on4/Card-Game.zip?rlkey=nc5l25inkzqxipd37k1pxr6dc&st=np6hinuo&dl=0"
-api_icon_name = "cardgame"
+background_url = "http://dl.dropboxusercontent.com/scl/fi/9rws5dt2tt3rsajiqenvh/background.png?rlkey=ngz8bzyceme52fatk3qibwogf&st=g43uvrm9&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/wq7h7gq8ry1v4kq23fobp/icon.png?rlkey=8fmakxmu1fg4d889xv3fux9tb&st=82i9xgej&dl=0"
 executable_name = "Card Game.exe"
 game_id = &"card_game"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

@@ -24,7 +24,9 @@ engine = "Unity"
 tags = Array[StringName]([&"Arcade", &"Delivery"])
 file_size_mb = 30.31
 download_url = "http://dl.dropboxusercontent.com/scl/fi/8skikzqoe5ju35hknll52/RocketFast.zip?rlkey=31ps66q1qht87erforozmlfh5&st=ub1f7673&dl=0"
-api_icon_name = "rocketfast"
+background_url = "http://dl.dropboxusercontent.com/scl/fi/zyc8jxdun3g0jkpcoz0fc/background.png?rlkey=i02lbjc3091kssmzqh3luzj1b&st=ac7twkeb&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/7czrsr6btsav1y54fws7q/icon.png?rlkey=jvz4d394q81jn88vf4gibo3n1&st=o937g8i1&dl=0"
+screenshot_urls = Array[String](["http://dl.dropboxusercontent.com/scl/fi/cp0zf3zp3l6acbbhzh9e3/screenshot_0.png?rlkey=e4figiw9g1kxr954oncb6ojn6&st=jlxx0cce&dl=0", "http://dl.dropboxusercontent.com/scl/fi/vex3e0yg8go7j2ieab3jv/screenshot_1.png?rlkey=fbh4c39zcns23ziewnhj6zmey&st=u1voi9aw&dl=0", "http://dl.dropboxusercontent.com/scl/fi/51t0j2y08dhkohmmi4xj1/screenshot_2.png?rlkey=ckdznrdqfomjaqpmt3atobubc&st=glpa0bq6&dl=0"])
 executable_name = "RocketFast.exe"
 game_id = &"rocket_fast"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

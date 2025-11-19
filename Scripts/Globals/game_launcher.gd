@@ -27,6 +27,8 @@ func launch_game(game: GameData) -> void:
 			
 			launched_game.launched = true
 			launched_game.game_panel.update_visuals()
+			
+			DiscordRPCManager.enter_game(game)
 		else:
 			push_error("Failed to launch " + game.game_name)
 	else: # Game file is HTML
@@ -46,10 +48,13 @@ func stop_current_game() -> void:
 
 func _handle_game_stop() -> void:
 	_record_play_session()
+	
 	current_game_pid = 0
 	launched_game.launched = false
 	launched_game.game_panel.update_visuals()
 	launched_game = null
+	
+	DiscordRPCManager.enter_library()
 
 
 func _launch_exe(path: String) -> Error:

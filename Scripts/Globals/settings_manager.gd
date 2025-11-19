@@ -46,6 +46,7 @@ func load_settings() -> void:
 	settings_dict.set("grouping", grouping)
 	
 	Updater.auto_check_updates = auto_update
+	DiscordRPCManager.rich_presence_enabled = rpc_enabled
 	
 	GameOrganizer.current_grouping = grouping
 	GameOrganizer.set_sorting(sorting, sorting_reversed)

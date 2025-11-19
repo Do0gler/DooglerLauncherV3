@@ -15,7 +15,8 @@ creation_date = "01/20/2021"
 tags = Array[StringName]([&"Boss Fight"])
 file_size_mb = 2.21
 download_url = "http://dl.dropboxusercontent.com/scl/fi/4knk187r4sx38sv4adjfm/SlimeFight.zip?rlkey=xg4bb48ce9e05ukhu93de42qf&st=kq4d6u6o&dl=0"
-api_icon_name = "slimefight"
+background_url = "http://dl.dropboxusercontent.com/scl/fi/daqfbokkespj4xnk9aml9/background.png?rlkey=w3nnu5ew74r2bgp8pyguriv2l&st=k1iqqmh6&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/wot858gqcis100f9hv0zu/icon.png?rlkey=wuxyvjyy1crjt08kiduhq482y&st=lbpp3obl&dl=0"
 executable_name = "Slime Fight!.html"
 game_id = &"slime_fight"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

@@ -36,4 +36,4 @@ func _on_subitem_selected(index):
 		0:
 			Updater.auto_check_updates = item_toggle
 		1:
-			pass # TODO: Apply settings 
+			DiscordRPCManager.set_rich_presence(item_toggle)

@@ -15,7 +15,9 @@ engine = "Godot"
 tags = Array[StringName]([&"Arcade", &"Retro"])
 file_size_mb = 68.93
 download_url = "http://dl.dropboxusercontent.com/scl/fi/y0hun9h0li1isj21b9jt3/OAF.zip?rlkey=h2kkf6tg8by82qade7wpspf6h&st=ng13z6mo&dl=0"
-api_icon_name = "oaf"
+background_url = "http://dl.dropboxusercontent.com/scl/fi/d4atlsnb4azawxwp2umue/background.png?rlkey=375gy8mcgy3y2uzlo0h467h6b&st=vy13u6w9&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/i3vwiioj029jzcggw16ar/icon.png?rlkey=6h1cah1l2fkm8wraegimlgscs&st=lx69xgo4&dl=0"
+screenshot_urls = Array[String](["http://dl.dropboxusercontent.com/scl/fi/3e9ducax6ae317513z50p/screenshot_0.png?rlkey=6r1uwazu3z5a7x0y120m0gxaw&st=za9pv90i&dl=0", "http://dl.dropboxusercontent.com/scl/fi/kala3czxr8k4xp9hc1h0e/screenshot_1.png?rlkey=ykolfkoj9mp7p1cufq15dub6m&st=3lt46jdb&dl=0", "http://dl.dropboxusercontent.com/scl/fi/nn5el5x8wrdf4on2orjnx/screenshot_2.png?rlkey=8pk62q44p2acxazh69ayl52ho&st=odqbz8na&dl=0"])
 executable_name = "OAF.exe"
 game_id = &"oaf"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

@@ -13,7 +13,8 @@ completion_status = "Unfinished"
 tags = Array[StringName]([&"Platformer", &"Speedrunning"])
 file_size_mb = 2.65
 download_url = "http://dl.dropboxusercontent.com/scl/fi/dhsp0q9jra94m7x3crb2d/LabEscape.zip?rlkey=pp2qqa8gt76m0io1kz2rum0af&st=x1k7zwjw&dl=0"
-api_icon_name = "labescape"
+background_url = "http://dl.dropboxusercontent.com/scl/fi/tl1vhgvr2f8dhhivoaqg5/background.png?rlkey=ykhnn2wbcvxmd31xu47u43x2o&st=8y6k7bhz&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/1o03at3jfh5f3bfm7dt6m/icon.png?rlkey=nmc7bvf2b50kruygp20fl4jo4&st=1kb2765o&dl=0"
 executable_name = "Lab Escape.html"
 game_id = &"lab_escape"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

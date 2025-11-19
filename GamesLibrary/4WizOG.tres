@@ -15,7 +15,8 @@ creation_date = "04/02/2021"
 tags = Array[StringName]([&"Top-Down", &"Pixel Art"])
 file_size_mb = 3.02
 download_url = "http://dl.dropboxusercontent.com/scl/fi/ko57tqy8yh83hlusfj7ps/4WizardOG.zip?rlkey=fphsofdn8a99xymlf2jrf1790&st=l9nkfyze&dl=0"
-api_icon_name = "4wizog"
+background_url = "http://dl.dropboxusercontent.com/scl/fi/zkw1667m608v7ihj73twh/background.png?rlkey=54tguwbhoc9r3k7skps76kds2&st=qxaxpxq6&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/p8ut9sdyjz93wnqkxjbmg/icon.png?rlkey=tujo93dgi69b24vpb7aeomd5z&st=gl27liri&dl=0"
 executable_name = "4WizardOG.html"
 game_id = &"4_wiz_og"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

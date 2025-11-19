@@ -15,7 +15,9 @@ completion_status = "Unfinished"
 tags = Array[StringName]([&"Rythmn", &"Unfinished"])
 file_size_mb = 7.79
 download_url = "http://dl.dropboxusercontent.com/scl/fi/hkfjus931bj7rw4ljykq0/KillerRythmn.zip?rlkey=x0maqy64lo5nia38q0ec7jav4&st=0oqays1t&dl=0"
-api_icon_name = "killerrythmn"
+background_url = "http://dl.dropboxusercontent.com/scl/fi/ej3n3jv68riirdj1je0dr/background.png?rlkey=ks116gkdkc6orgia7owdk91b8&st=4l8c8zkt&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/r1i8jbvyz4y4aw5x3ppci/icon.png?rlkey=ao1wpot0iyjruefg8gin3akdc&st=q5c5y0zn&dl=0"
+screenshot_urls = Array[String](["http://dl.dropboxusercontent.com/scl/fi/3z7qilpupnchjrq35uj8w/screenshot_0.png?rlkey=x0ft7gkuyfajqvjdzjucuhccy&st=w0gjgyiv&dl=0", "http://dl.dropboxusercontent.com/scl/fi/atvd3ihc5ja672nusylrv/screenshot_1.png?rlkey=ige22ov07k2vpt6026pasfxrl&st=i99am9ch&dl=0", "http://dl.dropboxusercontent.com/scl/fi/yfgmpnak92ysr1nt76oy3/screenshot_2.png?rlkey=qf19zntt3rx9pu256xoi5uzew&st=zh1ybklu&dl=0"])
 executable_name = "Killer Rythmn!.html"
 game_id = &"killer_rythmn"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

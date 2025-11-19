@@ -19,7 +19,8 @@ creation_date = "12/08/2020"
 tags = Array[StringName]([&"Side Scroller", &"Arcade"])
 file_size_mb = 2.29
 download_url = "http://dl.dropboxusercontent.com/scl/fi/ipbsr7jifoabuwshjfwqx/MightySpaceRanger.zip?rlkey=82phqmhox4dgccdlkr5mymykm&st=n7o04aa8&dl=0"
-api_icon_name = "mightyspaceranger"
+background_url = "http://dl.dropboxusercontent.com/scl/fi/ymz8iu7u9g8gyoshmkbtg/background.png?rlkey=ht8vo80zvvdb02pwi8em44zes&st=b871anzj&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/jy9v09a6ro11uqsgkirqn/icon.png?rlkey=7pvbuip1tf5hp1vv0c24lwaxp&st=esi6at36&dl=0"
 executable_name = "Mighty Space Ranger.html"
 game_id = &"mighty_space_ranger"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

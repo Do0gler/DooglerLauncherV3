@@ -12,7 +12,8 @@ creation_date = "04/07/2021"
 tags = Array[StringName]([&"Rythmn"])
 file_size_mb = 14.87
 download_url = "http://dl.dropboxusercontent.com/scl/fi/658iv4mry3gtglgeca8we/RoboRapBattle.zip?rlkey=cg64u3y2j1dnlhhukt06hpuqv&st=opsqymgc&dl=0"
-api_icon_name = "roborapbattle"
+background_url = "http://dl.dropboxusercontent.com/scl/fi/46e01f3qk0aenqhc88zzf/background.png?rlkey=b5092tk384diyqlp8gqpsbb6o&st=4zp4n3k3&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/ljgi5127pzfmxvggpnors/icon.png?rlkey=f81zg9qopf9wrcukht41m476a&st=696tai11&dl=0"
 executable_name = "RoboRapBattle.html"
 game_id = &"robo_rap_battle"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

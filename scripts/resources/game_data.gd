@@ -12,7 +12,6 @@ extends Resource
 
 @export_category("Download")
 @export var download_url: String
-@export var api_icon_name := "logo"
 @export var background_url: String
 @export var icon_url: String
 @export var screenshot_urls: Array[String]
@@ -20,7 +19,6 @@ extends Resource
 @export_category("Meta")
 @export var executable_name: String
 @export var version_number := &"1.0" ## The most recent version
-@export var has_discord_rpc := false
 @export var game_id: StringName
 
 var icon: Texture2D
@@ -46,13 +44,11 @@ static func to_dict(data: GameData) -> Dictionary:
 	dict.set("tags", data.tags)
 	dict.set("file_size", data.file_size_mb)
 	dict.set("download_url", data.download_url)
-	dict.set("api_icon_name", data.api_icon_name)
 	dict.set("background_url", data.background_url)
 	dict.set("icon_url", data.icon_url)
 	dict.set("screenshot_urls", data.screenshot_urls)
 	dict.set("executable_name", data.executable_name)
 	dict.set("version_number", data.version_number)
-	dict.set("has_discord_rpc", data.has_discord_rpc)
 	dict.set("game_id", data.game_id)
 	
 	return dict
@@ -73,7 +69,6 @@ static func from_dict(dict: Dictionary) -> GameData:
 	
 	data.file_size_mb = dict.get("file_size")
 	data.download_url = dict.get("download_url")
-	data.api_icon_name = dict.get("api_icon_name")
 	data.background_url = dict.get("background_url")
 	data.icon_url = dict.get("icon_url")
 	
@@ -83,7 +78,6 @@ static func from_dict(dict: Dictionary) -> GameData:
 	
 	data.executable_name = dict.get("executable_name")
 	data.version_number = dict.get("version_number") as StringName
-	data.has_discord_rpc = dict.get("has_discord_rpc")
 	data.game_id = dict.get("game_id")
 	
 	return data

@@ -16,7 +16,9 @@ engine = "Unity"
 tags = Array[StringName]([&"Remake", &"Platformer", &"Speedrunning"])
 file_size_mb = 34.91
 download_url = "http://dl.dropboxusercontent.com/scl/fi/rmd3z3xf0mpz6b9kbcldj/RoboEscape.zip?rlkey=mqh61vmgsgmaz5j0xucdnqwur&st=yxexnou1&dl=0"
-api_icon_name = "roboescapeicon"
+background_url = "http://dl.dropboxusercontent.com/scl/fi/flwtoamude58zcg6t0vg8/background.png?rlkey=5rzhovffk5gqwaz37rceu3qar&st=uyal4idc&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/chmrejydkhuqhwbr2496s/icon.png?rlkey=n0k7m0z0wnkr57hjwa0semkux&st=40uwcgq4&dl=0"
+screenshot_urls = Array[String](["http://dl.dropboxusercontent.com/scl/fi/uds138oor24iwfyc7ba36/screenshot_0.png?rlkey=83f17cibjxoz9d52jd4ali0s2&st=3l2h9o2v&dl=0", "http://dl.dropboxusercontent.com/scl/fi/qgp923keog8s8tollasme/screenshot_1.png?rlkey=6iplgg6xzo44qa9baumfs1wz9&st=egjm2piu&dl=0", "http://dl.dropboxusercontent.com/scl/fi/m3bqfuohanza93czt1am8/screenshot_2.png?rlkey=w9xbfqabvaesd08i8i6vw57vl&st=10h94c4k&dl=0", "http://dl.dropboxusercontent.com/scl/fi/vu5gmrmgwlgixapu3mtj5/screenshot_3.png?rlkey=vbfkejw84o4bu6378s6kar7sq&st=9vv9fzsk&dl=0"])
 executable_name = "FallSpyRemake.exe"
 game_id = &"robo_escape"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

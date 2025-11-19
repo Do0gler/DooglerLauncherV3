@@ -15,6 +15,8 @@ creation_date = "02/13/2020"
 tags = Array[StringName]([&"Idle", &"Clicker"])
 file_size_mb = 13.56
 download_url = "http://dl.dropboxusercontent.com/scl/fi/7x0ihzvn64pjb2rkqylu0/DabbingSimulator.zip?rlkey=8fr0jic6hs81uk5coyhbbdc76&st=n85qbftf&dl=0"
+background_url = "http://dl.dropboxusercontent.com/scl/fi/g0dnm84dcemv2k96zovp9/background.png?rlkey=c8v0iynxg3u1kwc0magont7vq&st=gk5mm3hl&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/d99hna2mg2r9j77z6bah6/icon.png?rlkey=l058hv5jkoicrvxk9tdzf3zir&st=99z9nsmf&dl=0"
 executable_name = "Dabbing Simulator 20XX.html"
 game_id = &"dabbing_sim"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"
