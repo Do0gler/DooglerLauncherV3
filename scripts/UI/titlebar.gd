@@ -47,10 +47,12 @@ func _on_windowed_button_pressed() -> void:
 	if get_window().mode == Window.MODE_WINDOWED:
 		get_window().mode = Window.MODE_FULLSCREEN
 		resize_controls.hide()
+		%Border.hide()
 		%WindowedButton.icon = WINDOW_ICON
 	else:
 		get_window().mode = Window.MODE_WINDOWED
 		resize_controls.show()
+		%Border.show()
 		%WindowedButton.icon = FULLSCREEN_ICON
 
 

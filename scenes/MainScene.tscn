@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://b7a6f88ddh4sy" path="res://Images/UI/down.png" id="16_3va76"]
 [ext_resource type="Texture2D" uid="uid://cuny4o62bcibk" path="res://Images/UI/checkmark.png" id="17_bpy1e"]
 [ext_resource type="Texture2D" uid="uid://b1s48u3xtdvka" path="res://Images/UI/up.png" id="17_wmecs"]
+[ext_resource type="Script" uid="uid://dnob25x2xh1ip" path="res://Scripts/UI/border.gd" id="26_mymud"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ju71"]
 bg_color = Color(0.07444572, 0.07444573, 0.07444569, 1)
@@ -696,6 +697,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.49803922)
+
+[node name="Border" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("26_mymud")
 
 [connection signal="pressed" from="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea/InstallButton" to="." method="install_selected_game"]
 [connection signal="pressed" from="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/InstallArea/UpdateButton" to="." method="update_selected_game"]
