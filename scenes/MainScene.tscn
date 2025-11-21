@@ -1,18 +1,22 @@
-[gd_scene load_steps=34 format=3 uid="uid://bt70ivt15wxlq"]
+[gd_scene load_steps=38 format=3 uid="uid://bt70ivt15wxlq"]
 
 [ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://Scripts/manager.gd" id="1_y4jh7"]
 [ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="2_q68mp"]
 [ext_resource type="Script" uid="uid://isd1kyj5he1" path="res://Scripts/UI/titlebar.gd" id="3_f140w"]
 [ext_resource type="Script" uid="uid://b3lmqs1ak36dy" path="res://Scripts/UI/launcher_button.gd" id="4_0iob3"]
 [ext_resource type="Texture2D" uid="uid://bcyptdlfdvb00" path="res://Images/UI/download.png" id="4_c1ier"]
+[ext_resource type="Theme" uid="uid://ba8aued6sbot3" path="res://Styles/BlueActionButton.tres" id="4_r0vnq"]
 [ext_resource type="Script" uid="uid://x0gys2lddqvx" path="res://Scripts/UI/resize.gd" id="5_4b75m"]
 [ext_resource type="PackedScene" uid="uid://1pybah2yadw1" path="res://Scenes/UIElements/game_info_panel.tscn" id="5_f140w"]
 [ext_resource type="Texture2D" uid="uid://c3uerc6qaswkp" path="res://Images/UI/refresh.png" id="5_gyaec"]
 [ext_resource type="StyleBox" uid="uid://bco1ld8l1h7l8" path="res://Styles/InfoPanel.tres" id="6_4b75m"]
 [ext_resource type="Texture2D" uid="uid://c6dvktfbk85tp" path="res://Images/UI/forward.png" id="6_bpy1e"]
+[ext_resource type="Theme" uid="uid://cbt680q8qhxqp" path="res://Styles/GreenActionButton.tres" id="7_c3pre"]
 [ext_resource type="Script" uid="uid://dak6vi2o7hwpg" path="res://Scripts/ui_manager.gd" id="7_q68mp"]
+[ext_resource type="Texture2D" uid="uid://cqe1g2r1253a4" path="res://Images/UI/time.png" id="8_4sso6"]
 [ext_resource type="Script" uid="uid://dn13cajsbuy0k" path="res://Scripts/UI/settings_button.gd" id="8_enc0b"]
 [ext_resource type="Texture2D" uid="uid://j6ywiroc85r6" path="res://Images/UI/gear.png" id="8_gyaec"]
+[ext_resource type="Theme" uid="uid://k4i0ffu5yte3" path="res://Styles/RedActionButton.tres" id="9_u5v48"]
 [ext_resource type="Texture2D" uid="uid://d3o5wvgpscf8w" path="res://Images/UI/heart.png" id="10_wmecs"]
 [ext_resource type="Script" uid="uid://cqxs7b1vosjd6" path="res://Scripts/UI/sort_button.gd" id="12_5qxwa"]
 [ext_resource type="Script" uid="uid://0yx8ciidyul" path="res://Scripts/UI/search_bar.gd" id="12_6rnll"]
@@ -183,6 +187,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_default_cursor_shape = 2
+theme = ExtResource("4_r0vnq")
 theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
@@ -196,6 +201,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_default_cursor_shape = 2
+theme = ExtResource("4_r0vnq")
 theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
@@ -209,6 +215,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_default_cursor_shape = 2
+theme = ExtResource("7_c3pre")
 theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
@@ -222,6 +229,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_default_cursor_shape = 2
+theme = ExtResource("9_u5v48")
 theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
@@ -249,9 +257,9 @@ size_flags_vertical = 4
 layout_mode = 2
 theme_override_constants/separation = 7
 
-[node name="TextureRect" type="TextureRect" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/TimePlayedDisplay"]
+[node name="TimeTex" type="TextureRect" parent="HSplitContainer/GameView/VBoxContainer/LowerArea/MarginContainer/VBoxContainer/HighInfoPanel/LeftAlign/TimePlayedDisplay"]
 layout_mode = 2
-texture = ExtResource("2_q68mp")
+texture = ExtResource("8_4sso6")
 expand_mode = 3
 stretch_mode = 5
 
@@ -663,6 +671,7 @@ anchor_bottom = 1.0
 offset_left = -30.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("12_hx8n4")
 icon = ExtResource("14_i0j58")
 flat = true
@@ -685,6 +694,7 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
+mouse_default_cursor_shape = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6t1o7")
 text = ">"
 
@@ -692,6 +702,7 @@ text = ">"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
+mouse_default_cursor_shape = 2
 text = "<"
 
 [node name="LoadingScreen" type="ColorRect" parent="."]

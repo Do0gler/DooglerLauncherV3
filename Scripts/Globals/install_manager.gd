@@ -15,7 +15,7 @@ func install_game(game: GameData) -> void:
 	
 	_ensure_game_folder(game_id)
 	
-	# Create temp file to srote downloaded data
+	# Create temp file to store downloaded data
 	var temp_file := FileAccess.create_temp(2, game_id,".zip")
 	if temp_file == null:
 		push_error("Could not create temp file while installing game")
