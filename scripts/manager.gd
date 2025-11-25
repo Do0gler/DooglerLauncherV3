@@ -104,17 +104,28 @@ func create_default_library() -> Array[GameData]:
 
 ## Sets if the selected games is favorited
 func set_selected_favorite(toggle: bool):
-	selected_game.favorited = toggle
-	CacheManager.set_game_cache_entry(selected_game.game_id, "favorited", selected_game.favorited)
+	set_game_favorite(selected_game, toggle)
+
+
+## Sets if a game is favorited
+func set_game_favorite(game: GameData, toggle: bool) -> void:
+	game.favorited = toggle
+	CacheManager.set_game_cache_entry(game.game_id, "favorited", game.favorited)
 	%UIManager.display_games_list()
+	%UIManager.update_game_visuals(game)
 
 
 ## Opens the installation location of the current game
 func open_selected_game_file_location() -> void:
-	if not InstallManager.game_is_installed(selected_game):
+	open_game_file_location(selected_game)
+
+
+## Opens the installation location of a game
+func open_game_file_location(game: GameData) -> void:
+	if not InstallManager.game_is_installed(game):
 		return
 	
-	var game_dir = ProjectSettings.globalize_path("user://library/" + selected_game.game_id)
+	var game_dir = ProjectSettings.globalize_path("user://library/" + game.game_id)
 	OS.shell_show_in_file_manager(game_dir)
 
 

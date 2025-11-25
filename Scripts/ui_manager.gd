@@ -61,13 +61,13 @@ func _populate_category_with_games(list: ExpandableList, games: Array, button_gr
 		if relevant_games.has(game.game_id):
 			var game_panel := _create_game_panel(game, button_group)
 			list.add_item(game_panel)
+			game_panel.update_visuals()
 
 
 func _create_game_panel(game: GameData, button_group: ButtonGroup) -> GamePanel:
 	var new_game_panel: GamePanel = GAME_PANEL.instantiate()
 	new_game_panel.game_data = game
 	new_game_panel.set_button_group(button_group)
-	new_game_panel.update_visuals()
 	game.game_panel = new_game_panel
 	return new_game_panel
 

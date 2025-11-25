@@ -78,3 +78,6 @@ tooltip_text = "Update Available!"
 texture = ExtResource("3_x4u56")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+unique_name_in_owner = true

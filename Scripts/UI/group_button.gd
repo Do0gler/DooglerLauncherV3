@@ -49,6 +49,7 @@ func _set_enabled_icon(enabled_id: int) -> void:
 			menu_popup.set_item_icon(i, disabled_icon)
 			menu_popup.set_item_icon_modulate(i, Color("c3c3c3"))
 
+
 ## Updates the grouping button UI to reflect the given grouping state.
 func set_grouping_ui(grouping: String) -> void:
 	var index: int = GROUPING_MAP.get(grouping)
