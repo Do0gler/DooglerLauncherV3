@@ -33,8 +33,8 @@ func get_library() -> void:
 		var library_dict: Dictionary = JSON.parse_string(library_file.get_as_text())
 		for key in library_dict:
 			games_library.append(GameData.from_dict(library_dict.get(key)))
+		library_file.close()
 	
-	library_file.close()
 	
 	setup_game_placeholders()
 	

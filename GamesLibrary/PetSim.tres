@@ -12,8 +12,8 @@ completion_status = "Unfinished"
 tags = Array[StringName]([&"Pet Simulator", &"Clicker", &"Pixel Art"])
 file_size_mb = 28.81
 download_url = "http://dl.dropboxusercontent.com/scl/fi/4kpxim9pbg3soqolo0kdr/PetSim.zip?rlkey=qkpl8kb2o52o05617xtqxc23v&st=51fhifa1&dl=0"
-background_url = "https://www.dropbox.com/scl/fi/ndk6rwypb7qt2ezbmtmyc/background.png?rlkey=cohkle12v6au2oxa5wkcsmd50&st=wgfvsg6d&dl=0"
-icon_url = "https://www.dropbox.com/scl/fi/fm3eghqbb84chyc6groxu/icon.png?rlkey=uwdk1lh886t98150raj9vhkqo&st=90iexxh0&dl=0"
+background_url = "http://dl.dropboxusercontent.comhttp://dl.dropboxusercontent.com/scl/fi/ndk6rwypb7qt2ezbmtmyc/background.png?rlkey=cohkle12v6au2oxa5wkcsmd50&st=wgfvsg6d&dl=0"
+icon_url = "http://dl.dropboxusercontent.com/scl/fi/fm3eghqbb84chyc6groxu/icon.png?rlkey=uwdk1lh886t98150raj9vhkqo&st=90iexxh0&dl=0"
 executable_name = "PetSim.exe"
 game_id = &"pet_sim"
 metadata/_custom_type_script = "uid://pvwka1k7cgdq"

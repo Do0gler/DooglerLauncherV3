@@ -10,11 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Doogler Launcher V3"
+config/name="Doogler Launcher"
+config/description="A game launcher for all games by Doogler!"
 run/main_scene="uid://bt70ivt15wxlq"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [autoload]
 

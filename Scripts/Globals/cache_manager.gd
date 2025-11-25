@@ -89,7 +89,7 @@ func get_image_path(game_id: String, image_type: String) -> String:
 		
 		# Verify the file actually exists
 		if cached_info.get("source") == "bundled":
-			if FileAccess.file_exists(path):
+			if ResourceLoader.exists(path):
 				return path
 		else:  # downloaded
 			if FileAccess.file_exists(path):
@@ -101,7 +101,7 @@ func get_image_path(game_id: String, image_type: String) -> String:
 	
 	# Check if bundled with app (for pre-packaged games)
 	var bundled_path = BUNDLED_DIR + game_id + "/" + image_type + ".png"
-	if FileAccess.file_exists(bundled_path):
+	if ResourceLoader.exists(bundled_path):
 		# Add to game cache for faster lookup next time
 		game_cache[image_type] = {
 			"path": bundled_path,
