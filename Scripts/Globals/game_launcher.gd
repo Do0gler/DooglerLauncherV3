@@ -3,8 +3,17 @@ extends Node
 
 var current_game_pid := 0
 var launched_game: GameData
+var electron_runner_path := "GameRunner.exe"
 
 var game_start_time := 0.0
+
+
+func _ready() -> void:
+	if OS.has_feature("editor"):
+		electron_runner_path = ProjectSettings.globalize_path(
+			"user://electron-runner/dist".path_join(electron_runner_path))
+	else: # Is build version
+		electron_runner_path = OS.get_executable_path().get_base_dir().path_join(electron_runner_path)
 
 func _process(_delta: float) -> void:
 	if launched_game != null: # A game is currently running
@@ -18,29 +27,30 @@ func launch_game(game: GameData) -> void:
 		return
 	
 	var executable_path := ProjectSettings.globalize_path(InstallManager.get_game_executable_path(game))
+	var error: Error
 	
 	if game.executable_name.get_extension() == "exe":
-		var error := _launch_exe(executable_path)
-		if error == OK:
-			launched_game = game
-			game_start_time = Time.get_unix_time_from_system()
-			
-			launched_game.launched = true
-			launched_game.game_panel.update_visuals()
-			
-			DiscordRPCManager.enter_game(game)
-		else:
-			push_error("Failed to launch " + game.game_name)
-	else: # Game file is HTML
-		var error := _launch_html(executable_path)
-		if error != OK:
-			push_error("Failed to launch " + game.game_name)
+		error = _launch_exe(executable_path)
+	else: # Game is HTML
+		error = _launch_html(executable_path)
+	
+	if error == OK:
+		launched_game = game
+		game_start_time = Time.get_unix_time_from_system()
+		
+		launched_game.launched = true
+		launched_game.game_panel.update_visuals()
+		
+		DiscordRPCManager.enter_game(game)
+	else:
+		push_error("Failed to launch " + game.game_name)
 
 
 func stop_current_game() -> void:
 	if current_game_pid == 0:
 		return
 	
+	# TODO: Handle killing Electron applications, currently does not end process correctly
 	var error := OS.kill(current_game_pid)
 	if error == OK:
 		_handle_game_stop()
@@ -60,7 +70,7 @@ func _handle_game_stop() -> void:
 func _launch_exe(path: String) -> Error:
 	stop_current_game()
 	
-	current_game_pid = OS.create_process(path,[])
+	current_game_pid = OS.create_process(path, [])
 	if current_game_pid == -1:
 		current_game_pid = 0
 		return FAILED
@@ -69,8 +79,11 @@ func _launch_exe(path: String) -> Error:
 
 
 func _launch_html(path: String) -> Error:
-	var exit_code = OS.execute("CMD.exe",["/C", '"' + path + '"'])
-	if exit_code == -1:
+	stop_current_game()
+	
+	current_game_pid = OS.create_process(electron_runner_path, [path])
+	if current_game_pid == -1:
+		current_game_pid = 0
 		return FAILED
 	else:
 		return OK

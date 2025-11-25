@@ -104,10 +104,7 @@ func _update_game_details(game: GameData) -> void:
 
 
 func _set_playtime_label(game: GameData) -> void:
-	if game.executable_name.get_extension() == "html":
-		%PlaytimeLabel.text = "N/A"
-	else:
-		%PlaytimeLabel.text = GameData.secs_to_time_string(game.playtime_secs)
+	%PlaytimeLabel.text = GameData.secs_to_time_string(game.playtime_secs)
 
 
 func _set_version_label(game: GameData) -> void:
