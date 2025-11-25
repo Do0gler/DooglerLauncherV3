@@ -1,4 +1,11 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bltb3od3je021"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bltb3od3je021"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpuob"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ni2la"]
 bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
@@ -7,5 +14,6 @@ bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
 bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
 
 [resource]
+LineEdit/styles/normal = SubResource("StyleBoxFlat_gpuob")
 Panel/styles/panel = SubResource("StyleBoxFlat_ni2la")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_182mp")

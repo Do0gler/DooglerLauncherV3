@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bt70ivt15wxlq"]
+[gd_scene load_steps=42 format=3 uid="uid://bt70ivt15wxlq"]
 
 [ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://Scripts/manager.gd" id="1_y4jh7"]
 [ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="2_q68mp"]
@@ -40,6 +40,29 @@ bg_color = Color(0.07444572, 0.07444573, 0.07444569, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6dvc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6rnll"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5v48"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1acj"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.096204735, 0.09620475, 0.096204735, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8ijv"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rv6c1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xb4mg"]
 content_margin_left = 10.0
@@ -418,9 +441,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 5
 
 [node name="LeftAlign" type="HBoxContainer" parent="Titlebar/MarginContainer"]
 layout_mode = 2
@@ -448,6 +469,10 @@ script = ExtResource("12_6rnll")
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_u5v48")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s1acj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t8ijv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rv6c1")
 text = " Sort "
 flat = false
 script = ExtResource("12_5qxwa")
@@ -458,6 +483,10 @@ sorting_reversed_icon = ExtResource("17_wmecs")
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_u5v48")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s1acj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t8ijv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rv6c1")
 text = " Group "
 flat = false
 script = ExtResource("13_xc4hf")
