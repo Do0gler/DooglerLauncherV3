@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://o8e3ooq2lp0l"]
 
 [ext_resource type="Script" uid="uid://c3wgd40bmprol" path="res://Scripts/UIElements/expandable_list.gd" id="1_h18r4"]
-[ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="2_0o46w"]
+[ext_resource type="Texture2D" uid="uid://bkvsjbkmy76bp" path="res://Images/UI/minus.png" id="2_h18r4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h18r4"]
 content_margin_left = 5.0
@@ -36,7 +36,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_0o46w")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_h18r4")
 toggle_mode = true
 text = "MyList"
-icon = ExtResource("2_0o46w")
+icon = ExtResource("2_h18r4")
 icon_alignment = 2
 expand_icon = true
 

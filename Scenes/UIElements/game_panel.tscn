@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bvcj2bi1axw5w"]
 
 [ext_resource type="Script" uid="uid://b1wdxg6wkm5v6" path="res://Scripts/UIElements/game_panel.gd" id="1_gn4c5"]
-[ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="1_ptx5w"]
+[ext_resource type="Texture2D" uid="uid://cvx3h71rb2r63" path="res://Images/UI/controller.png" id="2_x4u56"]
 [ext_resource type="Texture2D" uid="uid://w0nxt1tqnq4t" path="res://Images/UI/arrowUp.png" id="3_x4u56"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gn4c5"]
@@ -52,7 +52,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("1_ptx5w")
+texture = ExtResource("2_x4u56")
 expand_mode = 1
 stretch_mode = 5
 

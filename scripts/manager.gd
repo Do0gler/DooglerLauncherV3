@@ -2,8 +2,8 @@ class_name Manager
 extends Control
 
 const GAME_DATA_DIR = "res://GamesLibrary"
-const PLACEHOLDER_ICON = preload("uid://civsuy21pbsgd")
-const PLACEHOLDER_BG = preload("uid://civsuy21pbsgd")
+const PLACEHOLDER_ICON = preload("uid://cvx3h71rb2r63")
+const PLACEHOLDER_BG = preload("uid://dwrp5f31mk14v")
 
 var games_library: Array[GameData]
 var selected_game: GameData

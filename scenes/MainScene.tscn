@@ -1,10 +1,11 @@
-[gd_scene load_steps=45 format=3 uid="uid://bt70ivt15wxlq"]
+[gd_scene load_steps=46 format=3 uid="uid://bt70ivt15wxlq"]
 
 [ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://Scripts/manager.gd" id="1_y4jh7"]
-[ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="2_q68mp"]
+[ext_resource type="Texture2D" uid="uid://dwrp5f31mk14v" path="res://Images/UI/background_placeholder.png" id="3_dtg5n"]
 [ext_resource type="Script" uid="uid://isd1kyj5he1" path="res://Scripts/UI/titlebar.gd" id="3_f140w"]
 [ext_resource type="Script" uid="uid://b3lmqs1ak36dy" path="res://Scripts/UI/launcher_button.gd" id="4_0iob3"]
 [ext_resource type="Texture2D" uid="uid://bcyptdlfdvb00" path="res://Images/UI/download.png" id="4_c1ier"]
+[ext_resource type="Texture2D" uid="uid://cvx3h71rb2r63" path="res://Images/UI/controller.png" id="4_d0jji"]
 [ext_resource type="Theme" uid="uid://ba8aued6sbot3" path="res://Styles/BlueActionButton.tres" id="4_r0vnq"]
 [ext_resource type="Script" uid="uid://x0gys2lddqvx" path="res://Scripts/UI/resize.gd" id="5_4b75m"]
 [ext_resource type="PackedScene" uid="uid://1pybah2yadw1" path="res://Scenes/UIElements/game_info_panel.tscn" id="5_f140w"]
@@ -147,7 +148,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8ju71")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("2_q68mp")
+texture = ExtResource("3_dtg5n")
 expand_mode = 1
 stretch_mode = 6
 
@@ -167,7 +168,7 @@ custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-texture = ExtResource("2_q68mp")
+texture = ExtResource("4_d0jji")
 expand_mode = 5
 stretch_mode = 4
 
@@ -719,7 +720,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_6t1o7")
 [node name="ScreenshotTex" type="TextureRect" parent="ScreenshotViewer/VBoxContainer/ScreenshotContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("2_q68mp")
+texture = ExtResource("3_dtg5n")
 expand_mode = 1
 stretch_mode = 5
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://coh4r2ojhrsh7"]
 
-[ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="1_am7b3"]
 [ext_resource type="Script" uid="uid://s6ri2ngdyv1d" path="res://Scripts/UIElements/screenshot.gd" id="1_gsv61"]
+[ext_resource type="Texture2D" uid="uid://dwrp5f31mk14v" path="res://Images/UI/background_placeholder.png" id="2_gsv61"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4b75m"]
 
@@ -20,7 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("1_am7b3")
+texture = ExtResource("2_gsv61")
 expand_mode = 1
 stretch_mode = 5
 
