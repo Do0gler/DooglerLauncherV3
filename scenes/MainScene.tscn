@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bt70ivt15wxlq"]
+[gd_scene load_steps=45 format=3 uid="uid://bt70ivt15wxlq"]
 
 [ext_resource type="Script" uid="uid://7lxdmkkld27l" path="res://Scripts/manager.gd" id="1_y4jh7"]
 [ext_resource type="Texture2D" uid="uid://civsuy21pbsgd" path="res://icon.svg" id="2_q68mp"]
@@ -21,15 +21,18 @@
 [ext_resource type="Script" uid="uid://cqxs7b1vosjd6" path="res://Scripts/UI/sort_button.gd" id="12_5qxwa"]
 [ext_resource type="Script" uid="uid://0yx8ciidyul" path="res://Scripts/UI/search_bar.gd" id="12_6rnll"]
 [ext_resource type="Texture2D" uid="uid://bkvsjbkmy76bp" path="res://Images/UI/minus.png" id="12_enc0b"]
-[ext_resource type="Theme" uid="uid://cobccuebxbm1o" path="res://Styles/IconButton.tres" id="12_hx8n4"]
+[ext_resource type="Theme" uid="uid://b8i7hpavlugoy" path="res://Styles/IconButton.tres" id="12_hx8n4"]
 [ext_resource type="Script" uid="uid://babjhypi1by21" path="res://Scripts/UI/screenshot_viewer.gd" id="12_xb4mg"]
 [ext_resource type="Texture2D" uid="uid://ck7qk62h6cr5y" path="res://Images/UI/larger.png" id="13_hx8n4"]
 [ext_resource type="Script" uid="uid://bo1n7k2kb12fl" path="res://Scripts/UI/group_button.gd" id="13_xc4hf"]
 [ext_resource type="Texture2D" uid="uid://ccdpwrfuaaaw" path="res://Images/UI/cross.png" id="14_i0j58"]
+[ext_resource type="Theme" uid="uid://bup8rm3c7o7wl" path="res://Styles/IconButtonToggle.tres" id="14_t8ijv"]
 [ext_resource type="Texture2D" uid="uid://b7a6f88ddh4sy" path="res://Images/UI/down.png" id="16_3va76"]
 [ext_resource type="Texture2D" uid="uid://cuny4o62bcibk" path="res://Images/UI/checkmark.png" id="17_bpy1e"]
 [ext_resource type="Texture2D" uid="uid://b1s48u3xtdvka" path="res://Images/UI/up.png" id="17_wmecs"]
+[ext_resource type="Texture2D" uid="uid://c7t02w4vj8l3r" path="res://Images/UI/DLIcon.png" id="18_s1acj"]
 [ext_resource type="Script" uid="uid://dnob25x2xh1ip" path="res://Scripts/UI/border.gd" id="26_mymud"]
+[ext_resource type="Theme" uid="uid://cobccuebxbm1o" path="res://Styles/IconButtonFlat.tres" id="29_rv6c1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0vnq"]
 bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
@@ -60,7 +63,7 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+bg_color = Color(0.20784314, 0.20784314, 0.20784314, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rv6c1"]
 
@@ -319,6 +322,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
+theme = ExtResource("12_hx8n4")
 theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
@@ -334,8 +338,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
-theme_override_colors/icon_pressed_color = Color(0.96, 0.43199998, 0.55519986, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0.96, 0.43199998, 0.55519986, 1)
+theme = ExtResource("14_t8ijv")
 theme_override_constants/h_separation = 14
 theme_override_constants/icon_max_width = 40
 theme_override_font_sizes/font_size = 25
@@ -450,9 +453,10 @@ size_flags_horizontal = 0
 [node name="MenuButton" type="MenuButton" parent="Titlebar/MarginContainer/LeftAlign"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme_override_constants/h_separation = 8
 theme_override_constants/icon_max_width = 30
 text = "Doogler Launcher"
-icon = ExtResource("2_q68mp")
+icon = ExtResource("18_s1acj")
 script = ExtResource("4_0iob3")
 
 [node name="SearchBar" type="LineEdit" parent="Titlebar/MarginContainer/LeftAlign"]
@@ -501,7 +505,7 @@ alignment = 2
 [node name="MinimizeButton" type="Button" parent="Titlebar/MarginContainer/RightAlign"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme = ExtResource("12_hx8n4")
+theme = ExtResource("29_rv6c1")
 icon = ExtResource("12_enc0b")
 flat = true
 icon_alignment = 1
@@ -511,7 +515,7 @@ expand_icon = true
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme = ExtResource("12_hx8n4")
+theme = ExtResource("29_rv6c1")
 icon = ExtResource("13_hx8n4")
 flat = true
 icon_alignment = 1
@@ -520,7 +524,7 @@ expand_icon = true
 [node name="ExitButton" type="Button" parent="Titlebar/MarginContainer/RightAlign"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme = ExtResource("12_hx8n4")
+theme = ExtResource("29_rv6c1")
 icon = ExtResource("14_i0j58")
 flat = true
 icon_alignment = 1
@@ -701,7 +705,7 @@ offset_left = -30.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_default_cursor_shape = 2
-theme = ExtResource("12_hx8n4")
+theme = ExtResource("29_rv6c1")
 icon = ExtResource("14_i0j58")
 flat = true
 icon_alignment = 1

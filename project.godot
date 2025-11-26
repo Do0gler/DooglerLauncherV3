@@ -12,9 +12,12 @@ config_version=5
 
 config/name="Doogler Launcher"
 config/description="A game launcher for all games by Doogler!"
+config/version="3.0.0"
 run/main_scene="uid://bt70ivt15wxlq"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/show_image=false
+config/icon="uid://c7t02w4vj8l3r"
 
 [autoload]
 
