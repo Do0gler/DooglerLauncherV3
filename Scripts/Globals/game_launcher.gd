@@ -6,6 +6,7 @@ var launched_game: GameData
 var electron_runner_path := "GameRunner.exe"
 
 var game_start_time := 0.0
+var launched_electron := false
 
 
 func _ready() -> void:
@@ -31,8 +32,10 @@ func launch_game(game: GameData) -> void:
 	
 	if game.executable_name.get_extension() == "exe":
 		error = _launch_exe(executable_path)
+		launched_electron = false
 	else: # Game is HTML
 		error = _launch_html(executable_path)
+		launched_electron = true
 	
 	if error == OK:
 		launched_game = game
@@ -50,8 +53,16 @@ func stop_current_game() -> void:
 	if current_game_pid == 0:
 		return
 	
-	# TODO: Handle killing Electron applications, currently does not end process correctly
-	var error := OS.kill(current_game_pid)
+	var error: Error
+	# If game is HTML launched with electron, force kill, else kill normally
+	# This is necessary due to some electron weirdness
+	if launched_electron:
+		print("force kill")
+		error = OS.execute("taskkill", ["/IM", "GameRunner.exe", "/F"]) as Error
+	else:
+		print("normal kill")
+		error = OS.kill(current_game_pid)
+	
 	if error == OK:
 		_handle_game_stop()
 
