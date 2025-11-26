@@ -1,6 +1,5 @@
 extends Node
 
-# TODO: Allow multiple downloads at the same time or disable starting downloads when already downloading
 var current_http: HTTPRequest
 
 ## The game being downloaded, null if no game is being downloaded currently

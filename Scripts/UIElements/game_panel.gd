@@ -57,24 +57,27 @@ func _update_context_menu() -> void:
 
 
 func _handle_context_action_button(game_installed: bool) -> void:
+	var game_installing := InstallManager.game_being_downloaded != null
+	
 	if game_installed:
 		if game_data.launched:
 			popup_menu.set_item_text(0, "Stop")
 			popup_menu.set_item_metadata(0, "stop")
+			popup_menu.set_item_disabled(0, false)
 		elif game_data.outdated:
 			popup_menu.set_item_text(0, "Update")
 			popup_menu.set_item_metadata(0, "update")
+			popup_menu.set_item_disabled(0, game_installing)
 		else:
 			popup_menu.set_item_text(0, "Play")
 			popup_menu.set_item_metadata(0, "play")
-		
-		popup_menu.set_item_disabled(0, false)
+			popup_menu.set_item_disabled(0, false)
 	else:
-		var is_downloading = game_data == InstallManager.game_being_downloaded
-		popup_menu.set_item_disabled(0, is_downloading)
+		popup_menu.set_item_disabled(0, game_installing)
 		
 		popup_menu.set_item_text(0, "Install")
 		popup_menu.set_item_metadata(0, "install")
+	
 
 
 func _handle_context_favorite_button() -> void:
@@ -134,5 +137,6 @@ func _on_pressed():
 func _on_button_gui_input(event: InputEvent):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 		var mouse_pos: Vector2 = event.global_position
+		_update_context_menu()
 		@warning_ignore("narrowing_conversion")
 		popup_menu.popup(Rect2i(mouse_pos.x, mouse_pos.y, 200, 0))

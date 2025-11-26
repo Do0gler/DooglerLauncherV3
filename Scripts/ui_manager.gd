@@ -119,6 +119,9 @@ func _update_game_action_buttons(game: GameData) -> void:
 		_handle_installed_game_buttons(game)
 	else: # Game is not installed
 		_handle_uninstalled_game_buttons(game)
+	
+	%UpdateButton.disabled = InstallManager.game_being_downloaded != null
+	%InstallButton.disabled = InstallManager.game_being_downloaded != null
 
 
 func _handle_installed_game_buttons(game: GameData) -> void:
@@ -129,7 +132,6 @@ func _handle_installed_game_buttons(game: GameData) -> void:
 	else:
 		show_game_action_button(%PlayButton)
 	
-	%InstallButton.disabled = false
 	%InstallProgressArea.hide()
 
 
@@ -137,7 +139,6 @@ func _handle_uninstalled_game_buttons(game: GameData) -> void:
 	show_game_action_button(%InstallButton)
 	
 	var is_downloading = game == InstallManager.game_being_downloaded
-	%InstallButton.disabled = is_downloading
 	%InstallProgressArea.visible = is_downloading
 
 
